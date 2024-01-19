@@ -16,6 +16,8 @@ Programming languages covered:
 * [R](Tools/R.md)
 * Julia
 
+Of course, there are many
+[programming language-agnostic tools](Tools/general.md) as well.
 
 ## Table of contents
 
