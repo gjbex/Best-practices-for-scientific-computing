@@ -13,7 +13,7 @@ Programming languages covered:
 * C++
 * Fortran
 * Python
-* R
+* [R](Tools/R.md)
 * Julia
 
 
