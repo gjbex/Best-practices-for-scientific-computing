@@ -48,6 +48,22 @@ to use such tools if they are available, and even to make them part of your
 development pipeline, either as git pre-commit hooks, or as part of a more
 substantial CI/CD setup on GitHub or GitLab.
 
+Another issue is code formatting is the maximum number of characters on a
+line.  Some guidelines for programmers have very strong opinions on that,
+while other are more tolerant.
+
+Since many editors will automatically display a view on your code with
+lines wrapped to the length that can be displayed on the screen, that might
+not seem an issue, but it can be argued that this makes the code harder to
+read.  If you switch that off, you will have a view on your code were some
+lines are truncated, again a very unpleasant and potentially confusing
+situation.
+
+Personally I like the maximum line length to be 80 characters, since that
+will guarantee it can be displayed without the need to wrap it, even when
+displaying multiple editor windows side-by-side.  Again, code formatters
+can enforce this and properly wrap the code for you automatically.
+
 Whichever convention you follow, be consistent!
 
 
@@ -169,22 +185,54 @@ you would also expect keywords in your native language to form actual sentences.
 Moreover, communicating about your code with others that don't speak your
 language will be just that bit harder.
 
+Just to put things in context: sometimes short variable names are perfectly
+adequate.  For instance, trivial variable using in an iteration to index an
+array are conventianally called `i`, `j` and so on.  This is perfectly fine,
+and unless you have a good reason to choose different names, the "default"
+names will even help others to understand your code.
+
+Also domain specific variables can have short names, using, e.g., `T` to
+denote the temperature, or `t` for time.  This particular example would of
+course break for programming languages that are case-insensitive, e.g.,
+Fortran.
+
+Note that these last remarks in no way contradicts the message of this
+section: `T` and `t` are very desciptive for developers in the domains
+where this notation is used.
+
 
 ## Keep it *simple*
 
-Ideally, code is simple.  A function should have two levels of indentation at most.  This is advice you'll find in the literature on general purpose programming. Although this is good advice, there are some caveats in the context of scientific computing.
+Ideally, code is simple.  A function should have two levels of indentation at
+most.  This is advice you'll find in the literature on general purpose
+programming. Although this is good advice, there are some caveats in the
+context of scientific computing.
 
 However, the gist is clear: code is as simple as possible, but not simpler.
 
-Even for scientific code, a function has no more lines of code than fit comfortably on your screen. It is all too easy to lose track of the semantics if you can't get an overview of the code. Remember, not everyone has the budget for a 5K monitor.
+Even for scientific code, a function has no more lines of code than fit
+comfortably on your screen. It is all too easy to lose track of the semantics
+if you can't get an overview of the code. Remember, not everyone has the
+budget for a 5K monitor.
 
-If you find yourself writing a very long code fragment, ask yourself whether that is atomic, or whether the task it represents can be broken up into sub-tasks. If so, and that is very likely, introduce new functions for those sub-tasks with descriptive names. This will make the narrative all the easier to understand.
+If you find yourself writing a very long code fragment, ask yourself whether
+that is atomic, or whether the task it represents can be broken up into
+sub-tasks. If so, and that is very likely, introduce new functions for those
+sub-tasks with descriptive names. This will make the narrative all the easier
+to understand.
 
-A function should have a single purpose, i.e., you should design it to do one thing, and one thing only.
+A function should have a single purpose, i.e., you should design it to do one
+thing, and one thing only.
 
-For function signatures, simplicity matters as well.  Functions that take many arguments may lead to confusion.  In C and C++, you have to remember the order of the function arguments.  Accidentally swapping argument values with the same type in a function call can lead to interesting debugging sessions.
+For function signatures, simplicity matters as well.  Functions that take many
+arguments may lead to confusion.  In C and C++, you have to remember the order
+of the function arguments.  Accidentally swapping argument values with the same
+type in a function call can lead to interesting debugging sessions.
 
-The same advice applies to Fortran procedures, keep the number of arguments limited.  However, Fortran supports using keyword arguments, a nice feature that makes your code more robust.  Consider the following procedure signature:
+The same advice applies to Fortran procedures or Python functions, keep the
+number of arguments limited.  However, both Fortran and Python support using
+keyword arguments, a nice feature that makes your code more robust.  Consider
+the following procedure signature:
 
 ~~~fortran
 real function random_gaussian(mu, sigma)
@@ -194,31 +242,53 @@ real function random_gaussian(mu, sigma)
 end function random_gaussian
 ~~~
 
-You would have to check the documentation to know the order of the function arguments.  Consider the following four function calls:
+You would have to check the documentation to know the order of the function
+arguments.  Consider the following four function calls:
 
   1. `random_gaussian(0.0, 1.0)`: okay;
   1. `random_gaussian(1.0, 0.0)`: not okay;
   1. `random_gaussian(mu=0.0, sigma=1.0)`: okay;
   1. `random_gaussian(sigma=1.0, mu=0.0)`: okay.
 
-The two last versions of this call are easier to understand, since the meaning of the numbers is clear.  Moreover, since you can use any order, it eliminates a source of bugs.
+The two last versions of this call are easier to understand, since the meaning
+of the numbers is clear.  Moreover, since you can use any order, it eliminates
+a source of bugs.
 
 Unfortunately, neither C nor C++ support this feature.
 
 
 ## Limit scope
 
-Many programmers will declare all variables at the start of a block, or even at the start of a function's implementation. This is a syntax requirement in C89 and Fortran.  However, C99 and C++ allow you to declare variables anywhere before their first use. Since the scope of a variable starts from its declaration, and extends throughout the block, that means it is in fact too wide.
+Many programmers will declare all variables at the start of a block, or even at
+the start of a function's implementation. This is a syntax requirement in C89
+and Fortran.  However, C99, C++, R and Python allow you to declare variables
+anywhere before their first use. Since the scope of a variable starts from its
+declaration, and extends throughout the block, that means it is in fact too
+wide.
 
-Limiting the scope of declarations to a minimum reduces the probability of inadvertently using the variable, but it also improves code quality: the declaration of the variable is at the same location where the variable is first used, so the narrative is easier to follow.
+Limiting the scope of declarations to a minimum reduces the probability of
+inadvertently using the variable, but it also improves code quality: the
+declaration of the variable is at the same location where the variable is
+first used, so the narrative is easier to follow.
 
-In C++ this may even have performance benefits since a declaration may trigger a call to a potentially expensive constructor.
+In C++ this may even have performance benefits since a declaration may trigger
+a call to a potentially expensive constructor.
 
-Fortran requires that variables are declared at the start of a compilation unit, i.e., `PROGRAM`, `FUNCTION`, `SUBROUTINE`, `MODULE`, but Fortran 2008 introduced the `BLOCK` statement in which local variables can be declared. Their scope doesn't extend beyond the `BLOCK`. Modern compilers support this Fortran 2008 feature.
+Fortran requires that variables are declared at the start of a compilation
+unit, i.e., `PROGRAM`, `FUNCTION`, `SUBROUTINE`, `MODULE`, but Fortran 2008
+introduced the `BLOCK` statement in which local variables can be declared.
+Their scope doesn't extend beyond the `BLOCK`. Modern compilers support this
+Fortran 2008 feature.
 
-Note that Fortran still allows variables to be implicitly typed, i.e., if you don't declare a variable explicitly, its type will be `INTEGER` if its starts with the characters `i` to `n`, otherwise its type will be `REAL`.
+Note that Fortran still allows variables to be implicitly typed, i.e., if you
+don't declare a variable explicitly, its type will be `INTEGER` if its starts
+with the characters `i` to `n`, otherwise its type will be `REAL`.
 
-Consider the code fragment below. Since the variables were not declared explicitly, `i` is interpreted as `INTEGER` and `total` as `REAL`. However, the misspelled `totl` is also implicitly typed as `REAL`, initialised to `0.0`, and hence the value of `total` will be `10.0` when the iterations ends, rather than `100.0` as was intended.
+Consider the code fragment below. Since the variables were not declared
+explicitly, `i` is interpreted as `INTEGER` and `total` as `REAL`. However, the
+misspelled `totl` is also implicitly typed as `REAL`, initialised to `0.0`,
+and hence the value of `total` will be `10.0` when the iterations ends, rather
+than `100.0` as was intended.
 
 ~~~~fortran
 INTEGER :: i
@@ -228,7 +298,9 @@ DO i = 1, 10
 END DO
 ~~~~
 
-To avoid these problems caused by simple typos, use the `IMPLICIT NONE` statement before variable declarations in `PROGRAM`, `MODULE`, `FUNCTION`, `SUBROUTINE`, and `BLOCK`, e.g,
+To avoid these problems caused by simple typos, use the `IMPLICIT NONE`
+statement before variable declarations in `PROGRAM`, `MODULE`, `FUNCTION`,
+`SUBROUTINE`, and `BLOCK`, e.g,
 
 ~~~~fortran
 IMPLICIT NONE
@@ -239,19 +311,46 @@ DO i = 1, 10
 END DO
 ~~~~
 
-The compiler would give an error for the code fragment above since all variables have to be declared explicitly, and `totl` was not.
+The compiler would give an error for the code fragment above since all
+variables have to be declared explicitly, and `totl` was not.
 
-Limiting scope of of declarations extends to headers files that are included in C/C++.  It is recommended not to include files that are not required.  Not only will it pollute the namespace with clutter, but it will also increase build times.
+Limiting scope of of declarations extends to headers files that are included
+in C/C++.  It is recommended not to include files that are not required.  Not
+only will it pollute the namespace with clutter, but it will also increase
+build times.
+
+This advice is even more important for Python `import` statements.  While the
+performance impact for C and C++ is limited to compile time, that of
+unnecessary imports of Python modules will increase the run time of your
+application.
+
+
+### Multithreading
+
+When developing multi-threaded C/C++ programs using OpenMP, limiting the scope
+of variables to parallel regions makes those variables thread-private, hence
+reducing the risk of data races. We will discuss this in more detail in a later
+section.  Unfortunately, the semantics for the Fortran `BLOCK` statement in an
+OpenMP do loop is not defined, at least up to the OpenMP 4.5 specification.
+Although `gfortran` accepts such code constructs, and seems to generate code
+with the expected behavior, it should be avoided since Intel Fortran compiler
+will report an error for such code.
+
+This recommendation is [mentioned](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-scope) in the C++ core guidelines.
+
+
+### Namespaces and imports
 
 In C++, you can importing everything defined in a namespace, e.g.,
 
-~~~~c
+~~~~c++
 using namespace std;
 ~~~~
 
-Although it saves on typing, it is better to either use the namespace prefix explicitly, or use only what is required, e.g.,
+Although it saves on typing, it is better to either use the namespace prefix
+explicitly, or use only what is required, e.g.,
 
-~~~~c
+~~~~c++
 using std::cout;
 using std::endl;
 ~~~~
@@ -262,22 +361,31 @@ In Fortran it is also possible to restrict what to use from modules, e.g.,
 use, intrinsic :: iso_fortran_env, only : REAL64, INT32
 ~~~~
 
-The `only` keyword ensures that only the parameters `REAL64` and `INT32` are imported from the `iso_fortran_env` module.
+The `only` keyword ensures that only the parameters `REAL64` and `INT32` are
+imported from the `iso_fortran_env` module.
 
-Note that the `intrinsic` keyword is used to ensure that the compiler supplied module is used, and not a module with the same name defined by you.
+Note that the `intrinsic` keyword is used to ensure that the compiler supplied
+module is used, and not a module with the same name defined by you.
 
-When developing multi-threaded C/C++ programs using OpenMP, limiting the scope of variables to parallel regions makes those variables thread-private, hence reducing the risk of data races. We will discuss this in more detail in a later section.  Unfortunately, the semantics for the Fortran `block` statement in an OpenMP do loop is not defined, at least up to the OpenMP 4.5 specification.  Although `gfortran` accepts such code constructs, and seems to generate code with the expected behavior, it should be avoided since Intel Fortran compiler will report an error for such code.
-
-This recommendation is [mentioned](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-scope) in the C++ core guidelines.
+Similar advice applies to Python, `from math import *` is considered bad
+practice since it polutes the namespace.
 
 
 ## Be explicit about constants
 
-If a variable's value is not supposed to change during the run time of a program, declare it as a constant, so that the compiler will warn you if you inadvertently modify its value. In C/C++, use the `const` qualifier, in Fortran, use `PARAMETER`.
+If a variable's value is not supposed to change during the run time of a
+program, declare it as a constant, so that the compiler will warn you if you
+inadvertently modify its value. In C/C++, use the `const` qualifier, in
+Fortran, use `parameter`.
 
-If arguments passed to function should be read-only, use `const` in C/C++ code, and `INTENT(IN)` in Fortran. Although Fortran doesn't require that you state the intent of arguments passed to procedures, it is nevertheless wise to do so. The compiler will catch at least some programming mistakes if you do.
+If arguments passed to function should be read-only, use `const` in C/C++ code,
+and `intent(in)` in Fortran. Although Fortran doesn't require that you state
+the intent of arguments passed to procedures, it is nevertheless wise to do so.
+The compiler will catch at least some programming mistakes if you do.
 
-However, this is not quite watertight, in fact, one can still change the value of a variable that is declared as a constant in C.  Compile and run the following program, and see what happens.
+However, this is not quite watertight, in fact, one can still change the value
+of a variable that is declared as a constant in C.  Compile and run the
+following program, and see what happens.
 
 ~~~~c
 #include <stdio.h>
@@ -295,18 +403,34 @@ int main(void) {
 }
 ~~~~
 
-In fact, this is [explicitly mentioned](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-casts-const) in the C++ core guidelines.
+In fact, this is [explicitly mentioned](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-casts-const)
+in the C++ core guidelines.
 
 
 ## Control access
 
-When defining classes in C++ and Fortran, some attention should be paid to accessibility of object attributes. An object's state is determined by its attributes' values, so allowing unrestricted access to these attributes may leave the object in an inconsistent state.
+When defining classes in C++ and Fortran, some attention should be paid to
+accessibility of object attributes. An object's state is determined by its
+attributes' values, so allowing unrestricted access to these attributes may
+leave the object in an inconsistent state.
 
-In C++, object attributes and methods are private by default, while structure fields and methods are public.  For Fortran, fields in user defined types and procedures defined in modules are public by default. Regardless of the defaults, it is useful to specify the access restrictions explicitly. It is good practice to specify private access as the default, and public as the exception to that rule.
+In C++, object attributes and methods are private by default, while structure
+fields and methods are public.  For Fortran, fields in user defined types and
+procedures defined in modules are public by default. Regardless of the defaults,
+it is useful to specify the access restrictions explicitly. It is good practice
+to specify private access as the default, and public as the exception to that
+rule.
 
-Interestingly, both Fortran and C++ have the keyword `protected`, albeit with very different semantics.  In Fortran, `protected` means that a variable defined in a module can be read by the compilation unit that uses it, but not modified.  In the module where it is defined, it can be modified though.  In C++, an attribute or a method that is declared `protected` can be accessed from derived classes as well as the class that defines it.  However, like attributes and methods declared `private`, it can not be accessed elsewhere.
+Interestingly, both Fortran and C++ have the keyword `protected`, albeit with
+very different semantics.  In Fortran, `protected` means that a variable defined
+in a module can be read by the compilation unit that uses it, but not modified.
+In the module where it is defined, it can be modified though.  In C++, an
+attribute or a method that is declared `protected` can be accessed from derived
+classes as well as the class that defines it.  However, like attributes and
+methods declared `private`, it can not be accessed elsewhere.
 
-This is another example where getting confused about the semantics can lead to interesting bugs.
+This is another example where getting confused about the semantics can lead to
+interesting bugs.
 
 In summary:
 
@@ -317,15 +441,40 @@ In summary:
 | public          | attributes and methods can be accessed from everywhere | variables, types and procedures can be accessed from everywhere |
 | none            | class: private, struct: public                | public |
 
+Python has no notion of private attributes or methods, they are alwas public.
+However, attributes and methods that are supposed to be private to the class
+are by convention prefixed with a `_`.  Note that this is a convention for
+programmers, the Python runtime will not enforce this.
+
+In both C++ and Python you can "simulate" Fortran notion of `protected`, i.e.,
+read-only attributes by implementing a getter, but no setter.
 
 
 ## Variable initialisation
 
-The specifications for Fortran, C and C++ do not define the value an uninitialized variable will have. So you should always initialise variables explicitly, otherwise your code will have undefined, and potentially non-deterministic behavior. When you forget to initialise a variable, the compilers will typically let you get away with it. However, most compilers have optional flags that catch expressions involving uninitialised variables. We will discuss these and other compiler flags in a later section.
+The specifications for Fortran, C and C++ do not define the value an
+uninitialized variable will have. So you should always initialise variables
+explicitly, otherwise your code will have undefined, and potentially
+non-deterministic behavior. When you forget to initialise a variable, the
+compilers will typically let you get away with it. However, most compilers have
+optional flags that catch expressions involving uninitialised variables. We
+will discuss these and other compiler flags in a later section.
 
-When initialising or, more generally, assigning a value to a variable that involves constants, your code will be easier to understand when those values indicate the intended type. For example, using `1.0` rather than `1` for floating point is more explicit. This may also avoid needless conversions. This also prevents arithmetic bugs since `1/2` will evaluate to `0` in C, C++ as well as Fortran.  Perhaps even more subtly, `1.25 + 1/2` will also evaluate to `1.25`, since the division will be computed using integer values, evaluating to `0`, which is subsequently converted to the floating point value `0.0`, and added to `1.25`.
+When initialising or, more generally, assigning a value to a variable that
+involves constants, your code will be easier to understand when those values
+indicate the intended type. For example, using `1.0` rather than `1` for
+floating point is more explicit. This may also avoid needless conversions. This
+also prevents arithmetic bugs since `1/2` will evaluate to `0` in C, C++ as well
+as Fortran.  Perhaps even more subtly, `1.25 + 1/2` will also evaluate to
+`1.25`, since the division will be computed using integer values, evaluating to
+`0`, which is subsequently converted to the floating point value `0.0`, and
+added to `1.25`.
 
-Specifically for C++, I'd strongly encourage you to use list initialisation, since narrowing conversion would lead to warnings.  In the code fragment below, the first local variable `n1` will be initialised to `7` without any warnings, while the compiler will generate a warning for the initialisation of `n2`.
+Specifically for C++, I'd strongly encourage you to use universal
+initialisation, since narrowing conversion would lead to warnings.  In the code
+fragment below, the first local variable `n1` will be initialised to `7` without
+any warnings, while the compiler will generate a warning for the initialisation
+of `n2`.
 
 ~~~~c++
 int conversion(double x) {
@@ -335,7 +484,7 @@ int conversion(double x) {
 }
 ~~~~
 
-
+In Python...
 
 ## To comment or not to comment?
 
