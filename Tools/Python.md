@@ -3,4 +3,5 @@
 
 ## Code formatting
 
-* Black
+* [Black](https://github.com/psf/black): code formatter for Python (very
+  opinionated).
