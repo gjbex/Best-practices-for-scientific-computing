@@ -10,9 +10,9 @@ tools if you are aware of any.
 
 Programming languages covered:
 * C
-* C++
+* [C++](Tools/C-plus-plus.md)
 * Fortran
-* Python
+* [Python](Tools/Python.md)
 * [R](Tools/R.md)
 * Julia
 
@@ -21,7 +21,7 @@ Of course, there are many
 
 ## Table of contents
 
-1. Code style and conventions
+1. [Code style and conventions](code_style.md)
 1. Version control with git
 1. Collaborating on Github/GitLab
 1. Code documentation
