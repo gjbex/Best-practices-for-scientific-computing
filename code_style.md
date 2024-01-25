@@ -108,12 +108,12 @@ a = value
 rather than
 
 ~~~~fortran
-INTEGER :: i
-REAL, DIMENSION(10) :: a
+integer :: i
+real, dimension(10) :: a
 ...
-DO i = 1, 10
+do i = 1, 10
     a(i) = value
-END DO
+end do
 ~~~~
 
 Using idioms, i.e., expressions that are particular to a (programming)
@@ -275,40 +275,40 @@ In C++ this may even have performance benefits since a declaration may trigger
 a call to a potentially expensive constructor.
 
 Fortran requires that variables are declared at the start of a compilation
-unit, i.e., `PROGRAM`, `FUNCTION`, `SUBROUTINE`, `MODULE`, but Fortran 2008
-introduced the `BLOCK` statement in which local variables can be declared.
-Their scope doesn't extend beyond the `BLOCK`. Modern compilers support this
+unit, i.e., `program`, `function`, `subroutine`, `module`, but Fortran 2008
+introduced the `block` statement in which local variables can be declared.
+Their scope doesn't extend beyond the `block`. Modern compilers support this
 Fortran 2008 feature.
 
 Note that Fortran still allows variables to be implicitly typed, i.e., if you
-don't declare a variable explicitly, its type will be `INTEGER` if its starts
+don't declare a variable explicitly, its type will be `integer` if its starts
 with the characters `i` to `n`, otherwise its type will be `REAL`.
 
 Consider the code fragment below. Since the variables were not declared
-explicitly, `i` is interpreted as `INTEGER` and `total` as `REAL`. However, the
+explicitly, `i` is interpreted as `INTEGER` and `total` as `real`. However, the
 misspelled `totl` is also implicitly typed as `REAL`, initialised to `0.0`,
 and hence the value of `total` will be `10.0` when the iterations ends, rather
 than `100.0` as was intended.
 
 ~~~~fortran
-INTEGER :: i
-REAL :: total
-DO i = 1, 10
+integer :: i
+real :: total
+do i = 1, 10
     total = totl + 10.0
-END DO
+end do
 ~~~~
 
-To avoid these problems caused by simple typos, use the `IMPLICIT NONE`
-statement before variable declarations in `PROGRAM`, `MODULE`, `FUNCTION`,
-`SUBROUTINE`, and `BLOCK`, e.g,
+To avoid these problems caused by simple typos, use the `implicit none`
+statement before variable declarations in `program`, `module`, `function`,
+`subroutine`, and `block`, e.g,
 
 ~~~~fortran
-IMPLICIT NONE
-INTEGER :: i
-REAL :: total
-DO i = 1, 10
+implicit none
+integer :: i
+real :: total
+do i = 1, 10
     total = totl + 10.0
-END DO
+end do
 ~~~~
 
 The compiler would give an error for the code fragment above since all
@@ -330,7 +330,7 @@ application.
 When developing multi-threaded C/C++ programs using OpenMP, limiting the scope
 of variables to parallel regions makes those variables thread-private, hence
 reducing the risk of data races. We will discuss this in more detail in a later
-section.  Unfortunately, the semantics for the Fortran `BLOCK` statement in an
+section.  Unfortunately, the semantics for the Fortran `block` statement in an
 OpenMP do loop is not defined, at least up to the OpenMP 4.5 specification.
 Although `gfortran` accepts such code constructs, and seems to generate code
 with the expected behavior, it should be avoided since Intel Fortran compiler
@@ -484,42 +484,130 @@ int conversion(double x) {
 }
 ~~~~
 
-In Python...
+Precision is also an important factor.  If you intend to work purely in single
+precision for floating point arithmetic operations, it is important to avoid
+accidental type promotion.  For instance, in the code below, the single
+precision argument is multiplied by `2.1` in ... double precision since
+that is what the compiler assumes you want to do.  When that computation is
+done, the result is converted back to a single precision value.
+
+~~~~c
+float times2(float x) {
+    return 2.1*x;
+}
+~~~~
+
+In C and C++, a single precision floating value is denoted by `2.1f` to
+indicate its type.
+
+~~~~c
+float times2(float x) {
+    return 2.1f*x;
+}
+~~~~
+
+In Fortran, you can similarly make the distinction between kinds of literal
+numerical values.
+
+~~~~fortran
+function times2(x) result(y)
+    implicit none
+    use, intrinsic :: iso_fortran_env, only : sp => REAL32
+    real(kind=sp), intent(in) :: x
+    real(kind=sp) :: y
+    y = 2.1_sp*x
+    return y
+end function
+```
+
+Similar concerns are important when using `numpy` in Python.
+
 
 ## To comment or not to comment?
 
-Comments should never be a substitute for code that is easy to understand. In almost all circumstances, if your code requires a comment without which it can not be understood, it can be rewritten to be more clear.
+Comments should never be a substitute for code that is easy to understand. In
+almost all circumstances, if your code requires a comment without which it can
+not be understood, it can be rewritten to be more clear.
 
-Obviously, there are exceptions to this rule. Sometimes we have no alternative but to sacrifice a clean coding style for performance, or we have to add an obscure line of code to prevent a problem caused by over-eager compilers.
+Obviously, there are exceptions to this rule. Sometimes we have no alternative
+but to sacrifice a clean coding style for performance, or we have to add an
+obscure line of code to prevent a problem caused by over-eager compilers.
 
-If you need to add a comment, remember that it should be kept up-to-date with the code. All too often, we come across comments that are no longer accurate because the code has evolved, but the corresponding comment didn't. In such situations, the comment is harmful, since it can confuse us about the intentions of the developer, and at the least, it will cost us time to disambiguate.
+If you need to add a comment, remember that it should be kept up-to-date with
+the code. All too often, we come across comments that are no longer accurate
+because the code has evolved, but the corresponding comment didn't. In such
+situations, the comment is harmful, since it can confuse us about the intentions
+of the developer, and at the least, it will cost us time to disambiguate.
 
-The best strategy is to make sure that the code tells its own story, and requires no comments.
+The best strategy is to make sure that the code tells its own story, and
+requires no comments.
 
-A common abuse of comments is to disable code fragments that are no longer required, but that you still want to preserve. This is bad practice. Such comments make reading the code more difficult, and take up valuable screen real estate.
-Moreover, when you use a version control system such as git or subversion in your development process, you can delete with impunity, in the sure knowledge that you can easily retrieve previous versions of your files. If you don't use a version control system routinely, you really should. See the additional material section for some pointers to information and  tutorials.
+A common abuse of comments is to disable code fragments that are no longer
+required, but that you still want to preserve. This is bad practice. Such
+comments make reading the code more difficult, and take up valuable screen real
+estate.
+
+Moreover, when you use a version control system such as git or subversion in
+your development process, you can delete with impunity, in the sure knowledge
+that you can easily retrieve previous versions of your files. If you don't use a
+version control system routinely, you really should. See the additional material
+section for some pointers to information and  tutorials.
+
+You should also bear in mind the distinction between comments and documentation.
+Documentation describes how to use your data types and functions to those who
+may want to use them.  Comments are intended for the consumption of the
+developers only.
 
 
 ## Stick to the standard
 
-The official syntax and semantics of languages like C, C++ and Fortran is defined in official specifications. All compilers that claim compliance with these standards have to implement these specifications.
+The official syntax and semantics of languages like C, C++ andFortran is
+defined in official specifications. All compilers that claim compliance with
+these standards have to implement these specifications.
 
-However, over the years, compiler developers have added extensions to the specifications. The Intel Fortran compiler for instance has a very long history that can trace its ancestry back to the DEC compiler, and implements quite a number of Fortran extensions. Similarly, the GCC C++ compiler supports some non-standard features.
+However, over the years, compiler developers have added extensions to the
+specifications. The Intel Fortran compiler for instance has a very long history
+that can trace its ancestry back to the DEC compiler, and implements quite a
+number of Fortran extensions. Similarly, the GCC C++ compiler supports some
+non-standard features.
 
-It goes without saying that your code should not rely on such compiler specific extensions, even if that compiler is mainstream and widely available. There is no guarantee that future releases of that same compiler will still support the extension, and the only official information about that extension would be available in the compiler documentation, not always the most convenient source.
+It goes without saying that your code should not rely on such compiler specific
+extensions, even if that compiler is mainstream and widely available. There is
+no guarantee that future releases of that same compiler will still support the
+extension, and the only official information about that extension would be
+available in the compiler documentation, not always the most convenient source.
 
-Moreover, that implies that even if your code compiles with a specific compiler, that doesn't mean it complies with the official language specification. An other compiler would simply generate error message for the same code, and would fail to compile it.
+Moreover, that implies that even if your code compiles with a specific
+compiler, that doesn't mean it complies with the official language
+specification. An other compiler would simply generate error message for the
+same code, and would fail to compile it.
 
-Using language extensions makes code harder to read. As a proficient programmer, you're still not necessarily familiar with language extensions, so you may interpret those constructs incorrectly.
+Using language extensions makes code harder to read. As a proficient programmer,
+you're still not necessarily familiar with language extensions, so you may
+interpret those constructs incorrectly.
 
-Hence I'd encourage you strongly to strictly adhere to a specific language specification.  For C there are three specifications that are still relevant, C89, C99 and C11.  For C++ that would be C++11, C++14 and C++17.  The relevant specification for Fortran are those of 2003 and 2008. References to those specifications can be found in the section on additional material.
+Hence I'd encourage you strongly to strictly adhere to a specific language
+specification.  For C there are four specifications that are still relevant,
+C89, C99, C11 and C23.  For C++ that would be C++11, C++14, C++17, C++20 and
+C++23.  The relevant specification for Fortran are those of 2003, 2008, and 2018.
+References to those specifications can be found in the section on additional
+material.
 
-For C, you may be interested to read the MISRA C software development guidelines, a collections of directives and rules specified by the Motor Industry Software Reliability Association (MISRA) aimed at ensuring safer and more reliable software systems in the automotive industry.  A reference to this specification is mentioned in the additional material section.
-
+For C, you may be interested to read the MISRA C software development guidelines,
+a collections of directives and rules specified by the Motor Industry Software
+Reliability Association (MISRA) aimed at ensuring safer and more reliable
+software systems in the automotive industry.  A reference to this specification
+is mentioned in the additional material section.
 
 
 ## Copy/paste is evil
 
-If you find yourself copying and pasting a fragment of code from one file location to another, or from one file to another, you should consider turning it into a function.  Apart from making your code easier to understand, it makes it also easier to maintain.
+If you find yourself copying and pasting a fragment of code from one file
+location to another, or from one file to another, you should consider turning
+it into a function.  Apart from making your code easier to understand, it makes
+it also easier to maintain.
 
-Suppose there is a bug in the fragment.  If you copy/pasted it, you would have to remember to fix the bug in each instance of that code fragment.  If it was encapsulated in a function, you would have to fix the problem in a single spot only.
+Suppose there is a bug in the fragment.  If you copy/pasted it, you would have
+to remember to fix the bug in each instance of that code fragment.  If it was
+encapsulated in a function, you would have to fix the problem in a single spot
+only.
