@@ -100,7 +100,7 @@ The idiomatic formulation of line 4 would be `fac *= i`.
 In Fortran for example, you would write
 
 ~~~~fortran
-REAL, DIMENSION(10) :: a
+real, dimension(10) :: a
 ...
 a = value
 ~~~~
@@ -282,11 +282,11 @@ Fortran 2008 feature.
 
 Note that Fortran still allows variables to be implicitly typed, i.e., if you
 don't declare a variable explicitly, its type will be `integer` if its starts
-with the characters `i` to `n`, otherwise its type will be `REAL`.
+with the characters `i` to `n`, otherwise its type will be `real`.
 
 Consider the code fragment below. Since the variables were not declared
-explicitly, `i` is interpreted as `INTEGER` and `total` as `real`. However, the
-misspelled `totl` is also implicitly typed as `REAL`, initialised to `0.0`,
+explicitly, `i` is interpreted as `integer` and `total` as `real`. However, the
+misspelled `totl` is also implicitly typed as `real`, initialised to `0.0`,
 and hence the value of `total` will be `10.0` when the iterations ends, rather
 than `100.0` as was intended.
 
