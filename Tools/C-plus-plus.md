@@ -11,3 +11,9 @@
 
 * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/): linter, part of Extra
   Clang Tools.
+
+
+## Testing
+
+* [Catch2](https://github.com/catchorg/Catch2): C++ unit testing framework that
+  also supports Behaviour-Driven Development (BDD).
