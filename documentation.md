@@ -156,7 +156,3 @@ maintained at the project level, though.
 This is typically high-level documentation in the form of a tutorial with use
 cases and code samples. It should of course contain a link to the reference
 documentation.
-
-
-## Tools
-
