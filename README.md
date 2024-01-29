@@ -21,6 +21,7 @@ Of course, there are many
 
 ## Table of contents
 
+1. [Syntax versus semantics](syntax_vs_semantics.md)
 1. [Code style and conventions](code_style.md)
 1. Version control with git
 1. Collaborating on Github/GitLab
