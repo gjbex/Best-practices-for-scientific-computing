@@ -9,7 +9,7 @@ Obviously, this can not be exhaustive, so feel free to suggest additonal
 tools if you are aware of any.
 
 Programming languages covered:
-* C
+* [C](Tools/C.md)
 * [C++](Tools/C-plus-plus.md)
 * [Fortran](Tools/Fortran.md)
 * [Python](Tools/Python.md)
