@@ -29,10 +29,10 @@ Of course, there are many
 1. [Code documentation](documentation.md)
 1. Modular code development
 1. Testing
-  a. [Testing as experiments](testing_as_experiments.md)
-  a. [Unit testing](unit_testing.md)
-  a. [Functional testing](functional_testing.md)
-  a. [Code coverage](code_coverage.md)
+   * [Testing as experiments](testing_as_experiments.md)
+   * [Unit testing](unit_testing.md)
+   * [Functional testing](functional_testing.md)
+   * [Code coverage](code_coverage.md)
 1. Deployment
 1. Continuous integration
 1. References
