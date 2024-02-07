@@ -40,11 +40,6 @@ Of course, there are many
 
 ## About
 
-This material is [licensed](LICENSE) 
-
-
-## About
-
 This material is [licensed under Createive Commons](LICENSE).
 
 You can [contribute](CONTRIBUTING.md) to this project in various ways.
