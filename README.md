@@ -11,7 +11,7 @@ tools if you are aware of any.
 Programming languages covered:
 * C
 * [C++](Tools/C-plus-plus.md)
-* Fortran
+* [Fortran](Tools/Fortran.md)
 * [Python](Tools/Python.md)
 * [R](Tools/R.md)
 * Julia
