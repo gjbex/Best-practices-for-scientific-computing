@@ -19,6 +19,7 @@ Programming languages covered:
 Of course, there are many
 [programming language-agnostic tools](Tools/general.md) as well.
 
+
 ## Table of contents
 
 1. [Syntax versus semantics](syntax_vs_semantics.md)
