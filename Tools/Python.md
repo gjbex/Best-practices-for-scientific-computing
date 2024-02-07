@@ -15,3 +15,8 @@
   will check for correctness.
 * [pylint](https://github.com/pylint-dev/pylint): static code analyser that
   also checks for documentation and style.
+
+
+## Testing
+
+* [pytest](https://docs.pytest.org/): unit testing framework.
