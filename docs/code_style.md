@@ -1,4 +1,4 @@
-# Coding best practices: reading material
+# Code style
 
 A number of very simple things go a long way towards improving your code
 substantially. For good programmers, they are second nature, and you should
