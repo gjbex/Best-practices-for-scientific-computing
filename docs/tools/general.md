@@ -17,6 +17,12 @@ programming language.
 * [GitLab](https://about.gitlab.com/) hosting platform.
 
 
+## Build tools
+
+* [CMake](https://cmake.org/): cross-platform build tool that can be used
+  to build and install C/C++/Fortran libraries and applications.
+
+
 ## Documentation
 
 In this session, we will discuss two tools for creating attractive
