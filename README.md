@@ -3,20 +3,7 @@
 Material for a training on best practices for programming and software
 development.
 
-Although this training aims to be programming language-agnostic, the repository
-also list a number of tools that are programming language-specific.
-Obviously, this can not be exhaustive, so feel free to suggest additonal
-tools if you are aware of any.
-
-Programming languages covered:
-
-* C
-* C++
-* Fortran
-* Python
-* R
-
-Of course, there are many programming language-agnostic tools.md) as well.
+The material is available as a [website](https://gjbex.github.io/Best-practices-in-programming/).
 
 
 ## Table of contents
@@ -32,6 +19,24 @@ Of course, there are many programming language-agnostic tools.md) as well.
    * Code coverage
 1. Deployment
 1. Continuous integration
+
+
+## Programming langauges covered
+
+Although this training aims to be programming language-agnostic, the repository
+also list a number of tools that are programming language-specific.
+Obviously, this can not be exhaustive, so feel free to suggest additonal
+tools if you are aware of any.
+
+Programming languages covered:
+
+* C
+* C++
+* Fortran
+* Python
+* R
+
+Of course, there are many programming language-agnostic tools.md) as well.
 
 
 ## What is it?
