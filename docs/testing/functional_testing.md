@@ -31,7 +31,7 @@ testing, so both testing strategies are complementing one another.
 
 
 
-# Functional testing best practices
+# Best practices
 
 Unit testing is an invaluable help for the developer since it catches bugs
 introduced when the code base changes. Tests can be executed easily and are run
