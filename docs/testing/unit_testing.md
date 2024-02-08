@@ -46,12 +46,12 @@ we have tests that check a single concern, or a single use case, this will help
 to pinpoint the failure's causes much more easily.
 
 Fortunately, all these criteria are met by the unit testing paradigm,
-popularised by the extreme programming developed by Kent Beck and Ron Jeffries
+popularized by the extreme programming developed by Kent Beck and Ron Jeffries
 around 1998.
 
 Quoting from "The art of unit testing", Kent Beck defines a unit test as
 > A unit test is an automated piece of code that invokes a unit of work in the
-> system and then checks a single assumption about the behaviour of that unit of
+> system and then checks a single assumption about the behavior of that unit of
 > work.
 
 Many implementations of unit testing frameworks exist, often multiple for the
@@ -88,12 +88,12 @@ iterations.
 
 Another important aspect to test for is whether a function throws an exception
 or generates an error when it is supposed to, since this is the function's
-declared behaviour.  For the factorial example, we should verify that an error
+declared behavior.  For the factorial example, we should verify that an error
 occurs when you pass to it a strictly negative argument value.
 
 Apart from providing some confidence that changes don't break our software,
 writing tests alongside code will actually prevent bugs, since you should really
-think about the behaviour of your code when writing tests. It is quite probable
+think about the behavior of your code when writing tests. It is quite probable
 that while doing so, you will catch bugs without even executing the unit tests.
 
 This idea is taken to the extreme in Test Driven Development (TDD).  A
@@ -115,9 +115,9 @@ Another very important issue to keep in mind is that tests should be
 independent. You should be able to run them in any order without altering the
 results. This implies that unit tests have to be free of side effects.
 
-To summarise the characteristics of a good unit test:
+To summarize the characteristics of a good unit test:
 
-  * it is specific: failure of a test localises a defect in a small fragment of
+  * it is specific: failure of a test localizes a defect in a small fragment of
     code;
   * it is orthogonal to other unit tests: unit tests should be independent of
     one another.
@@ -138,15 +138,15 @@ that there are no regressions.  This practice is referred to as regression
 testing.  If unit testing is done well, regression testing is always performed.
 
 Of course, many tests require a context to run in. Variables and data structures
-must have been initialised, a file should be present, and so on. Unit testing
+must have been initialized, a file should be present, and so on. Unit testing
 frameworks provide setup and teardown functions that can be run before and after
 each individual test respectively to set, or clean up the stage.  These
-temporary artefacts are often referred to as fixtures.
+temporary artifacts are often referred to as fixtures.
 
 Unit testing frameworks typically also provide the means to group tests into so
 called suites, and run setup and teardown functions before running the first and
 after running the last test of that suite.  Units tests for large projects are
-typically organised into multiple suites that deal with specific subsets of the
+typically organized into multiple suites that deal with specific subsets of the
 code or functionality.
 
 Below you can see when various setup and teardown functions are called when test

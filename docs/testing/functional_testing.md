@@ -1,9 +1,9 @@
 # Functional testing
 
 
-# Intorudction
+# Introduction
 
-Unit testing is a great help during the development process. It iwll help us
+Unit testing is a great help during the development process. It will help us
 spot problems introduced by code changes immediately after they have been
 introduced. They help test the functionality at the level of individual
 functions and methods.
@@ -43,7 +43,7 @@ This is white box testing, since the tests are developed with access to the
 "innards" of the software under test.
 
 In some circumstances, this may be all that is required, e.g., when developing a
-relatively small or very focussed library. In many cases though, unit testing is
+relatively small or very focused library. In many cases though, unit testing is
 best supplemented by functional testing.
 
 The point of view of functional testing is opposite to that of unit testing

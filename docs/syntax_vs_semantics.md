@@ -1,6 +1,6 @@
 # Syntax versus semantics
 
-"Syntax" and "semantics" are two terms we will use often in this trainging. Most
+"Syntax" and "semantics" are two terms we will use often in this training. Most
 of you are probably familiar with these concepts, but just to make sure, let's
 define them briefly.
 
@@ -41,7 +41,7 @@ syntax_error.f90:2.17:
 Error: USE statement at (1) cannot follow IMPLICIT NONE statement at (2)
 ~~~~
 
-The following Fortran function defintion has a semantic error, although it is
+The following Fortran function definition has a semantic error, although it is
 syntactically correct.
 
 ~~~~fortran

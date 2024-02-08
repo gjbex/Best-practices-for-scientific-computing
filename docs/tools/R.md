@@ -7,5 +7,5 @@
 
 ## Software deployment
 
-* [usethis](https://github.com/r-lib/usethis): takes care of repetetive task
+* [usethis](https://github.com/r-lib/usethis): takes care of repetitive task
   associated with package setup and R development more generally.

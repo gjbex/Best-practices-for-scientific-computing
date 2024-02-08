@@ -16,4 +16,4 @@
 ## Testing
 
 * [Catch2](https://github.com/catchorg/Catch2): C++ unit testing framework that
-  also supports Behaviour-Driven Development (BDD).
+  also supports Behavior-Driven Development (BDD).

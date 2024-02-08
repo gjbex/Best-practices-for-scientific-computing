@@ -1,6 +1,6 @@
 # About
 
-This material is [licensed under Createive Commons](license.md).
+This material is [licensed under Creative Commons](license.md).
 
 
 ## Acknowledgments

@@ -10,7 +10,7 @@ and Python.  However, even if you don't master these languages, the code
 fragments should be easy enough to understand.
 
 Although each programming languages has some specific best practices, many
-are applicable to any programming language.  This is what this text focusses
+are applicable to any programming language.  This is what this text focuses
 on.  We also provide a list of references to best practices specific to
 various programming languages, and we encourage you strongly to read those as
 well.
@@ -43,7 +43,7 @@ introducing one.  The one which is prevalent in the programming language
 community is most likely to be your best choice.
 
 For several programming languages there are tools to automatically format
-your code so that it adheres to a convention.  It is considered good practive
+your code so that it adheres to a convention.  It is considered good practice
 to use such tools if they are available, and even to make them part of your
 development pipeline, either as git pre-commit hooks, or as part of a more
 substantial CI/CD setup on GitHub or GitLab.
@@ -137,7 +137,7 @@ versus
     a = np.sqrt(b)
 ```
 
-The second form is more idiomatc, but it will also substantially outperform
+The second form is more idiomatic, but it will also substantially outperform
 the first fragment.  MATLAB users will be aware of this difference as well.
 
 
@@ -148,7 +148,7 @@ story, and the functions are the actions they take, or what happens to them.
 Hence variable names should be nouns and functions names should be verbs. If a
 function returns a property, it should be phrased as a question.
 
-Any editor worth its salt provides completion, so you can't argue in favour of
+Any editor worth its salt provides completion, so you can't argue in favor of
 short but less descriptive names to save typing. A long but descriptive name is
 just hitting the tab key away.
 
@@ -187,7 +187,7 @@ language will be just that bit harder.
 
 Just to put things in context: sometimes short variable names are perfectly
 adequate.  For instance, trivial variable using in an iteration to index an
-array are conventianally called `i`, `j` and so on.  This is perfectly fine,
+array are conventionally called `i`, `j` and so on.  This is perfectly fine,
 and unless you have a good reason to choose different names, the "default"
 names will even help others to understand your code.
 
@@ -197,7 +197,7 @@ course break for programming languages that are case-insensitive, e.g.,
 Fortran.
 
 Note that these last remarks in no way contradicts the message of this
-section: `T` and `t` are very desciptive for developers in the domains
+section: `T` and `t` are very descriptive for developers in the domains
 where this notation is used.
 
 
@@ -286,7 +286,7 @@ with the characters `i` to `n`, otherwise its type will be `real`.
 
 Consider the code fragment below. Since the variables were not declared
 explicitly, `i` is interpreted as `integer` and `total` as `real`. However, the
-misspelled `totl` is also implicitly typed as `real`, initialised to `0.0`,
+misspelled `totl` is also implicitly typed as `real`, initialized to `0.0`,
 and hence the value of `total` will be `10.0` when the iterations ends, rather
 than `100.0` as was intended.
 
@@ -368,7 +368,7 @@ Note that the `intrinsic` keyword is used to ensure that the compiler supplied
 module is used, and not a module with the same name defined by you.
 
 Similar advice applies to Python, `from math import *` is considered bad
-practice since it polutes the namespace.
+practice since it pollutes the namespace.
 
 
 ## Be explicit about constants
@@ -441,7 +441,7 @@ In summary:
 | public          | attributes and methods can be accessed from everywhere | variables, types and procedures can be accessed from everywhere |
 | none            | class: private, struct: public                | public |
 
-Python has no notion of private attributes or methods, they are alwas public.
+Python has no notion of private attributes or methods, they are always public.
 However, attributes and methods that are supposed to be private to the class
 are by convention prefixed with a `_`.  Note that this is a convention for
 programmers, the Python runtime will not enforce this.
@@ -450,17 +450,17 @@ In both C++ and Python you can "simulate" Fortran notion of `protected`, i.e.,
 read-only attributes by implementing a getter, but no setter.
 
 
-## Variable initialisation
+## Variable initialization
 
 The specifications for Fortran, C and C++ do not define the value an
-uninitialized variable will have. So you should always initialise variables
+uninitialized variable will have. So you should always initialize variables
 explicitly, otherwise your code will have undefined, and potentially
-non-deterministic behavior. When you forget to initialise a variable, the
+non-deterministic behavior. When you forget to initialize a variable, the
 compilers will typically let you get away with it. However, most compilers have
-optional flags that catch expressions involving uninitialised variables. We
+optional flags that catch expressions involving uninitialized variables. We
 will discuss these and other compiler flags in a later section.
 
-When initialising or, more generally, assigning a value to a variable that
+When initializing or, more generally, assigning a value to a variable that
 involves constants, your code will be easier to understand when those values
 indicate the intended type. For example, using `1.0` rather than `1` for
 floating point is more explicit. This may also avoid needless conversions. This
@@ -471,9 +471,9 @@ as Fortran.  Perhaps even more subtly, `1.25 + 1/2` will also evaluate to
 added to `1.25`.
 
 Specifically for C++, I'd strongly encourage you to use universal
-initialisation, since narrowing conversion would lead to warnings.  In the code
-fragment below, the first local variable `n1` will be initialised to `7` without
-any warnings, while the compiler will generate a warning for the initialisation
+initialization, since narrowing conversion would lead to warnings.  In the code
+fragment below, the first local variable `n1` will be initialized to `7` without
+any warnings, while the compiler will generate a warning for the initialization
 of `n2`.
 
 ~~~~c++
@@ -672,8 +672,8 @@ Since the `return_n` argument defaults to `False`, the function will retain
 its previous behavior when called in all previous projects, while you can
 use the added functionality in the new project by calling the function as
 `statistics(data, return_n=True)`.  Note that such design decisions need to
-be properly documentated.
+be properly documented.
 
-Of course, this appraoch only works up to a point.  It might be necessary
+Of course, this approach only works up to a point.  It might be necessary
 to review and redesign the API once in a while to streamline it and reduce
 the cognitive burden.

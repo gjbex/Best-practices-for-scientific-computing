@@ -8,7 +8,7 @@ development.
 
 Although this training aims to be programming language-agnostic, the repository
 also list a number of tools that are programming language-specific.
-Obviously, this can not be exhaustive, so feel free to suggest additonal
+Obviously, this can not be exhaustive, so feel free to suggest additional
 tools if you are aware of any.
 
 Programming languages covered:

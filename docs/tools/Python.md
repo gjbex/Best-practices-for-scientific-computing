@@ -13,7 +13,7 @@
   to the Python style guide.
 * [mypy](https://mypy-lang.org/): if your code has type annotations, mypy
   will check for correctness.
-* [pylint](https://github.com/pylint-dev/pylint): static code analyser that
+* [pylint](https://github.com/pylint-dev/pylint): static code analyzer that
   also checks for documentation and style.
 
 

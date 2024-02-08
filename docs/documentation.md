@@ -137,7 +137,7 @@ another, are the various functions independent, or should they be called in a
 certain order?
 
 As an example, if you have a function that initializes a data structure, a few
-that manipulate such data structures, and a finalization funciton that releases
+that manipulate such data structures, and a finalization function that releases
 the resources in that data structure, then the module documentation should
 probably mention that you should
 
