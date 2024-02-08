@@ -21,11 +21,11 @@ The material is available as a [website](https://gjbex.github.io/Best-practices-
 1. Continuous integration
 
 
-## Programming langauges covered
+## Programming languages covered
 
 Although this training aims to be programming language-agnostic, the repository
 also list a number of tools that are programming language-specific.
-Obviously, this can not be exhaustive, so feel free to suggest additonal
+Obviously, this can not be exhaustive, so feel free to suggest additional
 tools if you are aware of any.
 
 Programming languages covered:
@@ -50,7 +50,7 @@ Of course, there are many programming language-agnostic tools.md) as well.
 
 ## About
 
-This material is [licensed under Createive Commons](LICENSE).
+This material is [licensed under Creative Commons](LICENSE).
 
 You can [contribute](CONTRIBUTING.md) to this project in various ways.
 
