@@ -2,3 +2,9 @@
 *.swp
 *~
 *.bak
+
+# local site rendering
+site/
+
+# direnv configuration file
+.envrc
