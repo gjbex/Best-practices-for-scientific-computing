@@ -9,33 +9,39 @@ Obviously, this can not be exhaustive, so feel free to suggest additonal
 tools if you are aware of any.
 
 Programming languages covered:
-* [C](Tools/C.md)
-* [C++](Tools/C-plus-plus.md)
-* [Fortran](Tools/Fortran.md)
-* [Python](Tools/Python.md)
-* [R](Tools/R.md)
-* Julia
 
-Of course, there are many
-[programming language-agnostic tools](Tools/general.md) as well.
+* C
+* C++
+* Fortran
+* Python
+* R
+
+Of course, there are many programming language-agnostic tools.md) as well.
 
 
 ## Table of contents
 
-1. [Syntax versus semantics](syntax_vs_semantics.md)
-1. [Code style and conventions](code_style.md)
-1. Version control with git: see the [training repository on version control with git](https://github.com/gjbex/Version-control-with-git).
-1. Collaborating on Github/GitLab: see the PowerPoint presentation in [training repository on version control with git](https://github.com/gjbex/Version-control-with-git).
-1. [Code documentation](documentation.md)
+1. Syntax versus semantics
+1. Code style and conventions
+1. Version control with git and collaboration
+1. Code documentation
 1. Testing
-   * [Testing as experiments](testing_as_experiments.md)
-   * [Unit testing](unit_testing.md)
-   * [Functional testing](functional_testing.md)
-   * [Code coverage](code_coverage.md)
+   * Testing as experiments
+   * Unit testing
+   * Functional testing
+   * Code coverage
 1. Deployment
 1. Continuous integration
-1. References
 
+
+## What is it?
+
+1. `docs`: directory with the markdown source for the site.
+1. `mkdocs.yml`: mkdocs configuration file.
+1. `environment.yml`: conda environment for building the site.
+1. `LICENSE`: license for this repository and materials.
+1. `CONTRIBUTING.md`: how to contribute to this repository.
+1. `CODE_OF_CONDUCT.md`: code of conduct.
 
 ## About
 
