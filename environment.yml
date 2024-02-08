@@ -1,0 +1,6 @@
+name: mkdocs
+channels:
+  - conda-forge
+dependencies:
+  - mkdocs
+prefix: /home/gjb/mambaforge/envs/mkdocs
