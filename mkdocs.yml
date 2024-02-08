@@ -1,0 +1,37 @@
+site_name: Best practices in scientific software development
+site_url: https://somewhere.com/
+repo_url: https://github.com/
+site_author: Geert Jan Bex
+nav:
+  - Home: 'index.md'
+  - Topics:
+    - Syntax vs. semantics: 'syntax_vs_semantics.md'
+    - Code style: 'code_style.md'
+    - Version control: 'version_control.md'
+    - Documentation: 'documentation.md'
+    - Testing:
+      - Testing as experiments: 'testing/testing_as_experiments.md'
+      - Unit testing: 'testing/unit_testing.md'
+      - Functional testing: 'testing/functional_testing.md'
+      - Code coverage: 'testing/code_coverage.md'
+    - Deployment: 'deployment.md'
+    - Continuous integration: 'continuous_integration.md'
+    - References: 'references.md'
+  - Tools:
+    - General tools: 'general.md'
+    - C: 'tools/C.md'
+    - C++: 'tools/C-plus-plus.md'
+    - Fortran: 'tools/Fortran.md'
+    - Python: 'tools/Python.md'
+    - R: 'tools/R.md'
+  - About: 'about.md'
+theme:
+  name: mkdocs
+  highlightjs: true
+  hijs_languages:
+    - c
+    - c++
+    - fortran
+    - python
+    - r
+    - bash
