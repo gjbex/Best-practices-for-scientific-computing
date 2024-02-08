@@ -24,10 +24,9 @@ Of course, there are many
 
 1. [Syntax versus semantics](syntax_vs_semantics.md)
 1. [Code style and conventions](code_style.md)
-1. Version control with git: see the [training repository](https://github.com/gjbex/Version-control-with-git)
-1. Collaborating on Github/GitLab
+1. Version control with git: see the [training repository on version control with git](https://github.com/gjbex/Version-control-with-git).
+1. Collaborating on Github/GitLab: see the PowerPoint presentation in [training repository on version control with git](https://github.com/gjbex/Version-control-with-git).
 1. [Code documentation](documentation.md)
-1. Modular code development
 1. Testing
    * [Testing as experiments](testing_as_experiments.md)
    * [Unit testing](unit_testing.md)

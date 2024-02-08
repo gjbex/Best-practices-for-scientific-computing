@@ -603,11 +603,77 @@ is mentioned in the additional material section.
 ## Copy/paste is evil
 
 If you find yourself copying and pasting a fragment of code from one file
-location to another, or from one file to another, you should consider turning
-it into a function.  Apart from making your code easier to understand, it makes
-it also easier to maintain.
+location to another, or from one file to another, you should consider turning it
+into a function.  Apart from making your code easier to understand, it makes it
+also easier to maintain.
 
 Suppose there is a bug in the fragment.  If you copy/pasted it, you would have
 to remember to fix the bug in each instance of that code fragment.  If it was
 encapsulated in a function, you would have to fix the problem in a single spot
 only.
+
+
+## Reuse your code
+
+The warning on copy/paste is not only important in the context of a single
+project, but also across multiple projects.  If you find yourself copying
+functions between projects, it is time to think to redesign your software
+in a more modular way to facilitate convenient code reuse.
+
+Each programming language offers mechanism to develop code in a modular way,
+e.g., header files in C/C++, modules in Fortran and Python, libraries in R.
+Structuring common data types and functions into reusable units makes it a
+lot easier to to reuse that code.  In effect, you are building a library of
+your own.  This library forms the core of many of your projects and can be
+maintained separately.
+
+Of course, this comes with a risk if you use your library in multiple projects,
+say both project A and project B.  You have to take care that if you modify the
+Aplication Programming Interface (API) or the functionality for project A, it
+does not break project B.  Again, many programming languages make it easy to
+maintain API compatiblity, either through overloading in a language such as
+C++, or by creative use of optional arguments, allowed by Fortran and Python.
+
+For example, suppose you have a function to compute descriptive statistics.
+Currently, it computes the mean value.
+
+~~~~python
+def statistics(data):
+    return sum(data)/len(data)
+~~~~
+
+In a new project, you would like the function `statistics` not only to return
+the mean value, but also the number of data, so you could modify it as shown
+below.
+
+~~~~python
+def statistics(data):
+    n = len(data)
+    return sum(data)/n, n
+~~~~
+
+Now the function returns a `tuple`, its first element the mean value, its
+second the number of elements in data.
+
+Although this would of course be fine for the new project, all other projects
+that rely on the function `statistics` would break since it would be expected
+that it returns a `float` value rather than a `tuple`.
+
+This can be avoided by adding an optional argument as follows.
+
+~~~~python
+def statistics(data, return_n=False):
+    n = len(data)
+    mean = sum(data)/n
+    return mean, n if return_n else mean
+~~~~
+
+Since the `return_n` argument defaults to `False`, the function will retain
+its previous behavior when called in all previous projects, while you can
+use the added functionality in the new project by calling the function as
+`statistics(data, return_n=True)`.  Note that such design decisions need to
+be properly documentated.
+
+Of course, this appraoch only works up to a point.  It might be necessary
+to review and redesign the API once in a while to streamline it and reduce
+the cognitive burden.
