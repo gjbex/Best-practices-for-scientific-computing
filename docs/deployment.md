@@ -44,3 +44,11 @@ and upload it to PyPi.
 
 If the Poetry configuration file is under version control, this approach also
 helps you to share your development environment among team members.
+
+
+### R
+
+RStudio has support for creating and managing R development projects, but from
+the command line, you can also use
+[`usethis`](https://github.com/r-lib/usethis), which interactively guides you
+through the initialization and setup of a project.
