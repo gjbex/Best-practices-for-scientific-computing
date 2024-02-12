@@ -28,9 +28,19 @@ repository on [CMake use cases]().
 
 ### Python
 
-Poetry is an interesting tool to manage Python software project.  It helps
-you manage dependencies, package your projects and distribute it using PyPI.
+Poetry is an interesting tool to help you manage all stages of a Python
+software projects.
+
+It helps you to set up an environment with all required dependencies and run
+your code in it.  It also has direct support for testing your implementation
+using `pytest`.
 
 You start by initializing a project and adapting the configuration file to
 your needs.  It will also allow you to conveniently run several tools such
 as `mypy` to type check your code, `black` to format your code.
+
+Finally, you can easily package your project in a wheel or source distribution
+and upload it to PyPi.
+
+If the Poetry configuration file is under version control, this approach also
+helps you to share your development environment among team members.

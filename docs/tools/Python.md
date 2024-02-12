@@ -20,3 +20,9 @@
 ## Testing
 
 * [pytest](https://docs.pytest.org/): unit testing framework.
+
+
+## Build tools
+
+* [Poetry](https://python-poetry.org/): environment management, build and
+  deployment of Python projects.
