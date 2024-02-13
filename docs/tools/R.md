@@ -2,7 +2,7 @@
 
 ## Testing
 
-* [testthat](https://testthat.r-lib.org/index.html): testing framework for %.
+* [testthat](https://testthat.r-lib.org/index.html): testing framework for R.
 
 
 ## Software deployment
