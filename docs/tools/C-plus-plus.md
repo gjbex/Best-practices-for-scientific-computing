@@ -11,6 +11,7 @@
 
 * [clang-tidy](https://clang.llvm.org/extra/clang-tidy/): linter, part of Extra
   Clang Tools.
+* [cppcheck](https://cppcheck.sourceforge.io/): linter for C and C++.
 
 
 ## Testing
