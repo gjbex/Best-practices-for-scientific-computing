@@ -14,6 +14,12 @@
 * [cppcheck](https://cppcheck.sourceforge.io/): linter for C and C++.
 
 
+## Package managers
+
+* [Conan](https://conan.io/): package manager for C and C++.
+* [vspkg](https://vcpkg.io/en/): package manager for C and C++.
+
+
 ## Testing
 
 * [Catch2](https://github.com/catchorg/Catch2): C++ unit testing framework that
