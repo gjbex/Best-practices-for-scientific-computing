@@ -17,6 +17,15 @@
   also checks for documentation and style.
 
 
+## Package managers
+
+* [miniconda](https://docs.anaconda.com/free/miniconda/index.html): Python package
+  manager.
+* [mamba](https://github.com/mamba-org/mamba): Python package manager.
+* [Poetry](https://python-poetry.org/): environment management, build and
+  deployment of Python projects.
+
+
 ## Testing
 
 * [pytest](https://docs.pytest.org/): unit testing framework.
