@@ -52,10 +52,10 @@ guides, while the latter is excellent for tutorial-style material.
    documentation to Read the Docs each time you do a release. Documentation of
    previous software versions remain available. In that scenario, MkDocs will
    provide useful previews before you make a release of your code project.
-1. [Sphinx](): this is another tool to generate documentation.  It can generate
-   API reference documentation for Python, and tutorial style documentation in
-   general.  The resulting documentation can be hosted on ReadTheDocs or GitHub
-   pages.
+1. [Sphinx](https://www.sphinx-doc.org/en/master/): this is another tool to
+   generate documentation.  It can generate API reference documentation for
+   Python, and tutorial style documentation in general.  The resulting
+   documentation can be hosted on ReadTheDocs or GitHub pages.
 1. [ReadTheDocs](http://www.readthedocs.org/): a hosting service for
    documentation.  It supports both MkDocs and Sphinx.  Documentation can be
    fetched from a GitHub repository and (re)built.  This can be automized and
