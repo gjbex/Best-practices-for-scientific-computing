@@ -738,3 +738,20 @@ that code for the rest of your software's life cycle.
 Again, you would have to try to find a healthy balance between implementing
 functionality yourself and using third-party libraries.  Note that this may
 also have an impact on the [license](deployment.md##License)
+
+
+## Follow the pattern
+
+About half a century into software development, it was recognized that
+good-quality software often exhibited the same patterns to implement certain
+features.  The Gang of Four (Gamma, Helm, Johnson and Vlissides) published a
+book that cataloged the patterns they had found, put them into categories and
+gave both an abstract description and some concrete examples.
+
+This book has inspired many others on the same topic, sometimes geared to
+specific programming languages or application domains.
+
+It would lead us too far to go into details about design patters, but it is
+very useful to familiarize yourself with them so that you can apply them when
+the situation arises.  You will find pointers in the [reference
+section](references.md).
