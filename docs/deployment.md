@@ -1,54 +1,65 @@
 # Deployment
 
-Making sure you software can be build and installed easily is a very important
+## Build tools
+
+Making sure you software can be built and installed easily is a very important
 part of the software's life cycle.  It will be a hard requirement if you intend
 your software to be adopted and used by others.
 
+For compiled langauges such as C, C++ and Fortran you will need to set up how to
+compile and link your code.  Several build environment are available such as
+autotools and CMake.
 
-## Building software
+Although scripting languages such as Python and R don't require compilation you
+would still rely on these environments if you build extensions for these
+languages.
 
-### C, C++ and Fortran
+Although it takes time to properly configure the build process, and there is a
+learning curve, it will save you a lot of time in the long run.
 
-For C, C++ and Fortran the build system of choice would be
-[CMake](https://cmake.org/).  You describe what you want to build, e.g., a
-library or an executable and add the dependencies, i.e., the directories
-where to find header files or libraries, as well as the libraries that
-are required.  You can specify compiler flags for the entire project, or
-specifically for an individual target.
-
-CMake has a lot of support to find installed libraries on your system, so
-this will ensure that builds are much more likely to succeed on other
-systems as well, as long as the dependencies have been installed.
-
-Many IDEs have built-in support for CMake.
-
-A number of examples of using CMake in various scenarios can be found in the
-repository on [CMake use cases]().
+Most build environments also allow you to run tests, and that includes those for
+scripting languages.  Integrating test execution as part of your build process
+is most certainly a best practice.
 
 
-### Python
+## Deployment
 
-Poetry is an interesting tool to help you manage all stages of a Python
-software projects.
+Most build environments let you easily create distributions of your software
+projects, for instance under the form of source archives that include the build
+configuration files.
 
-It helps you to set up an environment with all required dependencies and run
-your code in it.  It also has direct support for testing your implementation
-using `pytest`.
+Some environments go even a step further by supporting uploads to software
+distribution repositories.
 
-You start by initializing a project and adapting the configuration file to
-your needs.  It will also allow you to conveniently run several tools such
-as `mypy` to type check your code, `black` to format your code.
-
-Finally, you can easily package your project in a wheel or source distribution
-and upload it to PyPi.
-
-If the Poetry configuration file is under version control, this approach also
-helps you to share your development environment among team members.
+The build systems can also be configured to do the installation of software,
+something that can be tuned further by the person who installs the software on
+her own system.
 
 
-### R
+## Package managers
 
-RStudio has support for creating and managing R development projects, but from
-the command line, you can also use
-[`usethis`](https://github.com/r-lib/usethis), which interactively guides you
-through the initialization and setup of a project.
+Many software project rely on packages that need bo be installed to succesfully
+link or run the application or library.  Managing these dependencies can be
+pretty tedious.
+
+Some build tools will help you to easily integrate such libraries by configuring
+the build configuration with the information on where they are installed on a
+system.
+
+Most build systems also support a form a depedency management or package
+management that allows you to easily download and install packages.  Typically
+these installs will be local to the project, so it is not necessary to install
+them centrally and "pollute" your system.
+
+This dependency isolation makes it easier to test the software build system and
+makes it more portable to other computers and operating systems.
+
+
+## Examples
+
+Examples of using various tools can be found in other repositories.
+
+  * [CMake use cases](https://github.com/gjbex/CMake-usecases)
+  * [Poetry](https://github.com/gjbex/CI-example)
+  * [C/C++ package
+    managers](https://github.com/gjbex/C-plus-plus-software-engineering)
