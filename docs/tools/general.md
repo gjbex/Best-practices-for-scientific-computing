@@ -19,8 +19,14 @@ programming language.
 
 ## Build tools
 
-* [CMake](https://cmake.org/): cross-platform build tool that can be used
-  to build and install C/C++/Fortran libraries and applications.
+Some build tools can be used for many programming languages.  Build tools let
+you specify how to build your applications and libraries, but often also how
+to test and package them.
+
+* [CMake](https://cmake.org/): cross-platform build tool that can be used to
+  build and install C/C++/Fortran libraries and applications.  A number of
+  examples of using CMake in various scenarios can be found in the repository on
+  [CMake use cases](https://github.com/gjbex/CMake-usecases).
 
 
 ## Documentation
