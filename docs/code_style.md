@@ -563,7 +563,8 @@ section for some pointers to information and  tutorials.
 You should also bear in mind the distinction between comments and documentation.
 Documentation describes how to use your data types and functions to those who
 may want to use them.  Comments are intended for the consumption of the
-developers only.
+developers only.  You can learn about best practices for documenting your code
+in the [section on documentation](documentation.md).
 
 
 ## Stick to the standard
@@ -605,6 +606,32 @@ guidelines, a collections of directives and rules specified by the Motor
 Industry Software Reliability Association (MISRA) aimed at ensuring safer and
 more reliable software systems in the automotive industry.  A reference to this
 specification is mentioned in the [references][references.md].
+
+
+## The latest and greatest?
+
+Programming langauges and libraries evolve over time.  New features are added,
+some are deprecated. It is quite important to keep track of the evolution of
+the programming languages you use.  New features are typically added to make
+your code more robust, or easier to read or write.
+
+Similarly, features are deprecated for a reason, usually because they were a
+Bad Idea(tm), or they can and should be replaced by new ones.
+
+In general, it is a good idea to keep up, i.e., start using new features, and
+especially replace code that is marked as deprecated by your compiler or
+interpreter.
+
+However, don't go over the top.  If you use the very latest language features,
+e.g., the most recent version of Python, latest and greatest C++ standard you
+should bear in mind that you may cause problems for users of your application
+or library.  It is quite possible that they use systems on which the latest
+compilers, interpreters and libraries are not available yet, sometimes for very
+good reasons.
+
+With software deployment in mind, you should try to strike a healthty balance
+between innovation and pragmatism.  Maybe it is wiser not to use the latest and
+greatest feature just yet, but to leave it for the next release?
 
 
 ## Copy/paste is evil
@@ -684,3 +711,30 @@ be properly documented.
 Of course, this approach only works up to a point.  It might be necessary
 to review and redesign the API once in a while to streamline it and reduce
 the cognitive burden.
+
+
+## "Not invented here" syndrome
+
+Something I observe time after time is the "not invented here" syndrome.  This
+means that a developer may prefer to do her own implementation of a function or
+a class rather than use an existing library developed by others.  She may want
+to avoid the learning curve or the code changes required to use that library,
+or just doesn't trust a "black box".
+
+Sometimes that is a wise decision.  The overhead incurred by using yet another
+library to accomplish something that is in fact quite simple to implement
+yourself may be too high.  It will make dependency management and deployment
+somewhat more complicated .  Although [package managers](deployment.md##Package
+managers) are a great help in this respect, tooling is still required, and you
+may need to update your code if the API of the library changes.
+
+On the other hand, reimplementing functionality that already exists in
+third-party libraries is mostly not a good idea.  You are reinventing the
+wheel, and you might end up with a square one.  There may be bugs or
+performance issues, a lack of flexibility, and it incurs [technical
+debt](https://en.wikipedia.org/wiki/Technical_debt), i.e., you have to maintain
+that code for the rest of your software's life cycle.
+
+Again, you would have to try to find a healhty balance between implementing
+functionality yourself and using third-party libraries.  Note that this may
+also have an impact on the [license](deployment.md##License)
