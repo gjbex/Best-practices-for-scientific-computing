@@ -68,3 +68,15 @@ guides, while the latter is excellent for tutorial-style material.
    that [hosts this
    information](https://github.com/gjbex/Best-practices-in-programming) is an
    example of that.
+
+
+## Testing
+
+Some testing tools are generic and can be used to do functional testing for
+application developed in any programming language.
+
+1. [shunit2 framework](https://github.com/kward/shunit2): use Bash scripts to
+   perform functional testing as unit tests.
+1.  [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html#:~:text=CTest%20is%20an%20executable%20that,for%20CTest%20is%20called%20CTestTestfile.):
+   CTest is part of CMake and lets you do functional testing as part of the
+   build process.
