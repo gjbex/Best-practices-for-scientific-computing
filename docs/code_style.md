@@ -24,6 +24,9 @@ will use the term function for methods as well.
 Similarly, we use the term variable for constants, and also for attributes of
 objects and classes, whenever that doesn't lead to confusion.
 
+Of course, each programing language has its own style guides, often even
+several, you can find links tothose in the [reference section](references.md).
+
 
 ## Format your code nicely
 
@@ -139,6 +142,10 @@ versus
 
 The second form is more idiomatic, but it will also substantially outperform
 the first fragment.  MATLAB users will be aware of this difference as well.
+
+Idioms for programming languages are usually expressed in code style
+guidelines.  You can find links to those in the [reference
+section](references.md).
 
 
 ## Choose descriptive names
@@ -589,15 +596,15 @@ interpret those constructs incorrectly.
 Hence I'd encourage you strongly to strictly adhere to a specific language
 specification.  For C there are four specifications that are still relevant,
 C89, C99, C11 and C23.  For C++ that would be C++11, C++14, C++17, C++20 and
-C++23.  The relevant specification for Fortran are those of 2003, 2008, and 2018.
-References to those specifications can be found in the section on additional
-material.
+C++23.  The relevant specification for Fortran are those of 2003, 2008, and
+2018. References to those specifications can be found in the [reference
+section](references.md).
 
-For C, you may be interested to read the MISRA C software development guidelines,
-a collections of directives and rules specified by the Motor Industry Software
-Reliability Association (MISRA) aimed at ensuring safer and more reliable
-software systems in the automotive industry.  A reference to this specification
-is mentioned in the [references][references.md].
+For C and C++, you may be interested to read the MISRA software development
+guidelines, a collections of directives and rules specified by the Motor
+Industry Software Reliability Association (MISRA) aimed at ensuring safer and
+more reliable software systems in the automotive industry.  A reference to this
+specification is mentioned in the [references][references.md].
 
 
 ## Copy/paste is evil

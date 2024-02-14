@@ -2,7 +2,7 @@
 
 ## Style guides
 
-Style guides for various languages.
+Style guides for various programming languages.
 
 ### C
 
@@ -18,6 +18,8 @@ Style guides for various languages.
 
   * [Fortran style
     guide](https://fortran-lang.org/learn/best_practices/style_guide/)
+  * Norman S. Clerman and Walter Spector, *"Modern Fortran: style and usage"*,
+    Cambridge University Press, 2011
 
 ### Python
 
@@ -26,6 +28,15 @@ Style guides for various languages.
 ### R
 
   * [tidyverse style guide](https://style.tidyverse.org/)
+
+
+## Programming language standards
+
+  * [C standards](https://www.iso-9899.info/wiki/The_Standard)
+  * [C++ standards](https://isocpp.org/std/the-standard)
+  * [Fortran standards](https://fortranwiki.org/fortran/show/Standards)
+
+Programming languages such as Python and R don't have formal standards.
 
 
 ## General best practices
