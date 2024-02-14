@@ -153,3 +153,16 @@ Below you can see when various setup and teardown functions are called when test
 suites are executed.
 
 ![setup and teardown call sequence](setup_teardown.png)
+
+
+# Examples
+
+Examples of unit testing can be found in the following repositories.
+
+  * [Cunit for C](https://github.com/gjbex/Defensive_programming_and_debugging)
+  * [Catch2 examples for
+    C++](https://github.com/gjbex/C-plus-plus-software-engineering)
+  * [pFunit examples for
+    Fortran](https://github.com/gjbex/Defensive_programming_and_debugging)
+  * [pytest examples for
+    Python](https://github.com/gjbex/Python-software-engineering)

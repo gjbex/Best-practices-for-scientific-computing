@@ -71,8 +71,8 @@ Note that it is possible to set up a matrix of operating system versions and
 compiler versions to ensure that your code will build and executed cleanly on a
 wide range of software platforms.
 
-[Travis CI](https://travis-ci.org/) is a very nice online continuous integration
-service that is free to use for open source software projects.
+Both GitHub and Gitlab support continuous integration that can be used for
+functional testing.
 
 The question remains how to code the actual tests that will be executed by the
 continuous integration system. A convenient way is to reuse the unit test
@@ -91,5 +91,10 @@ the tests cover the use cases as well as possible. Here too, code coverage can
 be a great help to detect which application aspects are tested, and for which
 additional tests need to be implemented to improve the coverage.
 
-We will illustrate the use of shunit2 for functional testing in this section.
-Full continuous integration is a bit out of scope of this course.
+
+## Examples
+
+  * [CMake tests](https://github.com/gjbex/C-plus-plus-software-engineering)
+  * [shunit22
+    tests](https://github.com/gjbex/Defensive_programming_and_debugging)
+  * [CI for testing](https://github.com/gjbex/CI-example)
