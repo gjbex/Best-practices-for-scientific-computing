@@ -24,7 +24,8 @@ checkout the `main` branch, render the site using mkdocs in the `gh-pages`
 branch so that it is published.  Each time a push is done to the `main` branch
 the workflow is run, and the latest version is guaranteed to be available via
 GitHub pages.  You can find the workflow definition in the `.github/workflows`
-directory in the [repository]().
+directory in the
+[repository](https://github.com/gjbex/Best-practices-in-programming).
 
 Since this is in fact a deployment of documentation, it is referred to as
 Continuous Deployment (CD).  It would of course also be possible to typeset a
