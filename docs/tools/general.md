@@ -80,3 +80,11 @@ application developed in any programming language.
 1.  [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html#:~:text=CTest%20is%20an%20executable%20that,for%20CTest%20is%20called%20CTestTestfile.):
    CTest is part of CMake and lets you do functional testing as part of the
    build process.
+
+
+## Licensing
+
+Selecting an appropirate license is not trivial.
+
+1. [Website](https://choosealicense.com/) that tries to guide you through the
+   process.
