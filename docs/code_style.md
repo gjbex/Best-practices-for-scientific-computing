@@ -24,8 +24,8 @@ will use the term function for methods as well.
 Similarly, we use the term variable for constants, and also for attributes of
 objects and classes, whenever that doesn't lead to confusion.
 
-Of course, each programing language has its own style guides, often even
-several, you can find links tothose in the [reference section](references.md).
+Of course, each programming language has its own style guides, often even
+several, you can find links to those in the [reference section](references.md).
 
 
 ## Format your code nicely
@@ -525,7 +525,7 @@ function times2(x) result(y)
     y = 2.1_sp*x
     return y
 end function
-```
+~~~~
 
 Similar concerns are important when using `numpy` in Python.
 
@@ -569,7 +569,7 @@ in the [section on documentation](documentation.md).
 
 ## Stick to the standard
 
-The official syntax and semantics of languages like C, C++ andFortran is
+The official syntax and semantics of languages like C, C++ and Fortran is
 defined in official specifications. All compilers that claim compliance with
 these standards have to implement these specifications.
 
@@ -610,13 +610,13 @@ specification is mentioned in the [references][references.md].
 
 ## The latest and greatest?
 
-Programming langauges and libraries evolve over time.  New features are added,
+Programming languages and libraries evolve over time.  New features are added,
 some are deprecated. It is quite important to keep track of the evolution of
 the programming languages you use.  New features are typically added to make
 your code more robust, or easier to read or write.
 
 Similarly, features are deprecated for a reason, usually because they were a
-Bad Idea(tm), or they can and should be replaced by new ones.
+Bad Idea(TM), or they can and should be replaced by new ones.
 
 In general, it is a good idea to keep up, i.e., start using new features, and
 especially replace code that is marked as deprecated by your compiler or
@@ -629,7 +629,7 @@ or library.  It is quite possible that they use systems on which the latest
 compilers, interpreters and libraries are not available yet, sometimes for very
 good reasons.
 
-With software deployment in mind, you should try to strike a healthty balance
+With software deployment in mind, you should try to strike a healthy balance
 between innovation and pragmatism.  Maybe it is wiser not to use the latest and
 greatest feature just yet, but to leave it for the next release?
 
@@ -663,9 +663,9 @@ maintained separately.
 
 Of course, this comes with a risk if you use your library in multiple projects,
 say both project A and project B.  You have to take care that if you modify the
-Aplication Programming Interface (API) or the functionality for project A, it
+Application Programming Interface (API) or the functionality for project A, it
 does not break project B.  Again, many programming languages make it easy to
-maintain API compatiblity, either through overloading in a language such as
+maintain API compatibility, either through overloading in a language such as
 C++, or by creative use of optional arguments, allowed by Fortran and Python.
 
 For example, suppose you have a function to compute descriptive statistics.
@@ -728,13 +728,13 @@ somewhat more complicated .  Although [package managers](deployment.md##Package
 managers) are a great help in this respect, tooling is still required, and you
 may need to update your code if the API of the library changes.
 
-On the other hand, reimplementing functionality that already exists in
+On the other hand, re-implementing functionality that already exists in
 third-party libraries is mostly not a good idea.  You are reinventing the
 wheel, and you might end up with a square one.  There may be bugs or
 performance issues, a lack of flexibility, and it incurs [technical
 debt](https://en.wikipedia.org/wiki/Technical_debt), i.e., you have to maintain
 that code for the rest of your software's life cycle.
 
-Again, you would have to try to find a healhty balance between implementing
+Again, you would have to try to find a healthy balance between implementing
 functionality yourself and using third-party libraries.  Note that this may
 also have an impact on the [license](deployment.md##License)
