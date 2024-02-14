@@ -597,7 +597,7 @@ For C, you may be interested to read the MISRA C software development guidelines
 a collections of directives and rules specified by the Motor Industry Software
 Reliability Association (MISRA) aimed at ensuring safer and more reliable
 software systems in the automotive industry.  A reference to this specification
-is mentioned in the additional material section.
+is mentioned in the [references][references.md].
 
 
 ## Copy/paste is evil
