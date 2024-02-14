@@ -64,4 +64,7 @@ guides, while the latter is excellent for tutorial-style material.
    will create a website that you can use to host the documentation for your
    project to make it available to your group or even to every user of your
    software.  The documentaiton can be genreated using a GitHub Action
-   triggered by, for instance, a merge into the main branch.
+   triggered by, for instance, a merge into the main branch.  The repository
+   that [hosts this
+   information](https://github.com/gjbex/Best-practices-in-programming) is an
+   example of that.
