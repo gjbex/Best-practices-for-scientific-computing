@@ -95,6 +95,6 @@ additional tests need to be implemented to improve the coverage.
 ## Examples
 
   * [CMake tests](https://github.com/gjbex/C-plus-plus-software-engineering)
-  * [shunit22
+  * [shunit2
     tests](https://github.com/gjbex/Defensive_programming_and_debugging)
   * [CI for testing](https://github.com/gjbex/CI-example)
