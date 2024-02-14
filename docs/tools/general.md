@@ -19,8 +19,14 @@ programming language.
 
 ## Build tools
 
-* [CMake](https://cmake.org/): cross-platform build tool that can be used
-  to build and install C/C++/Fortran libraries and applications.
+Some build tools can be used for many programming languages.  Build tools let
+you specify how to build your applications and libraries, but often also how
+to test and package them.
+
+* [CMake](https://cmake.org/): cross-platform build tool that can be used to
+  build and install C/C++/Fortran libraries and applications.  A number of
+  examples of using CMake in various scenarios can be found in the repository on
+  [CMake use cases](https://github.com/gjbex/CMake-usecases).
 
 
 ## Documentation
@@ -46,10 +52,10 @@ guides, while the latter is excellent for tutorial-style material.
    documentation to Read the Docs each time you do a release. Documentation of
    previous software versions remain available. In that scenario, MkDocs will
    provide useful previews before you make a release of your code project.
-1. [Sphinx](): this is another tool to generate documentation.  It can generate
-   API reference documentation for Python, and tutorial style documentation in
-   general.  The resulting documentation can be hosted on ReadTheDocs or GitHub
-   pages.
+1. [Sphinx](https://www.sphinx-doc.org/en/master/): this is another tool to
+   generate documentation.  It can generate API reference documentation for
+   Python, and tutorial style documentation in general.  The resulting
+   documentation can be hosted on ReadTheDocs or GitHub pages.
 1. [ReadTheDocs](http://www.readthedocs.org/): a hosting service for
    documentation.  It supports both MkDocs and Sphinx.  Documentation can be
    fetched from a GitHub repository and (re)built.  This can be automized and
@@ -58,4 +64,27 @@ guides, while the latter is excellent for tutorial-style material.
    will create a website that you can use to host the documentation for your
    project to make it available to your group or even to every user of your
    software.  The documentaiton can be genreated using a GitHub Action
-   triggered by, for instance, a merge into the main branch.
+   triggered by, for instance, a merge into the main branch.  The repository
+   that [hosts this
+   information](https://github.com/gjbex/Best-practices-in-programming) is an
+   example of that.
+
+
+## Testing
+
+Some testing tools are generic and can be used to do functional testing for
+application developed in any programming language.
+
+1. [shunit2 framework](https://github.com/kward/shunit2): use Bash scripts to
+   perform functional testing as unit tests.
+1.  [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html#:~:text=CTest%20is%20an%20executable%20that,for%20CTest%20is%20called%20CTestTestfile.):
+   CTest is part of CMake and lets you do functional testing as part of the
+   build process.
+
+
+## Licensing
+
+Selecting an appropirate license is not trivial.
+
+1. [Website](https://choosealicense.com/) that tries to guide you through the
+   process.
