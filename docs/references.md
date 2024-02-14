@@ -47,9 +47,22 @@ General resources that discuss best practices in software engineering.
     Addison-Wesley, 1999
   * Martin Fowler, *"Refactoring: Improving the Design of Existing Code"*,
     Addison Wesley, 1999
+  * Erich Gamma, Richard Helm, Ralpha Johnson and John Vlissides, *"Design
+    patterns: elements of reusable object-oriented software"*, Addison-Wesley,
+    1994
+  * Robert C. Martin, *"Clean code: a handbook of agile software
+    craftsmanship"*, Pearson, 2008
 
 
-Software licenses
+## Software licenses
 
   * [Discussion](https://www.gnu.org/licenses/license-recommendations.en.html)
     of how to choose an appropriate license on the GNU website.
+
+
+## Scientific software
+
+Some references that are more specific to scientific software development.
+
+  * [Task Force Sub Group 3 - Review of Software Quality Attributes and
+    Characteristics](https://zenodo.org/records/10647227)
