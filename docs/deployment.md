@@ -55,6 +55,20 @@ This dependency isolation makes it easier to test the software build system and
 makes it more portable to other computers and operating systems.
 
 
+## License
+
+A very important aspect of software deployment is licensing.  Releasing software
+without a license or with one that is not appropriate can have dire
+consequences.
+
+It is also very important to verify that the licenses of software component or
+tools are compatible with the one you select for yourself.
+
+There is a nice website that helps you [select an appropriate
+license](https://choosealicense.com/).  However, when in doubt, get in touch
+with your Technology Transfer Office, they will be able to advice.
+
+
 ## Examples
 
 Examples of using various tools can be found in other repositories.
