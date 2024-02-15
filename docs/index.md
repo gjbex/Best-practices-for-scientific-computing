@@ -1,5 +1,7 @@
 # Best practices in programming
 
+[![DOI](https://zenodo.org/badge/745445839.svg)](https://zenodo.org/doi/10.5281/zenodo.10665372)
+
 Material for a training on best practices for programming and software
 development.
 
