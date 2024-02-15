@@ -724,7 +724,7 @@ or just doesn't trust a "black box".
 Sometimes that is a wise decision.  The overhead incurred by using yet another
 library to accomplish something that is in fact quite simple to implement
 yourself may be too high.  It will make dependency management and deployment
-somewhat more complicated .  Although [package managers](deployment.md##Package
+somewhat more complicated .  Although [package managers](deployment##Package
 managers) are a great help in this respect, tooling is still required, and you
 may need to update your code if the API of the library changes.
 
@@ -737,7 +737,7 @@ that code for the rest of your software's life cycle.
 
 Again, you would have to try to find a healthy balance between implementing
 functionality yourself and using third-party libraries.  Note that this may
-also have an impact on the [license](deployment.md##License)
+also have an impact on the [license](deployment##License)
 
 
 ## Follow the pattern
