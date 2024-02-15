@@ -1,0 +1,6 @@
+# ignore links to stylesheets, should be taken care of by GitHub pages/mkdocs
+/stylesheets/
+somewhere.com
+fonts.gstatic.com
+fortranwiki.org
+mypy-lang.org

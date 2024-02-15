@@ -88,3 +88,10 @@ Selecting an appropirate license is not trivial.
 
 1. [Website](https://choosealicense.com/) that tries to guide you through the
    process.
+
+
+## Attribution
+
+1. [Zenodo](https://github.com/gjbex/Best-practices-in-programming): website to
+   request a Digital Object Identifier (DOI) for your version control
+   repositories.

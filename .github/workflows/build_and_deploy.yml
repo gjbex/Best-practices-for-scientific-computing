@@ -17,3 +17,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: mkdocs.yml
+      - name: Check links
+        uses: filiph/linkcheck@2.0.23
+        with:
+          arguments: --external --skip-file linkcheck_skip_file.txt --connection-failures-as-warnings https://gjbex.github.io/Best-practices-in-programming/

@@ -1,5 +1,9 @@
 # Best practices in programming
 
+[![DOI](https://zenodo.org/badge/745445839.svg)](https://zenodo.org/doi/10.5281/zenodo.10665372)
+
+![Render and test workflow](https://github.com/gjbex/Best-practices-in-programming/actions/workflows/build_and_deploy.yml/badge.svg)
+
 Material for a training on best practices for programming and software
 development.
 
@@ -44,9 +48,11 @@ Of course, there are many programming language-agnostic tools as well.
 1. `docs`: directory with the markdown source for the site.
 1. `mkdocs.yml`: mkdocs configuration file.
 1. `environment.yml`: conda environment for building the site.
+1. `linkcheck_skip_file.txt`: skip file for [linkcheck](https://github.com/filiph/linkcheck)
 1. `LICENSE`: license for this repository and materials.
 1. `CONTRIBUTING.md`: how to contribute to this repository.
 1. `CODE_OF_CONDUCT.md`: code of conduct.
+
 
 ## About
 
