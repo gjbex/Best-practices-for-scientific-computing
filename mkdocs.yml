@@ -18,7 +18,7 @@ nav:
     - Continuous integration: 'continuous_integration.md'
     - References: 'references.md'
   - Tools:
-    - General tools: 'general.md'
+    - General tools: 'tools/general.md'
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'
     - Fortran: 'tools/Fortran.md'
