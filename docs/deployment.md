@@ -6,7 +6,7 @@ Making sure you software can be built and installed easily is a very important
 part of the software's life cycle.  It will be a hard requirement if you intend
 your software to be adopted and used by others.
 
-For compiled langauges such as C, C++ and Fortran you will need to set up how to
+For compiled languages such as C, C++ and Fortran you will need to set up how to
 compile and link your code.  Several build environment are available such as
 autotools and CMake.
 
@@ -38,7 +38,7 @@ her own system.
 
 ## Package managers
 
-Many software project rely on packages that need bo be installed to succesfully
+Many software project rely on packages that need to be installed to successfully
 link or run the application or library.  Managing these dependencies can be
 pretty tedious.
 
@@ -46,7 +46,7 @@ Some build tools will help you to easily integrate such libraries by configuring
 the build configuration with the information on where they are installed on a
 system.
 
-Most build systems also support a form a depedency management or package
+Most build systems also support a form a dependency management or package
 management that allows you to easily download and install packages.  Typically
 these installs will be local to the project, so it is not necessary to install
 them centrally and "pollute" your system.
@@ -67,6 +67,22 @@ tools are compatible with the one you select for yourself.
 There is a nice website that helps you [select an appropriate
 license](https://choosealicense.com/).  However, when in doubt, get in touch
 with your Technology Transfer Office, they will be able to advice.
+
+
+## Can I cite you on that?
+
+If you choose a license that enforces those that use it to give you credit, it
+makes sense to make it as easy as possible for them to do so.  The same applies
+if you hope to be cited in scientific publications that use your software.
+
+You can associate a Digital Object Identifier (DOI) with your GitHub
+repository. This service is offered by [Zenodo](https://zenodo.org/) that
+integrates well with GitHub.  When you do a release, your repository gets a DOI
+that you can include in your `README.md` as a badge.
+
+This is the case for the [GitHub
+repository](https://github.com/gjbex/Best-practices-in-programming) for this
+training material.
 
 
 ## Examples
