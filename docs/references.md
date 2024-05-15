@@ -76,3 +76,8 @@ Some references that are more specific to scientific software development.
 
   * [Task Force Sub Group 3 - Review of Software Quality Attributes and
     Characteristics](https://zenodo.org/records/10647227)
+
+
+## Development ecosystem
+
+  * [The state of the development ecosystem in 2023](https://www.jetbrains.com/lp/devecosystem-2023/)
