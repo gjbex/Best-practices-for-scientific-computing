@@ -35,4 +35,5 @@ Programming languages covered:
      * [Code coverage](testing/code_coverage.md)
   1. [Deployment](deployment.md)
   1. [Continuous integration](continuous_integration.md)
+  1. [Reproducibility](reproducibility.md)
   1. [References](references.md)

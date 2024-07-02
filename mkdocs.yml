@@ -16,6 +16,7 @@ nav:
       - Code coverage: 'testing/code_coverage.md'
     - Deployment: 'deployment.md'
     - Continuous integration: 'continuous_integration.md'
+    - Reproducibility: 'reproducibility.md'
     - References: 'references.md'
   - Tools:
     - General tools: 'tools/general.md'
