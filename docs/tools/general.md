@@ -29,6 +29,16 @@ to test and package them.
   [CMake use cases](https://github.com/gjbex/CMake-usecases).
 
 
+## Package managers
+
+Some package managers are fairly specific to a particular programming language,
+but others can be used for multiple languages, or even workflows.
+
+* [Spack](https://spack.io/): package manager that can be used to install
+  software in a controlled environment, ensuring that the software is built
+  with the correct dependencies and compiler options.
+
+
 ## Documentation
 
 In this session, we will discuss two tools for creating attractive
