@@ -39,6 +39,25 @@ but others can be used for multiple languages, or even workflows.
   with the correct dependencies and compiler options.
 
 
+## Containers
+
+Containers are a way to package your code and its dependencies in a way that
+makes it easy to share with others.  They can be used to ensure that your code
+runs in the same environment on different machines.  In addition, they can be
+used to ensure that your code runs in the same environment at different times,
+contributing to the reproducibility of your results.
+
+* [Docker](https://www.docker.com/): containerization tool that can be used to
+  specify the exact environment in which your code is run, including the
+  operating system and the versions of all software used.
+* [Podman](https://podman.io/): a daemonless container engine for developing,
+  managing, and running OCI Containers on your Linux System.
+* [Apptainer](https://apptainer.org/): containerization tool that is
+  compatible with Singularity and Docker. It is designed to be used in an
+  HPC environment and doesn't require root privileges to build images and
+  run containers.
+
+
 ## Documentation
 
 In this session, we will discuss two tools for creating attractive
