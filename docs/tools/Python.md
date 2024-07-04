@@ -29,6 +29,8 @@
 ## Testing
 
 * [pytest](https://docs.pytest.org/): unit testing framework.
+* [hypothesis](https://hypothesis.readthedocs.io/): property-based testing for
+  Python, it also allows for fuzz testing.
 
 
 ## Build tools
