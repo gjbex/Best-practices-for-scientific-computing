@@ -54,6 +54,16 @@ General resources that discuss best practices in software engineering.
     craftsmanship"*, Pearson, 2008
 
 
+## Best practices for scientific computing
+
+  * Greg Wilson, Jennifer Bryan, Karen Cranston et al., [Good enough practices in scientific
+    computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510), PLoS
+    Computational Biology, 13(6):e1005510, 2017
+  * G. Wilson, D.A. Aruliah, C.T. Browni et al., [Best practices for scientific
+    computing](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745),
+    PLoS Biology, 12(1):e1001745, 2014
+
+
 ## Software licenses
 
   * [Discussion](https://www.gnu.org/licenses/license-recommendations.en.html)
@@ -66,3 +76,8 @@ Some references that are more specific to scientific software development.
 
   * [Task Force Sub Group 3 - Review of Software Quality Attributes and
     Characteristics](https://zenodo.org/records/10647227)
+
+
+## Development ecosystem
+
+  * [The state of the development ecosystem in 2023](https://www.jetbrains.com/lp/devecosystem-2023/)

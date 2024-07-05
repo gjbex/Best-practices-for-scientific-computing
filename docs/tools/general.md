@@ -29,6 +29,46 @@ to test and package them.
   [CMake use cases](https://github.com/gjbex/CMake-usecases).
 
 
+## Package managers
+
+Some package managers are fairly specific to a particular programming language,
+but others can be used for multiple languages, or even workflows.
+
+* [Spack](https://spack.io/): package manager that can be used to install
+  software in a controlled environment, ensuring that the software is built
+  with the correct dependencies and compiler options.
+
+
+## Containers
+
+Containers are a way to package your code and its dependencies in a way that
+makes it easy to share with others.  They can be used to ensure that your code
+runs in the same environment on different machines.  In addition, they can be
+used to ensure that your code runs in the same environment at different times,
+contributing to the reproducibility of your results.
+
+* [Docker](https://www.docker.com/): containerization tool that can be used to
+  specify the exact environment in which your code is run, including the
+  operating system and the versions of all software used.
+* [Podman](https://podman.io/): a daemonless container engine for developing,
+  managing, and running OCI Containers on your Linux System.
+* [Apptainer](https://apptainer.org/): containerization tool that is
+  compatible with Singularity and Docker. It is designed to be used in an
+  HPC environment and doesn't require root privileges to build images and
+  run containers.
+
+
+## Workflows
+
+* [Snakemake](https://snakemake.readthedocs.io/en/stable/): a workflow
+  management system that aims to reduce the complexity of creating workflows
+  by providing a readable and expressive syntax in Python style.
+* [Nextflow](https://www.nextflow.io/): a workflow manager that enables the
+  development of portable and reproducible workflows. It comes with a
+  domain-specific language that simplifies the writing of complex
+  computational workflows.
+
+
 ## Documentation
 
 In this session, we will discuss two tools for creating attractive
