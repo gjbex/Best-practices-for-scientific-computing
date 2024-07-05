@@ -21,6 +21,7 @@ The material is available as a [website](https://gjbex.github.io/Best-practices-
    * Unit testing
    * Functional testing
    * Code coverage
+1. Optimization
 1. Deployment
 1. Continuous integration
 

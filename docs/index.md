@@ -33,6 +33,7 @@ Programming languages covered:
      * [Unit testing](testing/unit_testing.md)
      * [Functional testing](testing/functional_testing.md)
      * [Code coverage](testing/code_coverage.md)
+  1. [Optimization](optimization.md)
   1. [Deployment](deployment.md)
   1. [Continuous integration](continuous_integration.md)
   1. [Reproducibility](reproducibility.md)

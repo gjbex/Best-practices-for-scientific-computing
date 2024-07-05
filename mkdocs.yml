@@ -14,6 +14,7 @@ nav:
       - Unit testing: 'testing/unit_testing.md'
       - Functional testing: 'testing/functional_testing.md'
       - Code coverage: 'testing/code_coverage.md'
+    - Optimization: 'optimization.md'
     - Deployment: 'deployment.md'
     - Continuous integration: 'continuous_integration.md'
     - Reproducibility: 'reproducibility.md'
