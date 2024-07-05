@@ -23,6 +23,7 @@ The material is available as a [website](https://gjbex.github.io/Best-practices-
    * Code coverage
 1. Deployment
 1. Continuous integration
+1. Reproducibility
 
 
 ## Programming languages covered
