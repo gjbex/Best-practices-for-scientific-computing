@@ -14,6 +14,12 @@
 * [cppcheck](https://cppcheck.sourceforge.io/): linter for C and C++.
 
 
+## Configuration files
+
+* [libconfig](https://hyperrealm.github.io/libconfig/): configuration file
+  management library for C++.
+
+
 ## Package managers
 
 * [Conan](https://conan.io/): package manager for C and C++.

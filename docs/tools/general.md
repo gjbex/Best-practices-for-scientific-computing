@@ -58,6 +58,17 @@ contributing to the reproducibility of your results.
   run containers.
 
 
+## Workflows
+
+* [Snakemake](https://snakemake.readthedocs.io/en/stable/): a workflow
+  management system that aims to reduce the complexity of creating workflows
+  by providing a readable and expressive syntax in Python style.
+* [Nextflow](https://www.nextflow.io/): a workflow manager that enables the
+  development of portable and reproducible workflows. It comes with a
+  domain-specific language that simplifies the writing of complex
+  computational workflows.
+
+
 ## Documentation
 
 In this session, we will discuss two tools for creating attractive

@@ -26,6 +26,12 @@
   deployment of Python projects.
 
 
+## Configuration files
+
+* [Hydra](https://hydra.cc/): configuration management tool that allows you to
+  compose complex configurations from simple pieces.
+
+
 ## Testing
 
 * [pytest](https://docs.pytest.org/): unit testing framework.
