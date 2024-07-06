@@ -295,3 +295,57 @@ For Python, packages such as [Cython](TODO) and [Numba](TODO) will allow you to
 leverage multiple cores explicitly or implicitly, respectively.
 
 Again, you are referred to specific trainings on this subject.
+
+
+#### GPGPUs
+
+If your compute system is equiped with a graphics card that has compute
+capabilities (certain NVIDIA or AMD GPUs) then this is another level of
+parallelism that can be exploited.
+
+Again, certain libraries will do this for you under the hood, e.g., machine
+learning frameworks such as [TensorFlow](TODO) and [PyTorch](TODO). More
+general frameworks  such as [cupy](TODO) and [Numba](TODO) allow you to offload
+more general computations to the GPU.
+
+For Fortran, C, and C++ OpenACC or OpenMP may be an excellent solutions since
+compilers that implement these standards will generate appropriate code to
+transfer data to and from the GPU device, and run kernels.
+
+For C and C++ vendors of GPUs offer specific programming language extensions
+that work only on the specific hardware.  This is [CUDA](TODO) for NVIDIA GPUs,
+and [HIP](TODO) for AMD hardware.  This is a trade-off between (potentially)
+better performance and vendor lock-in.
+
+Specifically for C++ there are even more options: [Data Parallel C++](TODO)
+(based on SYCL, developed by Intel) and the [Kokkos](TODO) library.
+
+Getting good performance on GPUs is not a trivial task due to data transport
+between host and device memory.  Also, not all types of algorithms map well on
+the hardware architecture of such devices. (TODO: refer to training)
+
+
+#### Using multiple computers
+
+Up to this point, parallelization was limited to the possibilities a single
+system offered, multiple cores and perhaps one or more GPUs.  To further scale
+and use multiple compute nodes more work is required.
+
+Relatively simple option for some tasks exist for Python.  Frameworks like [Dask](TODO)
+or [Ray](TODO) allow you to distributes computations over multiple compute nodes.
+Note that these are not general solutions, but will support certain use cases only.
+If your problem fits one of those use cases, substantial gains can be made without
+too much effort.
+
+For Python, Fortran, C, and C++ Message Passing Interface (MPI) may be an option.
+This is a standard implemented in various libraries such as Intel MPI, Open MPI,
+MVAPICH and others.  Using such a library requires a substantial rewrite of your
+code.  The standard offers great flexibility and the potential for excellent
+parallel performance and scaling to a large number of nodes.
+
+To similarly parallelize code on multiple NVIDIA GPUs on multiple compute nodes,
+[NCCL](TODO) can be used.  Conceptually, it is quite similar to MPI, but messages
+are exchanged between processes running on GPUs, rather than processes on the CPUs.
+
+Finally, [Data Parallel C++](TODO) and [Kokkos](TODO) can also be used from C++ to
+parallelize your code over multiple  nodes. (TODO: check this).
