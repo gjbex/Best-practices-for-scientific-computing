@@ -20,8 +20,8 @@ give you a reference point to compare against.
 
 The benchmark should be chosen so that it is representative of the
 workload you are interested in.  For example, it will likely not be
-useful to measure the performance of a workflow on a small dataset if
-you intend to run it on a large dataset.  The memory usage and the
+useful to measure the performance of a workflow on a small data set if
+you intend to run it on a large data set.  The memory usage and the
 runtime of the workflow will likely be very different, and hence the
 benchmark will not be representative.
 
@@ -75,7 +75,7 @@ equally efficient.  For example, the Intel Math Kernel Library (MKL) is
 sometimes faster than OpenBLAS/LAPACK.
 
 Another example is the use of the Intel MPI library instead of Open MPI.  The
-Intel MPI library is often faster than OpenMPI, especially on Intel processors.
+Intel MPI library is often faster than Open MPI, especially on Intel processors.
 However, you should experiment, since for some codes, Open MPI may be faster.
 
 
@@ -118,20 +118,20 @@ You may think that you know where the bottlenecks are, but you may be surprised
 by the results of a profiler.  It is always a good idea to profile your code
 before you start optimizing it.
 
-To make this concrete, suppose that your intuitiion tells you that you should
+To make this concrete, suppose that your intuition tells you that you should
 improve the performance of a function, and you spend two days working on it, and
 are rewarded by a very impressive improvement by a factor of 10.  This was
 excellent work.  However, if your application spends only 5 % of its time in
 this function, what will be the runtime of the new version of your application
 if that is the only thing you change?
 
-If the total runtime of the orignal application is $t$, it means that its runtime
+If the total runtime of the original application is $t$, it means that its runtime
 after your optimization will be $0.95t + 0.5t/10 = 0.955t$, i.e., you improved
 the overall runtime by less than 5 %.  In some circumstances this may be worth the
 effort you spent, but if you would have profiled your application, you might have
 chosen to spend your time differently.
 
-Remenber that you should profile in representative circumstances, see the section
+Remember that you should profile in representative circumstances, see the section
 on [benchmarking](#benchmarking) for a more thorough discussion.
 
 There are many tools to profile your application, some open source, but commercial.
@@ -142,7 +142,7 @@ TODO: add references to profilers
 
 The choice of the algorithm you use to solve a particular problem, or the data
 structures you use to represent your data can have a profound impact on the
-pformance of your application.
+performance of your application.
 
 To illustrate this, consider a very simple example, sorting a list of numbers.
 There are many algorithms to do this, and all result in the same sorted list.
@@ -156,11 +156,11 @@ bubble sort will take a million comparisons, while quicksort will only require
 3,000, and hence is a factor of 300 faster.
 
 The choice of data structures you make can also have a profound impact on
-perforance.  If the goal of the data structure is to hold, e.g., numbers to
-allow to check whether or not a number occured previously, you can use a list
+performance.  If the goal of the data structure is to hold, e.g., numbers to
+allow to check whether or not a number occurred previously, you can use a list
 or a set.  Checking membership in a list will take $O(N)$ comparisons on
 average, while checking membership of a set only takes $O(1)$ (ideally).  Just
-like the choice of algorhtm in the previous example, this may have an important
+like the choice of algorithm in the previous example, this may have an important
 impact on performance.
 
 This section only draws your attention to the problem, it would be impossible to
@@ -184,7 +184,7 @@ write it in Fortran, C, or C++.  Your time as a researcher is also quite
 valuable, so a short time to solution will be appreciated by the taxpayer.
 
 A good compromise is to implement the performance-critical parts of the
-application in a language scuh as Fortran, C, or C++, and wrap the resulting
+application in a language such as Fortran, C, or C++, and wrap the resulting
 shared libraries so that they can be used from Python or R.  This gives you the
 best of both worlds. TODO: add wrapper tools for Python and R.
 
@@ -192,7 +192,7 @@ Often, the work is already done for you.  Consider the somewhat extreme example
 of machine learning.  Frameworks such as TensorFlow or PyTorch allow you to
 write your code in Python at a high lever, while relying on libraries that were
 developed by HPC specialists under the hood.  The execution time spent in pure
-Python code is completely neglegeable when compared to that spent on
+Python code is completely negligible when compared to that spent on
 computations done by these core libraries.
 
 Again, [profiling](#profiling) is crucial to determine what parts of your
@@ -213,7 +213,7 @@ data structures that uses a BLAS (TODO) or LAPACK (TODO) library under the hood.
 
 These libraries have been developed with vectorization in mind, i.e., multiple
 iterations of the loops required for matrix-vector or matrix-matrix multiplication
-are done in parallel using wide registers.  Depending on the numberical precision
+are done in parallel using wide registers.  Depending on the numerical precision
 (single or double), the compiler flags used, as well as the hardware you compiled
 your code for that may range from 2 to 16.  Since such operations are often at the
 core of your computations, ensuring that you benefit from vectorization may give
@@ -231,3 +231,67 @@ loop iterations are dependent, that dependence is on iterations that are not wit
 the vector length, you can help the compiler by providing the appropriate OpenMP
 SIMD (TODO) directives.  Again, this exceeds the scope of this section and you are
 referred to trainings on this specific topic. (TODO: refer to trainings)
+
+
+### Parallelization
+
+Parallelization comes in many forms at various levels and complexity.
+
+
+#### Embarrassingly parallel
+
+The most obvious and common situation is that you have to run your workflow or
+application on many different data sets, or with a variety of (hyper)parameter
+values.  This form of parallelism is called "embarrassingly parallel" because it
+is very simple to implement.  It is as simple as running your workflow or
+application on as many compute resources as you can get.
+
+The CPU (Central Processing Unit) of a modern laptop has multiple cores, each core
+capable of executing an application independent and in parallel with applications
+running on other cores.  A simple shell script using [parallel](TODO) can help you
+to run such workloads easily on your own system.
+
+On HPC clusters, more specialized tools exist that serve the same purpose, using
+the scheduler to run your workload in parallel.  Some examples of such tools are
+[atools][TODO] and [worker-ng](TODO).
+
+If your use case doesn't match this approach, or individual runs of your workflow
+or application require too much time then other options are available at the price
+of (often) much higher complexity and effort on your part.
+
+
+#### Shared memory programming
+
+As mentioned before, modern CPUs have multiple cores, today ranging for
+typically 4 in your laptop to 128 in HPC compute nodes.  Shared memory
+programming allows your application to utilize (potentially) all of these cores
+to perform computations in parallel, hence speeding up your application.
+
+Again, using the right libraries may give you a free lunch, similar to
+vectorization. Intel MKL and OpenBLAS/LAPACK will execute operations on
+multiple course if you link to the correct implementation.  This is also the
+case for other libraries that use these under the hood. (TODO: add examples).
+The same applies to Python and R packages, e.g., numpy can use a BLAS library
+under the hood to perform matrix operations, hence using multiple cores for the
+computations.
+
+For Fortran, C, and C++, [OpenMP](TODO) is a good option to parallelize your
+code in a shared memory context. Typically, you annotate your source code with
+directives on, e.g., loop constructs to indicate to the compiler that these
+loops should be parallelized. The compiler will generate the appropriate
+instructions for you.  This sounds suspiciously easy, and indeed, it is not so
+simple in practice to obtain good efficiency. 
+
+Specifically for C++ a few more options are available.  Many algorithms in the
+STL (Standard Template Library) can be executed in parallel with minimal
+changes to your source code.  Of course, this is restrictions to those
+algorithms that support it.
+
+An alternative to OpenMP for C++ is TBB (Threading Building Blocks).  This
+library is purely task oriented, with an excellent task scheduler under the
+hood.
+
+For Python, packages such as [Cython](TODO) and [Numba](TODO) will allow you to
+leverage multiple cores explicitly or implicitly, respectively.
+
+Again, you are referred to specific trainings on this subject.
