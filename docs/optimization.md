@@ -169,3 +169,32 @@ yourself with the subject.  Many excellent books have been published on the subj
 covering the most common algorithms, and a lot of articles have been published that
 address very specific algorithms and specialized data structures.
 TODO: add references to books
+
+
+### Programming languages
+
+Holy wars are waged on the subject of programming languages.  Many of the
+discussions royally miss the point completely.
+
+In general compiled languages such as Fortran, C and C++ will produce faster
+applications. However, it is typically also more difficult to write
+applications in such a language then it is in R or Python.  This implies that
+if your application is not performance critical, it would be a waste of time to
+write it in Fortran, C, or C++.  Your time as a researcher is also quite
+valuable, so a short time to solution will be appreciated by the taxpayer.
+
+A good compromise is to implement the performance-critical parts of the
+application in a language scuh as Fortran, C, or C++, and wrap the resulting
+shared libraries so that they can be used from Python or R.  This gives you the
+best of both worlds. TODO: add wrapper tools for Python and R.
+
+Often, the work is already done for you.  Consider the somewhat extreme example
+of machine learning.  Frameworks such as TensorFlow or PyTorch allow you to
+write your code in Python at a high lever, while relying on libraries that were
+developed by HPC specialists under the hood.  The execution time spent in pure
+Python code is completely neglegeable when compared to that spent on
+computations done by these core libraries.
+
+Julia takes a somewhat different approach.  The code you write will under the
+hood be translated to machine code before it is actually executed.  Hence you
+get quite good performance out of the box when using Julia (well).
