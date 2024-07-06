@@ -195,6 +195,39 @@ developed by HPC specialists under the hood.  The execution time spent in pure
 Python code is completely neglegeable when compared to that spent on
 computations done by these core libraries.
 
+Again, [profiling](#profiling) is crucial to determine what parts of your
+application make good candidates for reimplementation in a more performant
+programming language.
+
 Julia takes a somewhat different approach.  The code you write will under the
 hood be translated to machine code before it is actually executed.  Hence you
 get quite good performance out of the box when using Julia (well).
+
+
+### Vectorization
+
+In scientific computing, core computations often consists of loops over arrays.
+If these loops implement matrix-vector or matrix-matrix operations, it is likely
+not a good idea to write such code.  Consider using a library to represent these
+data structures that uses a BLAS (TODO) or LAPACK (TODO) library under the hood.
+
+These libraries have been developed with vectorization in mind, i.e., multiple
+iterations of the loops required for matrix-vector or matrix-matrix multiplication
+are done in parallel using wide registers.  Depending on the numberical precision
+(single or double), the compiler flags used, as well as the hardware you compiled
+your code for that may range from 2 to 16.  Since such operations are often at the
+core of your computations, ensuring that you benefit from vectorization may give
+you a significant performance benefit.
+
+In your own code, the compiler can often automatically apply vectorization on
+your own loops, given that it can prove that the iterations are independent of one
+another.  To ensure that the compiler will attempt this, you would have to use the
+appropriate compiler flags.
+TODO: add compiler flags for vectorization
+
+Sometimes the compiler can not prove that vectorization is possible, i.e., that
+the iterations are independent.  If you as a programmer knows for sure that although
+loop iterations are dependent, that dependence is on iterations that are not within
+the vector length, you can help the compiler by providing the appropriate OpenMP
+SIMD (TODO) directives.  Again, this exceeds the scope of this section and you are
+referred to trainings on this specific topic. (TODO: refer to trainings)
