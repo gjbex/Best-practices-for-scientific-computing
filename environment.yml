@@ -3,4 +3,5 @@ channels:
   - conda-forge
 dependencies:
   - mkdocs
+  - pymdown-extensions
 prefix: /home/gjb/mambaforge/envs/mkdocs
