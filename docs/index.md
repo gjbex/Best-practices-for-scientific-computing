@@ -28,7 +28,7 @@ Programming languages covered:
   1. [Code style and conventions](code_style.md)
   1. [Version control & collaboration](version_control.md)
   1. [Code documentation](documentation.md)
-  1. Testing
+  1. [Testing](testing/testing.md)
      * [Testing as experiments](testing/testing_as_experiments.md)
      * [Unit testing](testing/unit_testing.md)
      * [Functional testing](testing/functional_testing.md)
@@ -38,3 +38,9 @@ Programming languages covered:
   1. [Continuous integration](continuous_integration.md)
   1. [Reproducibility](reproducibility.md)
   1. [References](references.md)
+  1. [Tools](tools/index.md)
+     * [C](tools/C.md)
+     * [C++](tools/C-plus-plus.md)
+     * [Fortran](tools/Fortran.md)
+     * [Python](tools/Python.md)
+     * [R](tools/R.md)
