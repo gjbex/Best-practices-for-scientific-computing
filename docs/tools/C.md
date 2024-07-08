@@ -34,7 +34,7 @@
 
 ## Profiling
 
-  * [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.htmlhttps://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)
+  * [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)
     is a free profiler.
   * [Intel
     VTune](https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html)
