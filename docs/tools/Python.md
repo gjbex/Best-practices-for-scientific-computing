@@ -39,6 +39,18 @@
   Python, it also allows for fuzz testing.
 
 
+## Profiling
+
+* [CProfile](https://docs.python.org/3/library/profile.html) is a profiler that
+  is part of Python's standard library.
+* [snakeviz](https://jiffyclub.github.io/snakeviz/) is a viewer for cProfile
+  output.
+* [line_profiler](https://github.com/pyutils/line_profiler) is a line-by-line
+  profiler.
+* [memory_profiler](https://pypi.org/project/memory-profiler/) is a memory
+  profiler, it allows how much memory is used line-by-line in your code.
+
+
 ## Build tools
 
 * [Poetry](https://python-poetry.org/): environment management, build and
