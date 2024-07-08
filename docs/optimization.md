@@ -249,14 +249,16 @@ values.  This form of parallelism is called "embarrassingly parallel" because it
 is very simple to implement.  It is as simple as running your workflow or
 application on as many compute resources as you can get.
 
-The CPU (Central Processing Unit) of a modern laptop has multiple cores, each core
-capable of executing an application independent and in parallel with applications
-running on other cores.  A simple shell script using [parallel](TODO) can help you
-to run such workloads easily on your own system.
+The CPU (Central Processing Unit) of a modern laptop has multiple cores, each
+core capable of executing an application independent and in parallel with
+applications running on other cores.  A simple shell script using [GNU
+parallel](https://www.gnu.org/software/parallel/) can help you to run such
+workloads easily on your own system.
 
-On HPC clusters, more specialized tools exist that serve the same purpose, using
-the scheduler to run your workload in parallel.  Some examples of such tools are
-[atools][TODO] and [worker-ng](TODO).
+On HPC clusters, more specialized tools exist that serve the same purpose,
+using the scheduler to run your workload in parallel.  Some examples of such
+tools are [atools](https://atools.readthedocs.io/en/latest/) and
+[worker-ng](https://github.com/gjbex/worker-ng).
 
 If your use case doesn't match this approach, or individual runs of your workflow
 or application require too much time then other options are available at the price
@@ -273,17 +275,18 @@ to perform computations in parallel, hence speeding up your application.
 Again, using the right libraries may give you a free lunch, similar to
 vectorization. Intel MKL and OpenBLAS/LAPACK will execute operations on
 multiple course if you link to the correct implementation.  This is also the
-case for other libraries that use these under the hood. (TODO: add examples).
-The same applies to Python and R packages, e.g., numpy can use a BLAS library
-under the hood to perform matrix operations, hence using multiple cores for the
-computations.
+case for other libraries that use these under the hood.  For example, the
+[Armadillo](https://arma.sourceforge.net/) C++ library will use BLAS and LAPACK
+libraries if available. The same applies to Python and R packages, e.g., numpy
+can use a BLAS library under the hood to perform matrix operations, hence using
+multiple cores for the computations.
 
-For Fortran, C, and C++, [OpenMP](TODO) is a good option to parallelize your
-code in a shared memory context. Typically, you annotate your source code with
-directives on, e.g., loop constructs to indicate to the compiler that these
-loops should be parallelized. The compiler will generate the appropriate
-instructions for you.  This sounds suspiciously easy, and indeed, it is not so
-simple in practice to obtain good efficiency. 
+For Fortran, C, and C++, [OpenMP](https://openmp.org/) is a good option to
+parallelize your code in a shared memory context. Typically, you annotate your
+source code with directives on, e.g., loop constructs to indicate to the
+compiler that these loops should be parallelized. The compiler will generate
+the appropriate instructions for you.  This sounds suspiciously easy, and
+indeed, it is not so simple in practice to obtain good efficiency.
 
 Specifically for C++ a few more options are available.  Many algorithms in the
 STL (Standard Template Library) can be executed in parallel with minimal
@@ -294,8 +297,9 @@ An alternative to OpenMP for C++ is TBB (Threading Building Blocks).  This
 library is purely task oriented, with an excellent task scheduler under the
 hood.
 
-For Python, packages such as [Cython](TODO) and [Numba](TODO) will allow you to
-leverage multiple cores explicitly or implicitly, respectively.
+For Python, packages such as [Cython](https://cython.org/) and
+[Numba](https://numba.pydata.org/) will allow you to leverage multiple cores
+explicitly or implicitly, respectively.
 
 Again, you are referred to specific trainings on this subject.
 
@@ -307,25 +311,30 @@ capabilities (certain NVIDIA or AMD GPUs) then this is another level of
 parallelism that can be exploited.
 
 Again, certain libraries will do this for you under the hood, e.g., machine
-learning frameworks such as [TensorFlow](TODO) and [PyTorch](TODO). More
-general frameworks  such as [cupy](TODO) and [Numba](TODO) allow you to offload
-more general computations to the GPU.
+learning frameworks such as [TensorFlow](https://www.tensorflow.org/) and
+[PyTorch](https://pytorch.org/). More general frameworks  such as
+[cupy](https://cupy.dev/) and [Numba](https://numba.pydata.org/) allow you to
+offload more general computations to the GPU.
 
 For Fortran, C, and C++ OpenACC or OpenMP may be an excellent solutions since
 compilers that implement these standards will generate appropriate code to
 transfer data to and from the GPU device, and run kernels.
 
 For C and C++ vendors of GPUs offer specific programming language extensions
-that work only on the specific hardware.  This is [CUDA](TODO) for NVIDIA GPUs,
-and [HIP](TODO) for AMD hardware.  This is a trade-off between (potentially)
-better performance and vendor lock-in.
+that work only on the specific hardware.  This is
+[CUDA](https://developer.nvidia.com/cuda-zone) for NVIDIA GPUs, and
+[HIP](https://rocm.docs.amd.com/projects/HIP/en/latest/) for AMD hardware.
+This is a trade-off between (potentially) better performance and vendor
+lock-in.
 
-Specifically for C++ there are even more options: [Data Parallel C++](TODO)
-(based on SYCL, developed by Intel) and the [Kokkos](TODO) library.
+Specifically for C++ there are even more options: [Data Parallel
+C++](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html)
+(based on SYCL, developed by Intel) and the
+[Kokkos](https://github.com/kokkos/kokkos) library.
 
 Getting good performance on GPUs is not a trivial task due to data transport
 between host and device memory.  Also, not all types of algorithms map well on
-the hardware architecture of such devices. (TODO: refer to training)
+the hardware architecture of such devices.
 
 
 #### Using multiple computers
@@ -334,11 +343,13 @@ Up to this point, parallelization was limited to the possibilities a single
 system offered, multiple cores and perhaps one or more GPUs.  To further scale
 and use multiple compute nodes more work is required.
 
-Relatively simple option for some tasks exist for Python.  Frameworks like [Dask](TODO)
-or [Ray](TODO) allow you to distributes computations over multiple compute nodes.
-Note that these are not general solutions, but will support certain use cases only.
-If your problem fits one of those use cases, substantial gains can be made without
-too much effort.
+Relatively simple option for some tasks exist for Python.  Frameworks like
+[Dask](https://www.dask.org/) or
+[PySpark](https://spark.apache.org/docs/latest/api/python/) allow you to
+distributes computations over multiple compute nodes. Note that these are not
+general solutions, but will support certain use cases only. If your problem
+fits one of those use cases, substantial gains can be made without too much
+effort.
 
 For Python, Fortran, C, and C++ Message Passing Interface (MPI) may be an option.
 This is a standard implemented in various libraries such as Intel MPI, Open MPI,
@@ -346,9 +357,12 @@ MVAPICH and others.  Using such a library requires a substantial rewrite of your
 code.  The standard offers great flexibility and the potential for excellent
 parallel performance and scaling to a large number of nodes.
 
-To similarly parallelize code on multiple NVIDIA GPUs on multiple compute nodes,
-[NCCL](TODO) can be used.  Conceptually, it is quite similar to MPI, but messages
-are exchanged between processes running on GPUs, rather than processes on the CPUs.
+To similarly parallelize code on multiple NVIDIA GPUs on multiple compute
+nodes, [NCCL](https://developer.nvidia.com/nccl) can be used.  Conceptually, it
+is quite similar to MPI, but messages are exchanged between processes running
+on GPUs, rather than processes on the CPUs.
 
-Finally, [Data Parallel C++](TODO) and [Kokkos](TODO) can also be used from C++ to
-parallelize your code over multiple  nodes. (TODO: check this).
+Finally, [Data Parallel
+C++](https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html)
+and [Kokkos](https://kokkos.org/about/abstract/) can also be used from C++ to
+parallelize your code over multiple  nodes using MPI.
