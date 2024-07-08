@@ -39,6 +39,25 @@ but others can be used for multiple languages, or even workflows.
   with the correct dependencies and compiler options.
 
 
+## Libraries
+
+Libraries are collections of code that can be used to perform specific tasks.
+The libraries listed here are useful in the context of scientific computing.
+They are available in multiple programming languages via bindings, or used
+under the hood by language-specific libraries.
+
+*  [BLAS](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms):
+   Basic Linear Algebra Subprograms, a library that provides standard
+   building blocks for performing linear algebra operations.
+*  [LAPACK](https://en.wikipedia.org/wiki/LAPACK): Linear Algebra PACKage, a library
+    that provides routines for solving systems of linear equations, linear
+    least squares problems, eigenvalue problems, and singular value
+    decomposition.
+*  [FFTW](http://www.fftw.org/): Fastest Fourier Transform in the West, a
+    library that provides routines for computing the Discrete Fourier
+    Transform (DFT) and its inverse.
+
+
 ## Containers
 
 Containers are a way to package your code and its dependencies in a way that
