@@ -81,3 +81,12 @@ Some references that are more specific to scientific software development.
 ## Development ecosystem
 
   * [The state of the development ecosystem in 2023](https://www.jetbrains.com/lp/devecosystem-2023/)
+
+
+## Algorithms and data structures
+
+  * Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein,
+    *"Introduction to algorithms"*, MIT Press, 2009 (3rd edition)
+    * Robert Sedgewick and Kevin Wayne, *"Algorithms"*, Addison-Wesley, 2011 (4th
+        edition)
+    * [Awesome algorithms](https://github.com/tayllan/awesome-algorithms)
