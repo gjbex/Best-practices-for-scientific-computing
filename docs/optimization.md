@@ -43,7 +43,7 @@ the section on [reproducibility](reproducibility.md).
 Having tests in place is vital before starting to optimize your workflow or
 application.  You will want to make sure that everything still works after you
 make changes. You will find more information on this topic in the section
-on [testing](testing.md).
+on [testing](testing/index.md).
 
 
 ## Software stack
@@ -134,8 +134,9 @@ chosen to spend your time differently.
 Remember that you should profile in representative circumstances, see the section
 on [benchmarking](#benchmarking) for a more thorough discussion.
 
-There are many tools to profile your application, some open source, but commercial.
-TODO: add references to profilers
+There are many tools to profile your application, some open source, but
+commercial as well.  Some tools can profile parallel applications.  See the
+[tools section](tools/index.md) for more information.
 
 
 ### Algorithms and data structures
