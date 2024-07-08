@@ -169,7 +169,6 @@ go into more detail, but it is a very good investment of your time to familiariz
 yourself with the subject.  Many excellent books have been published on the subject,
 covering the most common algorithms, and a lot of articles have been published that
 address very specific algorithms and specialized data structures.
-TODO: add references to books
 
 
 ### Programming languages
@@ -187,7 +186,7 @@ valuable, so a short time to solution will be appreciated by the taxpayer.
 A good compromise is to implement the performance-critical parts of the
 application in a language such as Fortran, C, or C++, and wrap the resulting
 shared libraries so that they can be used from Python or R.  This gives you the
-best of both worlds. TODO: add wrapper tools for Python and R.
+best of both worlds.
 
 Often, the work is already done for you.  Consider the somewhat extreme example
 of machine learning.  Frameworks such as TensorFlow or PyTorch allow you to
