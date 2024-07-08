@@ -10,6 +10,7 @@ nav:
     - Version control: 'version_control.md'
     - Documentation: 'documentation.md'
     - Testing:
+      - Overview: 'testing/index.md'
       - Testing as experiments: 'testing/testing_as_experiments.md'
       - Unit testing: 'testing/unit_testing.md'
       - Functional testing: 'testing/functional_testing.md'
@@ -20,6 +21,7 @@ nav:
     - Reproducibility: 'reproducibility.md'
     - References: 'references.md'
   - Tools:
+    - Overview: 'tools/index.md'
     - General tools: 'tools/general.md'
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'
@@ -27,6 +29,7 @@ nav:
     - Python: 'tools/Python.md'
     - R: 'tools/R.md'
   - About: 'about.md'
+  - License: 'license.md'
 theme:
   name: mkdocs
   highlightjs: true
