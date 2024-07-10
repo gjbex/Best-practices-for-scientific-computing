@@ -2,6 +2,7 @@ site_name: Best practices in scientific software development
 site_url: https://somewhere.com/
 repo_url: https://github.com/
 site_author: Geert Jan Bex
+
 nav:
   - Home: 'index.md'
   - Topics:
@@ -28,8 +29,10 @@ nav:
     - Fortran: 'tools/Fortran.md'
     - Python: 'tools/Python.md'
     - R: 'tools/R.md'
+  - Training: 'training.md'
   - About: 'about.md'
   - License: 'license.md'
+
 theme:
   name: mkdocs
   highlightjs: true
@@ -40,6 +43,7 @@ theme:
     - python
     - r
     - bash
+
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true

@@ -44,3 +44,4 @@ Programming languages covered:
      * [Fortran](tools/Fortran.md)
      * [Python](tools/Python.md)
      * [R](tools/R.md)
+  1. [Training](training.md)
