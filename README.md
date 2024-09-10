@@ -28,6 +28,8 @@ The material is available as a
 1. Deployment
 1. Continuous integration
 1. Reproducibility
+1. Tools
+1. Training
 
 
 ## Programming languages covered

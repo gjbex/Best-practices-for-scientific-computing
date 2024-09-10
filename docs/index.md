@@ -1,9 +1,8 @@
-# Best practices in programming
+# Best practices for scientific computing
 
 [![DOI](https://zenodo.org/badge/745445839.svg)](https://zenodo.org/doi/10.5281/zenodo.10665372)
 
-Material for a training on best practices for programming and software
-development.
+Material for a training on best practices for scientific computing.
 
 
 ## Programming languages
@@ -44,3 +43,4 @@ Programming languages covered:
      * [Fortran](tools/Fortran.md)
      * [Python](tools/Python.md)
      * [R](tools/R.md)
+  1. [Training](training.md)
