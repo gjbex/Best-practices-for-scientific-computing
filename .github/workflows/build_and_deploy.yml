@@ -20,4 +20,4 @@ jobs:
       - name: Check links
         uses: filiph/linkcheck@2.0.23
         with:
-          arguments: --external --skip-file linkcheck_skip_file.txt --connection-failures-as-warnings https://gjbex.github.io/Best-practices-in-programming/
+          arguments: --external --skip-file linkcheck_skip_file.txt --connection-failures-as-warnings https://gjbex.github.io/Best-practices-for-scientific-computing/
