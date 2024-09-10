@@ -1,0 +1,1527 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Geert Jan Bex">
+      
+      
+        <link rel="canonical" href="https://somewhere.com/optimization/">
+      
+      
+        <link rel="prev" href="../testing/code_coverage/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Optimization - Best practices in scientific software development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#optimization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Best practices in scientific software development" class="md-header__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Best practices in scientific software development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Optimization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Best practices in scientific software development" class="md-nav__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Best practices in scientific software development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntax_vs_semantics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax vs. semantics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/testing_as_experiments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing as experiments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/unit_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/functional_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/code_coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmarking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your own code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your own code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilers-and-their-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilers and their flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithms-and-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithms and data structures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming languages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vectorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vectorization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallelization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parallelization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embarrassingly-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embarrassingly parallel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-memory-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared memory programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpgpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPGPUs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-multiple-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using multiple computers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reproducibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reproducibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C-plus-plus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Fortran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fortran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benchmarking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Your own code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your own code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compilers-and-their-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilers and their flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorithms-and-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithms and data structures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming languages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vectorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vectorization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallelization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parallelization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embarrassingly-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embarrassingly parallel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-memory-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shared memory programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpgpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPGPUs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-multiple-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using multiple computers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="optimization">Optimization</h1>
+<p>In scientific computing, we potentially care a lot about the performance
+of our workflows or applications.  We want to study larger systems, more
+complex models, or consider more variations of our problem.  This often
+means we need to optimize our code to run faster, use less memory, or
+scale to more processors.</p>
+<p>In this section, a few general strategies for optimization are discussed.
+It is not really possible to go into the details since optimization is
+often very problem specific.</p>
+<h2 id="benchmarking">Benchmarking</h2>
+<p>Before you start optimizing your workflow or application, you should
+establish a baseline.  This means you should measure the performance
+of the current version of your workflow or application.  This will
+give you a reference point to compare against.</p>
+<p>The benchmark should be chosen so that it is representative of the
+workload you are interested in.  For example, it will likely not be
+useful to measure the performance of a workflow on a small data set if
+you intend to run it on a large data set.  The memory usage and the
+runtime of the workflow will likely be very different, and hence the
+benchmark will not be representative.</p>
+<p>You should also make sure that you can run the benchmark easily and
+consistently.  This means that you should automate the benchmarking
+process as much as possible.  This will allow you to run the benchmark
+often and to compare the results.</p>
+<p>You should also make sure that you can reproduce the benchmark.  This
+means that you should document the benchmark and the environment in
+which it was run.  This will allow you to compare the results of the
+benchmark over time and to compare the results of the benchmark on
+different systems.  You will find more information on this topic in
+the section on <a href="../reproducibility/">reproducibility</a>.</p>
+<h2 id="testing">Testing</h2>
+<p>Having tests in place is vital before starting to optimize your workflow or
+application.  You will want to make sure that everything still works after you
+make changes. You will find more information on this topic in the section
+on <a href="../testing/">testing</a>.</p>
+<h2 id="software-stack">Software stack</h2>
+<p>If you are using third party software, make sure you are using the
+version that is optimized for your system.  This means that the software
+is compiled with the right compiler, with the right flags, and with the
+right libraries.</p>
+<p>Some software environments such as R will always build additional R packages
+from source.  If you use a version of R built specifically for your system,
+the packages will also be built for your system.  This can make a big
+difference in performance.</p>
+<p>For Python, you can use the Intel distribution of Python which is optimized
+for Intel processors.  Intel also provides optimized versions of numpy,
+scipy, and many machine learning-related packages.</p>
+<p>When installing software from source, make sure to use the right compiler and
+the right flags.  This can make a big difference in performance.  See the section
+on <a href="#compilers-and-their-flags">compilers and their flags</a> for more information.</p>
+<p>If you work on an HPC system, it is very likely that the software stack provided
+by the module system is already optimized for the system.  Make sure to use
+the modules if you can.</p>
+<p>Even if several libraries offer the same functionality, they may not be
+equally efficient.  For example, the Intel Math Kernel Library (MKL) is
+sometimes faster than OpenBLAS/LAPACK.</p>
+<p>Another example is the use of the Intel MPI library instead of Open MPI.  The
+Intel MPI library is often faster than Open MPI, especially on Intel processors.
+However, you should experiment, since for some codes, Open MPI may be faster.</p>
+<h2 id="your-own-code">Your own code</h2>
+<p>If the bulk of the time your workflow takes is spent in your own code, you
+you should consider optimizing your code.  This can be done in many ways, use</p>
+<ul>
+<li>a faster compiler and compiler flags to optimize your code;</li>
+<li>a profiler to identify bottlenecks in your code;</li>
+<li>a faster algorithm and/or a more efficient data structure;</li>
+<li>a faster language;</li>
+<li>vectorization to speed up your code;</li>
+<li>parallelism to speed up your code.</li>
+</ul>
+<h3 id="compilers-and-their-flags">Compilers and their flags</h3>
+<p>For Fortran, C and C++, make sure you are using the right compiler and the
+right flags.  For example, the Intel compiler can often generate faster code
+than the GNU compiler.  However, you should experiment, since for some codes,
+the GNU compiler may generate faster code.</p>
+<p>Make sure to compile with optimization flags such as <code>-O3</code> and <code>-xHost</code> (Intel)
+or <code>-march=native</code> (GNU).  Many other compiler flag influence performance, but
+that is outside the scope of this section.</p>
+<p>When using CMake, make sure to set the build type to <code>Release</code> to enable
+optimizations, i.e., <code>cmake -DCMAKE_BUILD_TYPE=Release ..</code>. CMake will then
+pass the appropriate flags to the compiler(s).</p>
+<h3 id="profiling">Profiling</h3>
+<p>Your first priority is to identify the bottlenecks in your code.  This can be
+done with a profiler.  A profiler will tell you where your code spends most of
+its time.  You can then focus on optimizing these parts of your code.</p>
+<p>You may think that you know where the bottlenecks are, but you may be surprised
+by the results of a profiler.  It is always a good idea to profile your code
+before you start optimizing it.</p>
+<p>To make this concrete, suppose that your intuition tells you that you should
+improve the performance of a function, and you spend two days working on it, and
+are rewarded by a very impressive improvement by a factor of 10.  This was
+excellent work.  However, if your application spends only 5 % of its time in
+this function, what will be the runtime of the new version of your application
+if that is the only thing you change?</p>
+<p>If the total runtime of the original application is <span class="arithmatex">\(t\)</span>, it means that its runtime
+after your optimization will be <span class="arithmatex">\(0.95t + 0.5t/10 = 0.955t\)</span>, i.e., you improved
+the overall runtime by less than 5 %.  In some circumstances this may be worth the
+effort you spent, but if you would have profiled your application, you might have
+chosen to spend your time differently.</p>
+<p>Remember that you should profile in representative circumstances, see the section
+on <a href="#benchmarking">benchmarking</a> for a more thorough discussion.</p>
+<p>There are many tools to profile your application, some open source, but
+commercial as well.  Some tools can profile parallel applications.  See the
+<a href="../tools/">tools section</a> for more information.</p>
+<h3 id="algorithms-and-data-structures">Algorithms and data structures</h3>
+<p>The choice of the algorithm you use to solve a particular problem, or the data
+structures you use to represent your data can have a profound impact on the
+performance of your application.</p>
+<p>To illustrate this, consider a very simple example, sorting a list of numbers.
+There are many algorithms to do this, and all result in the same sorted list.
+However, the choice of the algorithm will depend on the length of the list.  A
+very simple algorithm is bubble sort which on average implies <span class="arithmatex">\(O(N^2)\)</span>
+comparison operations where <span class="arithmatex">\(N\)</span> is the length of the list.  However, the
+quicksort algorithm that is a bit more sophisticated will on average only have
+to perform <span class="arithmatex">\(O(N \log N)\)</span> comparisons.  For long lists, this makes a huge
+difference.  For example, if the list has a 1,000 elements (<span class="arithmatex">\(N = 1000\)</span>), then
+bubble sort will take a million comparisons, while quicksort will only require
+3,000, and hence is a factor of 300 faster.</p>
+<p>The choice of data structures you make can also have a profound impact on
+performance.  If the goal of the data structure is to hold, e.g., numbers to
+allow to check whether or not a number occurred previously, you can use a list
+or a set.  Checking membership in a list will take <span class="arithmatex">\(O(N)\)</span> comparisons on
+average, while checking membership of a set only takes <span class="arithmatex">\(O(1)\)</span> (ideally).  Just
+like the choice of algorithm in the previous example, this may have an important
+impact on performance.</p>
+<p>This section only draws your attention to the problem, it would be impossible to
+go into more detail, but it is a very good investment of your time to familiarize
+yourself with the subject.  Many excellent books have been published on the subject,
+covering the most common algorithms, and a lot of articles have been published that
+address very specific algorithms and specialized data structures.</p>
+<h3 id="programming-languages">Programming languages</h3>
+<p>Holy wars are waged on the subject of programming languages.  Many of the
+discussions royally miss the point completely.</p>
+<p>In general compiled languages such as Fortran, C and C++ will produce faster
+applications. However, it is typically also more difficult to write
+applications in such a language then it is in R or Python.  This implies that
+if your application is not performance critical, it would be a waste of time to
+write it in Fortran, C, or C++.  Your time as a researcher is also quite
+valuable, so a short time to solution will be appreciated by the taxpayer.</p>
+<p>A good compromise is to implement the performance-critical parts of the
+application in a language such as Fortran, C, or C++, and wrap the resulting
+shared libraries so that they can be used from Python or R.  This gives you the
+best of both worlds.</p>
+<p>Often, the work is already done for you.  Consider the somewhat extreme example
+of machine learning.  Frameworks such as TensorFlow or PyTorch allow you to
+write your code in Python at a high lever, while relying on libraries that were
+developed by HPC specialists under the hood.  The execution time spent in pure
+Python code is completely negligible when compared to that spent on
+computations done by these core libraries.</p>
+<p>Again, <a href="#profiling">profiling</a> is crucial to determine what parts of your
+application make good candidates for reimplementation in a more performant
+programming language.</p>
+<p>Julia takes a somewhat different approach.  The code you write will under the
+hood be translated to machine code before it is actually executed.  Hence you
+get quite good performance out of the box when using Julia (well).</p>
+<h3 id="vectorization">Vectorization</h3>
+<p>In scientific computing, core computations often consists of loops over arrays.
+If these loops implement matrix-vector or matrix-matrix operations, it is
+likely not a good idea to write such code.  Consider using a library to
+represent these data structures that uses a BLAS (Basic Linear Algebra
+Subprograms) or LAPACK (Linear Algebra PACKage) library under the hood.</p>
+<p>These libraries have been developed with vectorization in mind, i.e., multiple
+iterations of the loops required for matrix-vector or matrix-matrix multiplication
+are done in parallel using wide registers.  Depending on the numerical precision
+(single or double), the compiler flags used, as well as the hardware you compiled
+your code for that may range from 2 to 16.  Since such operations are often at the
+core of your computations, ensuring that you benefit from vectorization may give
+you a significant performance benefit.</p>
+<p>In your own code, the compiler can often automatically apply vectorization on
+your own loops, given that it can prove that the iterations are independent of one
+another.  To ensure that the compiler will attempt this, you would have to use the
+appropriate compiler flags.  For the GNU compiler, this would be <code>-ftree-vectorize</code>,
+and <code>-ftree-vectorizer-verbose=2</code> to see what the compiler did.  For the Intel
+compiler, this would be <code>-qopt-report=2</code> to see what the compiler did.</p>
+<p>Sometimes the compiler can not prove that vectorization is possible, i.e., that
+the iterations are independent.  If you as a programmer knows for sure that
+although loop iterations are dependent, that dependence is on iterations that
+are not within the vector length, you can help the compiler by providing the
+appropriate OpenMP SIMD (Single Instruction, Multiple Data) directives.  Again,
+this exceeds the scope of this section and you are referred to trainings on
+this specific topic.</p>
+<h3 id="parallelization">Parallelization</h3>
+<p>Parallelization comes in many forms at various levels and complexity.</p>
+<h4 id="embarrassingly-parallel">Embarrassingly parallel</h4>
+<p>The most obvious and common situation is that you have to run your workflow or
+application on many different data sets, or with a variety of (hyper)parameter
+values.  This form of parallelism is called "embarrassingly parallel" because it
+is very simple to implement.  It is as simple as running your workflow or
+application on as many compute resources as you can get.</p>
+<p>The CPU (Central Processing Unit) of a modern laptop has multiple cores, each
+core capable of executing an application independent and in parallel with
+applications running on other cores.  A simple shell script using <a href="https://www.gnu.org/software/parallel/">GNU
+parallel</a> can help you to run such
+workloads easily on your own system.</p>
+<p>On HPC clusters, more specialized tools exist that serve the same purpose,
+using the scheduler to run your workload in parallel.  Some examples of such
+tools are <a href="https://atools.readthedocs.io/en/latest/">atools</a> and
+<a href="https://github.com/gjbex/worker-ng">worker-ng</a>.</p>
+<p>If your use case doesn't match this approach, or individual runs of your workflow
+or application require too much time then other options are available at the price
+of (often) much higher complexity and effort on your part.</p>
+<h4 id="shared-memory-programming">Shared memory programming</h4>
+<p>As mentioned before, modern CPUs have multiple cores, today ranging for
+typically 4 in your laptop to 128 in HPC compute nodes.  Shared memory
+programming allows your application to utilize (potentially) all of these cores
+to perform computations in parallel, hence speeding up your application.</p>
+<p>Again, using the right libraries may give you a free lunch, similar to
+vectorization. Intel MKL and OpenBLAS/LAPACK will execute operations on
+multiple course if you link to the correct implementation.  This is also the
+case for other libraries that use these under the hood.  For example, the
+<a href="https://arma.sourceforge.net/">Armadillo</a> C++ library will use BLAS and LAPACK
+libraries if available. The same applies to Python and R packages, e.g., numpy
+can use a BLAS library under the hood to perform matrix operations, hence using
+multiple cores for the computations.</p>
+<p>For Fortran, C, and C++, <a href="https://openmp.org/">OpenMP</a> is a good option to
+parallelize your code in a shared memory context. Typically, you annotate your
+source code with directives on, e.g., loop constructs to indicate to the
+compiler that these loops should be parallelized. The compiler will generate
+the appropriate instructions for you.  This sounds suspiciously easy, and
+indeed, it is not so simple in practice to obtain good efficiency.</p>
+<p>Specifically for C++ a few more options are available.  Many algorithms in the
+STL (Standard Template Library) can be executed in parallel with minimal
+changes to your source code.  Of course, this is restrictions to those
+algorithms that support it.</p>
+<p>An alternative to OpenMP for C++ is TBB (Threading Building Blocks).  This
+library is purely task oriented, with an excellent task scheduler under the
+hood.</p>
+<p>For Python, packages such as <a href="https://cython.org/">Cython</a> and
+<a href="https://numba.pydata.org/">Numba</a> will allow you to leverage multiple cores
+explicitly or implicitly, respectively.</p>
+<p>Again, you are referred to specific trainings on this subject.</p>
+<h4 id="gpgpus">GPGPUs</h4>
+<p>If your compute system is equiped with a graphics card that has compute
+capabilities (certain NVIDIA or AMD GPUs) then this is another level of
+parallelism that can be exploited.</p>
+<p>Again, certain libraries will do this for you under the hood, e.g., machine
+learning frameworks such as <a href="https://www.tensorflow.org/">TensorFlow</a> and
+<a href="https://pytorch.org/">PyTorch</a>. More general frameworks  such as
+<a href="https://cupy.dev/">cupy</a> and <a href="https://numba.pydata.org/">Numba</a> allow you to
+offload more general computations to the GPU.</p>
+<p>For Fortran, C, and C++ OpenACC or OpenMP may be an excellent solutions since
+compilers that implement these standards will generate appropriate code to
+transfer data to and from the GPU device, and run kernels.</p>
+<p>For C and C++ vendors of GPUs offer specific programming language extensions
+that work only on the specific hardware.  This is
+<a href="https://developer.nvidia.com/cuda-zone">CUDA</a> for NVIDIA GPUs, and
+<a href="https://rocm.docs.amd.com/projects/HIP/en/latest/">HIP</a> for AMD hardware.
+This is a trade-off between (potentially) better performance and vendor
+lock-in.</p>
+<p>Specifically for C++ there are even more options: <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html">Data Parallel
+C++</a>
+(based on SYCL, developed by Intel) and the
+<a href="https://github.com/kokkos/kokkos">Kokkos</a> library.</p>
+<p>Getting good performance on GPUs is not a trivial task due to data transport
+between host and device memory.  Also, not all types of algorithms map well on
+the hardware architecture of such devices.</p>
+<h4 id="using-multiple-computers">Using multiple computers</h4>
+<p>Up to this point, parallelization was limited to the possibilities a single
+system offered, multiple cores and perhaps one or more GPUs.  To further scale
+and use multiple compute nodes more work is required.</p>
+<p>Relatively simple option for some tasks exist for Python.  Frameworks like
+<a href="https://www.dask.org/">Dask</a> or
+<a href="https://spark.apache.org/docs/latest/api/python/">PySpark</a> allow you to
+distributes computations over multiple compute nodes. Note that these are not
+general solutions, but will support certain use cases only. If your problem
+fits one of those use cases, substantial gains can be made without too much
+effort.</p>
+<p>For Python, Fortran, C, and C++ Message Passing Interface (MPI) may be an option.
+This is a standard implemented in various libraries such as Intel MPI, Open MPI,
+MVAPICH and others.  Using such a library requires a substantial rewrite of your
+code.  The standard offers great flexibility and the potential for excellent
+parallel performance and scaling to a large number of nodes.</p>
+<p>To similarly parallelize code on multiple NVIDIA GPUs on multiple compute
+nodes, <a href="https://developer.nvidia.com/nccl">NCCL</a> can be used.  Conceptually, it
+is quite similar to MPI, but messages are exchanged between processes running
+on GPUs, rather than processes on the CPUs.</p>
+<p>Finally, <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/data-parallel-c-plus-plus.html">Data Parallel
+C++</a>
+and <a href="https://kokkos.org/about/abstract/">Kokkos</a> can also be used from C++ to
+parallelize your code over multiple  nodes using MPI.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>

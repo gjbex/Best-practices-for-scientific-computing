@@ -1,0 +1,1880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Geert Jan Bex">
+      
+      
+        <link rel="canonical" href="https://somewhere.com/code_style/">
+      
+      
+        <link rel="prev" href="../syntax_vs_semantics/">
+      
+      
+        <link rel="next" href="../version_control/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Code style - Best practices in scientific software development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#code-style" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Best practices in scientific software development" class="md-header__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Best practices in scientific software development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Code style
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Best practices in scientific software development" class="md-nav__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Best practices in scientific software development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntax_vs_semantics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax vs. semantics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format-your-code-nicely" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format your code nicely
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-language-idioms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use language idioms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-descriptive-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose descriptive names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-it-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep it simple
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limit scope
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Limit scope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multithreading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces-and-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Namespaces and imports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#be-explicit-about-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be explicit about constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-comment-or-not-to-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      To comment or not to comment?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stick-to-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stick to the standard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-latest-and-greatest" class="md-nav__link">
+    <span class="md-ellipsis">
+      The latest and greatest?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copypaste-is-evil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copy/paste is evil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reuse your code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-invented-here-syndrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Not invented here" syndrome
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-the-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow the pattern
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/testing_as_experiments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing as experiments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/unit_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/functional_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/code_coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reproducibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reproducibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C-plus-plus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Fortran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fortran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#format-your-code-nicely" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format your code nicely
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-language-idioms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use language idioms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choose-descriptive-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose descriptive names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-it-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep it simple
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limit scope
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Limit scope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multithreading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespaces-and-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Namespaces and imports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#be-explicit-about-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be explicit about constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control access
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable initialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-comment-or-not-to-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      To comment or not to comment?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stick-to-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stick to the standard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-latest-and-greatest" class="md-nav__link">
+    <span class="md-ellipsis">
+      The latest and greatest?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copypaste-is-evil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copy/paste is evil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reuse your code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-invented-here-syndrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Not invented here" syndrome
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-the-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow the pattern
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="code-style">Code style</h1>
+<p>A number of very simple things go a long way towards improving your code
+substantially. For good programmers, they are second nature, and you should
+strive to make them a habit.</p>
+<p>This text tries to be programming language-agnostic, and code fragments
+will be presented in several programming languages such as C, C++, Fortran
+and Python.  However, even if you don't master these languages, the code
+fragments should be easy enough to understand.</p>
+<p>Although each programming languages has some specific best practices, many
+are applicable to any programming language.  This is what this text focuses
+on.  We also provide a list of references to best practices specific to
+various programming languages, and we encourage you strongly to read those as
+well.</p>
+<p>In this section, we will use the term function in a very broad sense, simply
+to keep the text easy to read. In the context of Fortran, a function refers
+to a program unit, any procedure, either a function or a subroutine. It also
+refers to a method defined in a class. In the context of Python and C++, we
+will use the term function for methods as well.</p>
+<p>Similarly, we use the term variable for constants, and also for attributes of
+objects and classes, whenever that doesn't lead to confusion.</p>
+<p>Of course, each programming language has its own style guides, often even
+several, you can find links to those in the <a href="../references/">reference section</a>.</p>
+<h2 id="format-your-code-nicely">Format your code nicely</h2>
+<p>To quote Robert C. Martin, <em>"Code formatting is about communication, and
+communication is the professional developer’s first order of business".</em></p>
+<p>All programming languages have one or possibly multiple conventions about
+how to format source code. For example, consistent indentation of code helps
+considerably to assess the structure of a function at a glance. For
+multi-level indentation, always use the same width, e.g., multiples of four
+spaces.</p>
+<p>The convention you have to use is often determined by the community you are
+working with, such as your co-workers.  It is best to stick to that convention,
+since coding is communicating. If no convention is established, consider
+introducing one.  The one which is prevalent in the programming language
+community is most likely to be your best choice.</p>
+<p>For several programming languages there are tools to automatically format
+your code so that it adheres to a convention.  It is considered good practice
+to use such tools if they are available, and even to make them part of your
+development pipeline, either as git pre-commit hooks, or as part of a more
+substantial CI/CD setup on GitHub or GitLab.</p>
+<p>Another issue is code formatting is the maximum number of characters on a
+line.  Some guidelines for programmers have very strong opinions on that,
+while other are more tolerant.</p>
+<p>Since many editors will automatically display a view on your code with
+lines wrapped to the length that can be displayed on the screen, that might
+not seem an issue, but it can be argued that this makes the code harder to
+read.  If you switch that off, you will have a view on your code were some
+lines are truncated, again a very unpleasant and potentially confusing
+situation.</p>
+<p>Personally I like the maximum line length to be 80 characters, since that
+will guarantee it can be displayed without the need to wrap it, even when
+displaying multiple editor windows side-by-side.  Again, code formatters
+can enforce this and properly wrap the code for you automatically.</p>
+<p>Whichever convention you follow, be consistent!</p>
+<h2 id="use-language-idioms">Use language idioms</h2>
+<p>Linguists use the term "idiom" for an expression that is very specific to a
+certain language and that cannot be translated literally to another. For
+instance, the English idiom "it is raining cats and dogs" would translate to
+"il pleut des cordes" in French.  The corresponding idiom in French is
+completely unrelated to its counterpart in English. Mastering idioms is one of
+the requirements for C1 certification, i.e., to be considered to have a
+proficiency close to that of native speakers.</p>
+<p>We observe a similar phenomenon for programming languages. Some syntactic
+constructs are typical for a specific programming language but, when
+translated one-to-one into another language, lead to code constructs that are
+unfamiliar to programmers who are proficient in that language.  The code
+fragments below illustrate this for Fortran and C.</p>
+<p>Although you could write line 4 of the C function below in this way, you most
+likely wouldn't since it is not idiomatic C.</p>
+<pre><code class="language-c">int factorial(int n) {
+    fac = 1;
+    for (int i = 2; i &lt;= n; i++)
+        fac = fac*i;
+    return fac;
+}
+</code></pre>
+<p>The idiomatic formulation of line 4 would be <code>fac *= i</code>.</p>
+<p>In Fortran for example, you would write</p>
+<pre><code class="language-fortran">real, dimension(10) :: a
+...
+a = value
+</code></pre>
+<p>rather than</p>
+<pre><code class="language-fortran">integer :: i
+real, dimension(10) :: a
+...
+do i = 1, 10
+    a(i) = value
+end do
+</code></pre>
+<p>Using idioms, i.e., expressions that are particular to a (programming)
+language, will make your code much easier to interpret correctly by
+programmers that are fluent in that language.</p>
+<p>In the spirit of Robert C. Martin's quote: it is all about communication.</p>
+<p>However, there are sometimes different reasons as well.  If we consider the
+following Python code that uses the numpy library, we can observe a marked
+performance difference when comparing the two code fragments below.</p>
+<pre><code class="language-python">   a = np.emptylike(b)
+   for i in range(b.shape[0]):
+       for j in range(b.shape[1]):
+           a[i, j] = np.sqrt(b[i, j])
+</code></pre>
+<p>versus</p>
+<pre><code class="language-python">    a = np.sqrt(b)
+</code></pre>
+<p>The second form is more idiomatic, but it will also substantially outperform
+the first fragment.  MATLAB users will be aware of this difference as well.</p>
+<p>Idioms for programming languages are usually expressed in code style
+guidelines.  You can find links to those in the <a href="../references/">reference
+section</a>.</p>
+<h2 id="choose-descriptive-names">Choose descriptive names</h2>
+<p>In a way, programming is storytelling. The data are the protagonists in the
+story, and the functions are the actions they take, or what happens to them.
+Hence variable names should be nouns and functions names should be verbs. If a
+function returns a property, it should be phrased as a question.</p>
+<p>Any editor worth its salt provides completion, so you can't argue in favor of
+short but less descriptive names to save typing. A long but descriptive name is
+just hitting the tab key away.</p>
+<p>Choosing descriptive names for variables and functions is another aspect that
+can make reading your code much easier. Consider the following pseudo-code
+fragment, and although I'll grant that it is something of a caricature, I've
+seen some in the wild that are not significantly better.</p>
+<pre><code class="language-python">f = open(fn, 'r')
+for i in f:
+    x = get(i)
+    if condition(x):
+        a = compute(x)
+        if a &lt; 3.14:
+            do_something(a)
+f.close()
+</code></pre>
+<p>A key principle of good software design is that of the <em>least surprise</em>.
+Choosing appropriate names for our variables and functions helps a lot in this
+respect.</p>
+<p>When it comes to programming languages, there is a very clear bias: all those
+I'm aware of have keywords defined in English.  Hence I would argue that code
+that also uses English variable and function names is easier to read.  This saves
+you from continuously, although unconsciously, to switch from one natural
+language to another.</p>
+<p>It may seem convenient, or even more natural to choose variable names in your
+native language, but that leads to more "surprises" when reading the code since
+you would also expect keywords in your native language to form actual sentences.</p>
+<p>Moreover, communicating about your code with others that don't speak your
+language will be just that bit harder.</p>
+<p>Just to put things in context: sometimes short variable names are perfectly
+adequate.  For instance, trivial variable using in an iteration to index an
+array are conventionally called <code>i</code>, <code>j</code> and so on.  This is perfectly fine,
+and unless you have a good reason to choose different names, the "default"
+names will even help others to understand your code.</p>
+<p>Also domain specific variables can have short names, using, e.g., <code>T</code> to
+denote the temperature, or <code>t</code> for time.  This particular example would of
+course break for programming languages that are case-insensitive, e.g.,
+Fortran.</p>
+<p>Note that these last remarks in no way contradicts the message of this
+section: <code>T</code> and <code>t</code> are very descriptive for developers in the domains
+where this notation is used.</p>
+<h2 id="keep-it-simple">Keep it <em>simple</em></h2>
+<p>Ideally, code is simple.  A function should have two levels of indentation at
+most.  This is advice you'll find in the literature on general purpose
+programming. Although this is good advice, there are some caveats in the
+context of scientific computing.</p>
+<p>However, the gist is clear: code is as simple as possible, but not simpler.</p>
+<p>Even for scientific code, a function has no more lines of code than fit
+comfortably on your screen. It is all too easy to lose track of the semantics
+if you can't get an overview of the code. Remember, not everyone has the
+budget for a 5K monitor.</p>
+<p>If you find yourself writing a very long code fragment, ask yourself whether
+that is atomic, or whether the task it represents can be broken up into
+sub-tasks. If so, and that is very likely, introduce new functions for those
+sub-tasks with descriptive names. This will make the narrative all the easier
+to understand.</p>
+<p>A function should have a single purpose, i.e., you should design it to do one
+thing, and one thing only.</p>
+<p>For function signatures, simplicity matters as well.  Functions that take many
+arguments may lead to confusion.  In C and C++, you have to remember the order
+of the function arguments.  Accidentally swapping argument values with the same
+type in a function call can lead to interesting debugging sessions.</p>
+<p>The same advice applies to Fortran procedures or Python functions, keep the
+number of arguments limited.  However, both Fortran and Python support using
+keyword arguments, a nice feature that makes your code more robust.  Consider
+the following procedure signature:</p>
+<pre><code class="language-fortran">real function random_gaussian(mu, sigma)
+    implicit none
+    real, intent(in) :: mu, sigma
+    ...
+end function random_gaussian
+</code></pre>
+<p>You would have to check the documentation to know the order of the function
+arguments.  Consider the following four function calls:</p>
+<ol>
+<li><code>random_gaussian(0.0, 1.0)</code>: okay;</li>
+<li><code>random_gaussian(1.0, 0.0)</code>: not okay;</li>
+<li><code>random_gaussian(mu=0.0, sigma=1.0)</code>: okay;</li>
+<li><code>random_gaussian(sigma=1.0, mu=0.0)</code>: okay.</li>
+</ol>
+<p>The two last versions of this call are easier to understand, since the meaning
+of the numbers is clear.  Moreover, since you can use any order, it eliminates
+a source of bugs.</p>
+<p>Unfortunately, neither C nor C++ support this feature.</p>
+<h2 id="limit-scope">Limit scope</h2>
+<p>Many programmers will declare all variables at the start of a block, or even at
+the start of a function's implementation. This is a syntax requirement in C89
+and Fortran.  However, C99, C++, R and Python allow you to declare variables
+anywhere before their first use. Since the scope of a variable starts from its
+declaration, and extends throughout the block, that means it is in fact too
+wide.</p>
+<p>Limiting the scope of declarations to a minimum reduces the probability of
+inadvertently using the variable, but it also improves code quality: the
+declaration of the variable is at the same location where the variable is
+first used, so the narrative is easier to follow.</p>
+<p>In C++ this may even have performance benefits since a declaration may trigger
+a call to a potentially expensive constructor.</p>
+<p>Fortran requires that variables are declared at the start of a compilation
+unit, i.e., <code>program</code>, <code>function</code>, <code>subroutine</code>, <code>module</code>, but Fortran 2008
+introduced the <code>block</code> statement in which local variables can be declared.
+Their scope doesn't extend beyond the <code>block</code>. Modern compilers support this
+Fortran 2008 feature.</p>
+<p>Note that Fortran still allows variables to be implicitly typed, i.e., if you
+don't declare a variable explicitly, its type will be <code>integer</code> if its starts
+with the characters <code>i</code> to <code>n</code>, otherwise its type will be <code>real</code>.</p>
+<p>Consider the code fragment below. Since the variables were not declared
+explicitly, <code>i</code> is interpreted as <code>integer</code> and <code>total</code> as <code>real</code>. However, the
+misspelled <code>totl</code> is also implicitly typed as <code>real</code>, initialized to <code>0.0</code>,
+and hence the value of <code>total</code> will be <code>10.0</code> when the iterations ends, rather
+than <code>100.0</code> as was intended.</p>
+<pre><code class="language-fortran">integer :: i
+real :: total
+do i = 1, 10
+    total = totl + 10.0
+end do
+</code></pre>
+<p>To avoid these problems caused by simple typos, use the <code>implicit none</code>
+statement before variable declarations in <code>program</code>, <code>module</code>, <code>function</code>,
+<code>subroutine</code>, and <code>block</code>, e.g,</p>
+<pre><code class="language-fortran">implicit none
+integer :: i
+real :: total
+do i = 1, 10
+    total = totl + 10.0
+end do
+</code></pre>
+<p>The compiler would give an error for the code fragment above since all
+variables have to be declared explicitly, and <code>totl</code> was not.</p>
+<p>Limiting scope of of declarations extends to headers files that are included
+in C/C++.  It is recommended not to include files that are not required.  Not
+only will it pollute the namespace with clutter, but it will also increase
+build times.</p>
+<p>This advice is even more important for Python <code>import</code> statements.  While the
+performance impact for C and C++ is limited to compile time, that of
+unnecessary imports of Python modules will increase the run time of your
+application.</p>
+<h3 id="multithreading">Multithreading</h3>
+<p>When developing multi-threaded C/C++ programs using OpenMP, limiting the scope
+of variables to parallel regions makes those variables thread-private, hence
+reducing the risk of data races. We will discuss this in more detail in a later
+section.  Unfortunately, the semantics for the Fortran <code>block</code> statement in an
+OpenMP do loop is not defined, at least up to the OpenMP 4.5 specification.
+Although <code>gfortran</code> accepts such code constructs, and seems to generate code
+with the expected behavior, it should be avoided since Intel Fortran compiler
+will report an error for such code.</p>
+<p>This recommendation is <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-scope">mentioned</a> in the C++ core guidelines.</p>
+<h3 id="namespaces-and-imports">Namespaces and imports</h3>
+<p>In C++, you can importing everything defined in a namespace, e.g.,</p>
+<pre><code class="language-c++">using namespace std;
+</code></pre>
+<p>Although it saves on typing, it is better to either use the namespace prefix
+explicitly, or use only what is required, e.g.,</p>
+<pre><code class="language-c++">using std::cout;
+using std::endl;
+</code></pre>
+<p>In Fortran it is also possible to restrict what to use from modules, e.g.,</p>
+<pre><code class="language-fortran">use, intrinsic :: iso_fortran_env, only : REAL64, INT32
+</code></pre>
+<p>The <code>only</code> keyword ensures that only the parameters <code>REAL64</code> and <code>INT32</code> are
+imported from the <code>iso_fortran_env</code> module.</p>
+<p>Note that the <code>intrinsic</code> keyword is used to ensure that the compiler supplied
+module is used, and not a module with the same name defined by you.</p>
+<p>Similar advice applies to Python, <code>from math import *</code> is considered bad
+practice since it pollutes the namespace.</p>
+<h2 id="be-explicit-about-constants">Be explicit about constants</h2>
+<p>If a variable's value is not supposed to change during the run time of a
+program, declare it as a constant, so that the compiler will warn you if you
+inadvertently modify its value. In C/C++, use the <code>const</code> qualifier, in
+Fortran, use <code>parameter</code>.</p>
+<p>If arguments passed to function should be read-only, use <code>const</code> in C/C++ code,
+and <code>intent(in)</code> in Fortran. Although Fortran doesn't require that you state
+the intent of arguments passed to procedures, it is nevertheless wise to do so.
+The compiler will catch at least some programming mistakes if you do.</p>
+<p>However, this is not quite watertight, in fact, one can still change the value
+of a variable that is declared as a constant in C.  Compile and run the
+following program, and see what happens.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void do_mischief(int *n) {
+    *n = 42;
+}
+
+int main(void) {
+    const int n = 5;
+    printf(&quot;originally, n = %d\n&quot;, n);
+    do_mischief((int *) &amp;n);
+    printf(&quot;mischief accomplished, n = %d\n&quot;, n);
+    return 0;
+}
+</code></pre>
+<p>In fact, this is <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-casts-const">explicitly mentioned</a>
+in the C++ core guidelines.</p>
+<h2 id="control-access">Control access</h2>
+<p>When defining classes in C++ and Fortran, some attention should be paid to
+accessibility of object attributes. An object's state is determined by its
+attributes' values, so allowing unrestricted access to these attributes may
+leave the object in an inconsistent state.</p>
+<p>In C++, object attributes and methods are private by default, while structure
+fields and methods are public.  For Fortran, fields in user defined types and
+procedures defined in modules are public by default. Regardless of the defaults,
+it is useful to specify the access restrictions explicitly. It is good practice
+to specify private access as the default, and public as the exception to that
+rule.</p>
+<p>Interestingly, both Fortran and C++ have the keyword <code>protected</code>, albeit with
+very different semantics.  In Fortran, <code>protected</code> means that a variable defined
+in a module can be read by the compilation unit that uses it, but not modified.
+In the module where it is defined, it can be modified though.  In C++, an
+attribute or a method that is declared <code>protected</code> can be accessed from derived
+classes as well as the class that defines it.  However, like attributes and
+methods declared <code>private</code>, it can not be accessed elsewhere.</p>
+<p>This is another example where getting confused about the semantics can lead to
+interesting bugs.</p>
+<p>In summary:</p>
+<table>
+<thead>
+<tr>
+<th>access modifier</th>
+<th>C++</th>
+<th>Fortran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td>access restricted to class/struct</td>
+<td>access restricted to module</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>access restricted to class/struct and derived</td>
+<td>variables: modify access restricted to module, read everywhere</td>
+</tr>
+<tr>
+<td>public</td>
+<td>attributes and methods can be accessed from everywhere</td>
+<td>variables, types and procedures can be accessed from everywhere</td>
+</tr>
+<tr>
+<td>none</td>
+<td>class: private, struct: public</td>
+<td>public</td>
+</tr>
+</tbody>
+</table>
+<p>Python has no notion of private attributes or methods, they are always public.
+However, attributes and methods that are supposed to be private to the class
+are by convention prefixed with a <code>_</code>.  Note that this is a convention for
+programmers, the Python runtime will not enforce this.</p>
+<p>In both C++ and Python you can "simulate" Fortran notion of <code>protected</code>, i.e.,
+read-only attributes by implementing a getter, but no setter.</p>
+<h2 id="variable-initialization">Variable initialization</h2>
+<p>The specifications for Fortran, C and C++ do not define the value an
+uninitialized variable will have. So you should always initialize variables
+explicitly, otherwise your code will have undefined, and potentially
+non-deterministic behavior. When you forget to initialize a variable, the
+compilers will typically let you get away with it. However, most compilers have
+optional flags that catch expressions involving uninitialized variables. We
+will discuss these and other compiler flags in a later section.</p>
+<p>When initializing or, more generally, assigning a value to a variable that
+involves constants, your code will be easier to understand when those values
+indicate the intended type. For example, using <code>1.0</code> rather than <code>1</code> for
+floating point is more explicit. This may also avoid needless conversions. This
+also prevents arithmetic bugs since <code>1/2</code> will evaluate to <code>0</code> in C, C++ as well
+as Fortran.  Perhaps even more subtly, <code>1.25 + 1/2</code> will also evaluate to
+<code>1.25</code>, since the division will be computed using integer values, evaluating to
+<code>0</code>, which is subsequently converted to the floating point value <code>0.0</code>, and
+added to <code>1.25</code>.</p>
+<p>Specifically for C++, I'd strongly encourage you to use universal
+initialization, since narrowing conversion would lead to warnings.  In the code
+fragment below, the first local variable <code>n1</code> will be initialized to <code>7</code> without
+any warnings, while the compiler will generate a warning for the initialization
+of <code>n2</code>.</p>
+<pre><code class="language-c++">int conversion(double x) {
+    int n1 = x;
+    int n2 {x};
+    return n1 + n2;
+}
+</code></pre>
+<p>Precision is also an important factor.  If you intend to work purely in single
+precision for floating point arithmetic operations, it is important to avoid
+accidental type promotion.  For instance, in the code below, the single
+precision argument is multiplied by <code>2.1</code> in ... double precision since
+that is what the compiler assumes you want to do.  When that computation is
+done, the result is converted back to a single precision value.</p>
+<pre><code class="language-c">float times2(float x) {
+    return 2.1*x;
+}
+</code></pre>
+<p>In C and C++, a single precision floating value is denoted by <code>2.1f</code> to
+indicate its type.</p>
+<pre><code class="language-c">float times2(float x) {
+    return 2.1f*x;
+}
+</code></pre>
+<p>In Fortran, you can similarly make the distinction between kinds of literal
+numerical values.</p>
+<pre><code class="language-fortran">function times2(x) result(y)
+    implicit none
+    use, intrinsic :: iso_fortran_env, only : sp =&gt; REAL32
+    real(kind=sp), intent(in) :: x
+    real(kind=sp) :: y
+    y = 2.1_sp*x
+    return y
+end function
+</code></pre>
+<p>Similar concerns are important when using <code>numpy</code> in Python.</p>
+<h2 id="to-comment-or-not-to-comment">To comment or not to comment?</h2>
+<p>Comments should never be a substitute for code that is easy to understand. In
+almost all circumstances, if your code requires a comment without which it can
+not be understood, it can be rewritten to be more clear.</p>
+<p>Obviously, there are exceptions to this rule. Sometimes we have no alternative
+but to sacrifice a clean coding style for performance, or we have to add an
+obscure line of code to prevent a problem caused by over-eager compilers.</p>
+<p>If you need to add a comment, remember that it should be kept up-to-date with
+the code. All too often, we come across comments that are no longer accurate
+because the code has evolved, but the corresponding comment didn't. In such
+situations, the comment is harmful, since it can confuse us about the intentions
+of the developer, and at the least, it will cost us time to disambiguate.</p>
+<p>The best strategy is to make sure that the code tells its own story, and
+requires no comments.</p>
+<p>A common abuse of comments is to disable code fragments that are no longer
+required, but that you still want to preserve. This is bad practice. Such
+comments make reading the code more difficult, and take up valuable screen real
+estate.</p>
+<p>Moreover, when you use a version control system such as git or subversion in
+your development process, you can delete with impunity, in the sure knowledge
+that you can easily retrieve previous versions of your files. If you don't use a
+version control system routinely, you really should. See the additional material
+section for some pointers to information and  tutorials.</p>
+<p>You should also bear in mind the distinction between comments and documentation.
+Documentation describes how to use your data types and functions to those who
+may want to use them.  Comments are intended for the consumption of the
+developers only.  You can learn about best practices for documenting your code
+in the <a href="../documentation/">section on documentation</a>.</p>
+<h2 id="stick-to-the-standard">Stick to the standard</h2>
+<p>The official syntax and semantics of languages like C, C++ and Fortran is
+defined in official specifications. All compilers that claim compliance with
+these standards have to implement these specifications.</p>
+<p>However, over the years, compiler developers have added extensions to the
+specifications. The Intel Fortran compiler for instance has a very long history
+that can trace its ancestry back to the DEC compiler, and implements quite a
+number of Fortran extensions. Similarly, the GCC C++ compiler supports some
+non-standard features.</p>
+<p>It goes without saying that your code should not rely on such compiler specific
+extensions, even if that compiler is mainstream and widely available. There is
+no guarantee that future releases of that same compiler will still support the
+extension, and the only official information about that extension would be
+available in the compiler documentation, not always the most convenient source.</p>
+<p>Moreover, that implies that even if your code compiles with a specific
+compiler, that doesn't mean it complies with the official language
+specification. An other compiler would simply generate error message for the
+same code, and would fail to compile it.</p>
+<p>Using language extensions makes code harder to read. As a proficient programmer,
+you're still not necessarily familiar with language extensions, so you may
+interpret those constructs incorrectly.</p>
+<p>Hence I'd encourage you strongly to strictly adhere to a specific language
+specification.  For C there are four specifications that are still relevant,
+C89, C99, C11 and C23.  For C++ that would be C++11, C++14, C++17, C++20 and
+C++23.  The relevant specification for Fortran are those of 2003, 2008, and
+2018. References to those specifications can be found in the <a href="../references/">reference
+section</a>.</p>
+<p>For C and C++, you may be interested to read the MISRA software development
+guidelines, a collections of directives and rules specified by the Motor
+Industry Software Reliability Association (MISRA) aimed at ensuring safer and
+more reliable software systems in the automotive industry.  A reference to this
+specification is mentioned in the [references][references.md].</p>
+<h2 id="the-latest-and-greatest">The latest and greatest?</h2>
+<p>Programming languages and libraries evolve over time.  New features are added,
+some are deprecated. It is quite important to keep track of the evolution of
+the programming languages you use.  New features are typically added to make
+your code more robust, or easier to read or write.</p>
+<p>Similarly, features are deprecated for a reason, usually because they were a
+Bad Idea(TM), or they can and should be replaced by new ones.</p>
+<p>In general, it is a good idea to keep up, i.e., start using new features, and
+especially replace code that is marked as deprecated by your compiler or
+interpreter.</p>
+<p>However, don't go over the top.  If you use the very latest language features,
+e.g., the most recent version of Python, latest and greatest C++ standard you
+should bear in mind that you may cause problems for users of your application
+or library.  It is quite possible that they use systems on which the latest
+compilers, interpreters and libraries are not available yet, sometimes for very
+good reasons.</p>
+<p>With software deployment in mind, you should try to strike a healthy balance
+between innovation and pragmatism.  Maybe it is wiser not to use the latest and
+greatest feature just yet, but to leave it for the next release?</p>
+<h2 id="copypaste-is-evil">Copy/paste is evil</h2>
+<p>If you find yourself copying and pasting a fragment of code from one file
+location to another, or from one file to another, you should consider turning it
+into a function.  Apart from making your code easier to understand, it makes it
+also easier to maintain.</p>
+<p>Suppose there is a bug in the fragment.  If you copy/pasted it, you would have
+to remember to fix the bug in each instance of that code fragment.  If it was
+encapsulated in a function, you would have to fix the problem in a single spot
+only.</p>
+<h2 id="reuse-your-code">Reuse your code</h2>
+<p>The warning on copy/paste is not only important in the context of a single
+project, but also across multiple projects.  If you find yourself copying
+functions between projects, it is time to think to redesign your software
+in a more modular way to facilitate convenient code reuse.</p>
+<p>Each programming language offers mechanism to develop code in a modular way,
+e.g., header files in C/C++, modules in Fortran and Python, libraries in R.
+Structuring common data types and functions into reusable units makes it a
+lot easier to to reuse that code.  In effect, you are building a library of
+your own.  This library forms the core of many of your projects and can be
+maintained separately.</p>
+<p>Of course, this comes with a risk if you use your library in multiple projects,
+say both project A and project B.  You have to take care that if you modify the
+Application Programming Interface (API) or the functionality for project A, it
+does not break project B.  Again, many programming languages make it easy to
+maintain API compatibility, either through overloading in a language such as
+C++, or by creative use of optional arguments, allowed by Fortran and Python.</p>
+<p>For example, suppose you have a function to compute descriptive statistics.
+Currently, it computes the mean value.</p>
+<pre><code class="language-python">def statistics(data):
+    return sum(data)/len(data)
+</code></pre>
+<p>In a new project, you would like the function <code>statistics</code> not only to return
+the mean value, but also the number of data, so you could modify it as shown
+below.</p>
+<pre><code class="language-python">def statistics(data):
+    n = len(data)
+    return sum(data)/n, n
+</code></pre>
+<p>Now the function returns a <code>tuple</code>, its first element the mean value, its
+second the number of elements in data.</p>
+<p>Although this would of course be fine for the new project, all other projects
+that rely on the function <code>statistics</code> would break since it would be expected
+that it returns a <code>float</code> value rather than a <code>tuple</code>.</p>
+<p>This can be avoided by adding an optional argument as follows.</p>
+<pre><code class="language-python">def statistics(data, return_n=False):
+    n = len(data)
+    mean = sum(data)/n
+    return mean, n if return_n else mean
+</code></pre>
+<p>Since the <code>return_n</code> argument defaults to <code>False</code>, the function will retain
+its previous behavior when called in all previous projects, while you can
+use the added functionality in the new project by calling the function as
+<code>statistics(data, return_n=True)</code>.  Note that such design decisions need to
+be properly documented.</p>
+<p>Of course, this approach only works up to a point.  It might be necessary
+to review and redesign the API once in a while to streamline it and reduce
+the cognitive burden.</p>
+<h2 id="not-invented-here-syndrome">"Not invented here" syndrome</h2>
+<p>Something I observe time after time is the "not invented here" syndrome.  This
+means that a developer may prefer to do her own implementation of a function or
+a class rather than use an existing library developed by others.  She may want
+to avoid the learning curve or the code changes required to use that library,
+or just doesn't trust a "black box".</p>
+<p>Sometimes that is a wise decision.  The overhead incurred by using yet another
+library to accomplish something that is in fact quite simple to implement
+yourself may be too high.  It will make dependency management and deployment
+somewhat more complicated .  Although <a href="../deployment/#package-managers">package
+managers</a> are a great help in this respect,
+tooling is still required, and you may need to update your code if the API of
+the library changes.</p>
+<p>On the other hand, re-implementing functionality that already exists in
+third-party libraries is mostly not a good idea.  You are reinventing the
+wheel, and you might end up with a square one.  There may be bugs or
+performance issues, a lack of flexibility, and it incurs <a href="https://en.wikipedia.org/wiki/Technical_debt">technical
+debt</a>, i.e., you have to maintain
+that code for the rest of your software's life cycle.</p>
+<p>Again, you would have to try to find a healthy balance between implementing
+functionality yourself and using third-party libraries.  Note that this may
+also have an impact on the <a href="../deployment/#license">license</a></p>
+<h2 id="follow-the-pattern">Follow the pattern</h2>
+<p>About half a century into software development, it was recognized that
+good-quality software often exhibited the same patterns to implement certain
+features.  The Gang of Four (Gamma, Helm, Johnson and Vlissides) published a
+book that cataloged the patterns they had found, put them into categories and
+gave both an abstract description and some concrete examples.</p>
+<p>This book has inspired many others on the same topic, sometimes geared to
+specific programming languages or application domains.</p>
+<p>It would lead us too far to go into details about design patters, but it is
+very useful to familiarize yourself with them so that you can apply them when
+the situation arises.  You will find pointers in the <a href="../references/">reference
+section</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>
