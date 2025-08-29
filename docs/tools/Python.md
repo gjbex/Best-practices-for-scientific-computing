@@ -63,6 +63,8 @@
   for CMake that allows you to build C++ extensions for Python.
 * [F2PY3](https://numpy.org/doc/stable/f2py/): a tool that allows you to wrap
   Fortran code for Python.
+* [rpy2](https://rpy2.github.io/): a tool that allows you to run R code
+  from Python.
 
 
 ## Build tools
