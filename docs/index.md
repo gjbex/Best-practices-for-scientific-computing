@@ -44,3 +44,9 @@ Programming languages covered:
      * [Python](tools/Python.md)
      * [R](tools/R.md)
   1. [Training](training.md)
+
+
+## Contributors
+
+* Geert Jan Bex [geertjan.bex@uhasselt.be](geertjan.bex@uhasselt.be)
+* Ilaria Misuri: pointed out the `rpy2` package for using R from Python.
