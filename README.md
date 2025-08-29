@@ -10,7 +10,7 @@ development, specifically for those working in the context of scientific
 computing.
 
 The material is available as a
-[website](https://gjbex.github.io/Best-practices-in-programming/).
+[website](https://gjbex.github.io/Best-practices-for-scientific-computing/).
 
 
 ## Table of contents

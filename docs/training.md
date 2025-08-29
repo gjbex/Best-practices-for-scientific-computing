@@ -24,4 +24,4 @@ The links are to the training site, but you many not find schedules there.
 ### Performance optimization
 
 * [Code optimization](https://gjbex.github.io/Code-optimization/)
-* [POP CoE training](https://pop-coe.eu/training)
+* [POP CoE training](https://pop-coe.eu/further-information/online-training/)
