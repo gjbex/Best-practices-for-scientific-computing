@@ -10,7 +10,8 @@ best practices and tools.
 Several organizations offer training programs, here are some of them:
 
 * [Vlaams Supercomputer Centrum (VSC)](https://www.vscentrum.be/training)
-* [EuroCC](https://www.eurocc-project.eu/training)
+* [EuroCC](https://hpc-portal.eu/training/)
+* [CÉCI](https://www.ceci-hpc.be/training.html)
 * [Gauss Centre for Supercomputing (GCS)](https://www.gauss-centre.eu/training/)
 * [POP CoE training](https://pop-coe.eu/training)
 
