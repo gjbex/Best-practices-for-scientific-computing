@@ -4,6 +4,9 @@
 
 Material for a training on best practices for scientific computing.
 
+For participant-facing information about the training format, prerequisites,
+level, and schedule, see the [training overview](training_overview.md).
+
 
 ## Programming languages
 
