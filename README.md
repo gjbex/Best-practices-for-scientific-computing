@@ -35,7 +35,7 @@ The material is available as a
 ## Programming languages covered
 
 Although this training aims to be programming language-agnostic, the repository
-also list a number of tools that are programming language-specific. Obviously,
+also lists a number of tools that are programming language-specific. Obviously,
 this can not be exhaustive, so feel free to suggest additional tools if you are
 aware of any.
 
@@ -44,6 +44,8 @@ Programming languages covered:
 * C
 * C++
 * Fortran
+* Rust
+* Julia
 * Python
 * R
 

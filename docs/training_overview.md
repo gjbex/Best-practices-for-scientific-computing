@@ -5,8 +5,9 @@ Nevertheless, having a good understanding of how best practices in software
 engineering can help you work more efficiently, make your work easier to reuse,
 and give your work more exposure is useful.
 
-This training is flexible. It can be tailored to C, C++, Fortran, Python, R, or
-a language-agnostic mix, and the depth can be adapted to the audience.
+This training is flexible. It can be tailored to C, C++, Fortran, Rust, Julia,
+Python, R, or a language-agnostic mix, and the depth can be adapted to the
+audience.
 
 
 ## Learning outcomes

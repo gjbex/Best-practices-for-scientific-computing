@@ -151,6 +151,8 @@ Candidate tools are organized into
 * tools for [C](C.md);
 * tools for [C++](C-plus-plus.md);
 * tools for [Fortran](Fortran.md);
+* tools for [Rust](Rust.md);
+* tools for [Julia](Julia.md);
 * tools for [Python](Python.md); and
 * tools for [R](R.md).
 

@@ -14,5 +14,7 @@ project activity.
   * [C](C.md)
   * [C++](C-plus-plus.md)
   * [Fortran](Fortran.md)
+  * [Rust](Rust.md)
+  * [Julia](Julia.md)
   * [Python](Python.md)
   * [R](R.md)

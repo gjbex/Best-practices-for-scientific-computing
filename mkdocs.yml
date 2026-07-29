@@ -31,6 +31,8 @@ nav:
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'
     - Fortran: 'tools/Fortran.md'
+    - Rust: 'tools/Rust.md'
+    - Julia: 'tools/Julia.md'
     - Python: 'tools/Python.md'
     - R: 'tools/R.md'
   - Training: 'training.md'
@@ -44,6 +46,8 @@ theme:
     - c
     - c++
     - fortran
+    - rust
+    - julia
     - python
     - r
     - bash
