@@ -1,6 +1,6 @@
 site_name: Best practices in scientific software development
-site_url: https://somewhere.com/
-repo_url: https://github.com/
+site_url: https://gjbex.github.io/Best-practices-for-scientific-computing/
+repo_url: https://github.com/gjbex/Best-practices-for-scientific-computing
 site_author: Geert Jan Bex
 
 nav:

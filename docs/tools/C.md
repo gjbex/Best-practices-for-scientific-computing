@@ -23,7 +23,7 @@
 ## Package managers
 
 * [Conan](https://conan.io/): package manager for C and C++.
-* [vspkg](https://vcpkg.io/en/): package manager for C and C++.
+* [vcpkg](https://vcpkg.io/en/): package manager for C and C++.
 
 
 ## Testing

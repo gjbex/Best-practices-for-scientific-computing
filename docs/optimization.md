@@ -126,7 +126,7 @@ this function, what will be the runtime of the new version of your application
 if that is the only thing you change?
 
 If the total runtime of the original application is $t$, it means that its runtime
-after your optimization will be $0.95t + 0.5t/10 = 0.955t$, i.e., you improved
+after your optimization will be $0.95t + 0.05t/10 = 0.955t$, i.e., you improved
 the overall runtime by less than 5 %.  In some circumstances this may be worth the
 effort you spent, but if you would have profiled your application, you might have
 chosen to spend your time differently.
@@ -152,9 +152,11 @@ very simple algorithm is bubble sort which on average implies $O(N^2)$
 comparison operations where $N$ is the length of the list.  However, the
 quicksort algorithm that is a bit more sophisticated will on average only have
 to perform $O(N \log N)$ comparisons.  For long lists, this makes a huge
-difference.  For example, if the list has a 1,000 elements ($N = 1000$), then
-bubble sort will take a million comparisons, while quicksort will only require
-3,000, and hence is a factor of 300 faster.
+difference.  For example, if the list has 1,000 elements ($N = 1000$), then
+the rough operation counts are on the order of one million comparisons for
+bubble sort and ten thousand for quicksort.  This is about two orders of
+magnitude fewer comparisons, although the actual runtime also depends on
+implementation details and the input data.
 
 The choice of data structures you make can also have a profound impact on
 performance.  If the goal of the data structure is to hold, e.g., numbers to

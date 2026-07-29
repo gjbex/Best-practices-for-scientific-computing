@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/745445839.svg)](https://zenodo.org/doi/10.5281/zenodo.10665372)
 
 ![Render and test
-workflow](https://github.com/gjbex/Best-practices-in-programming/actions/workflows/build_and_deploy.yml/badge.svg)
+workflow](https://github.com/gjbex/Best-practices-for-scientific-computing/actions/workflows/build_and_deploy.yml/badge.svg)
 
 Material for a training on best practices for programming and software
 development, specifically for those working in the context of scientific

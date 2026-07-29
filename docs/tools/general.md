@@ -114,18 +114,20 @@ guides, while the latter is excellent for tutorial-style material.
 1. [Sphinx](https://www.sphinx-doc.org/en/master/): this is another tool to
    generate documentation.  It can generate API reference documentation for
    Python, and tutorial style documentation in general.  The resulting
-   documentation can be hosted on ReadTheDocs or GitHub pages.
+   documentation can be hosted on ReadTheDocs or GitHub Pages.
 1. [ReadTheDocs](http://www.readthedocs.org/): a hosting service for
    documentation.  It supports both MkDocs and Sphinx.  Documentation can be
-   fetched from a GitHub repository and (re)built.  This can be automized and
+   fetched from a GitHub repository and (re)built.  This can be automated and
    set to be triggered by, e.g., a merge into main.
-1. [GitHub pages](): you can activate pages for any GitHub repository.  This
-   will create a website that you can use to host the documentation for your
+1. [GitHub Pages](https://pages.github.com/): you can activate Pages for any
+   GitHub repository.  This will create a website that you can use to host the
+   documentation for your
    project to make it available to your group or even to every user of your
-   software.  The documentaiton can be genreated using a GitHub Action
+   software.  The documentation can be generated using a GitHub Action
    triggered by, for instance, a merge into the main branch.  The repository
    that [hosts this
-   information](https://github.com/gjbex/Best-practices-in-programming) is an
+   information](https://github.com/gjbex/Best-practices-for-scientific-computing)
+   is an
    example of that.
 
 
@@ -151,6 +153,6 @@ Selecting an appropirate license is not trivial.
 
 ## Attribution
 
-1. [Zenodo](https://github.com/gjbex/Best-practices-in-programming): website to
+1. [Zenodo](https://zenodo.org/): website to
    request a Digital Object Identifier (DOI) for your version control
    repositories.

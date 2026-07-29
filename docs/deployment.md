@@ -81,7 +81,7 @@ integrates well with GitHub.  When you do a release, your repository gets a DOI
 that you can include in your `README.md` as a badge.
 
 This is the case for the [GitHub
-repository](https://github.com/gjbex/Best-practices-in-programming) for this
+repository](https://github.com/gjbex/Best-practices-for-scientific-computing) for this
 training material.
 
 
