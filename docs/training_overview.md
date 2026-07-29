@@ -37,13 +37,14 @@ programming language and level of detail requested.
 
   | Subject                                        | Duration |
   |------------------------------------------------|----------|
-  | introduction and motivation                    | 10 min.  |
-  | code style and conventions                     | 30 min.  |
+  | introduction and motivation                      | 10 min.  |
+  | code style and conventions                       | 30 min.  |
   | motivation for version control and collaboration | 20 min. |
-  | testing, including scientific correctness      | 70 min.  |
-  | documentation                                  | 30 min.  |
-  | deployment and continuous integration          | 40 min.  |
-  | reproducibility and wrap up                    | 40 min.  |
+  | testing, including scientific correctness        | 70 min.  |
+  | documentation                                    | 30 min.  |
+  | deployment and continuous integration            | 40 min.  |
+  | reproducibility                                  | 30 min.  |
+  | wrap-up and discussion                           | 10 min.  |
 
 
 ## Training materials
