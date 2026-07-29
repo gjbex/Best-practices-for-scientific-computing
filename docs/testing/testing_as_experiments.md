@@ -32,3 +32,7 @@ not justify the conclusion that all swans are white.
 
 Paraphrased, you can read that as "... no matter how many tests your software
 may pass, it doesn't justify the conclusion that it is correct".
+
+The next section, [testing scientific software](scientific_testing.md), applies
+this idea to numerical results, scientific properties, stochastic calculations,
+and parallel programs.

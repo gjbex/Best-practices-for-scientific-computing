@@ -19,6 +19,8 @@ When you complete this training you will be able to
   and scientific provenance;
 * recognize the role of code style, documentation, testing, and reproducibility
   in scientific software;
+* identify scientifically meaningful properties and numerical comparisons for
+  testing scientific software;
 * distinguish between unit tests, functional tests, and code coverage;
 * recognize how deployment and continuous-integration practices support
   reliable scientific software;
@@ -38,7 +40,7 @@ programming language and level of detail requested.
   | introduction and motivation                    | 10 min.  |
   | code style and conventions                     | 30 min.  |
   | motivation for version control and collaboration | 20 min. |
-  | testing                                        | 70 min.  |
+  | testing, including scientific correctness      | 70 min.  |
   | documentation                                  | 30 min.  |
   | deployment and continuous integration          | 40 min.  |
   | reproducibility and wrap up                    | 40 min.  |

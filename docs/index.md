@@ -34,6 +34,7 @@ Programming languages covered:
   1. [Code documentation](documentation.md)
   1. [Testing](testing/index.md)
      * [Testing as experiments](testing/testing_as_experiments.md)
+     * [Testing scientific software](testing/scientific_testing.md)
      * [Unit testing](testing/unit_testing.md)
      * [Functional testing](testing/functional_testing.md)
      * [Code coverage](testing/code_coverage.md)

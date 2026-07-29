@@ -21,6 +21,7 @@ The material is available as a
 1. Code documentation
 1. Testing
    * Testing as experiments
+   * Testing scientific software
    * Unit testing
    * Functional testing
    * Code coverage
