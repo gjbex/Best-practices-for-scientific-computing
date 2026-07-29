@@ -23,25 +23,34 @@
 ## Package managers
 
 * [Conan](https://conan.io/): package manager for C and C++.
-* [vspkg](https://vcpkg.io/en/): package manager for C and C++.
+* [vcpkg](https://learn.microsoft.com/en-us/vcpkg/): package manager for C and
+  C++.
 
 
 ## Testing
 
-* [CUnit](https://cunit.sourceforge.net/): unit testing framework for C.
-
-
+* [cmocka](https://cmocka.org/): unit testing framework for C with support for
+  mock objects, fixtures, and several machine-readable result formats.  It is a
+  good general-purpose choice for C projects.
+* [Unity](https://github.com/ThrowTheSwitch/Unity): small unit testing
+  framework for C that is especially useful when a lightweight or embedded
+  test framework is required.
 
 ## Profiling
 
-  * [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)
-    is a free profiler.
-  * [Intel
-    VTune](https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html)
-    is a commercial profiler that is part of Intel OneAPI.
-  * [Arm
-    Forge](https://developer.arm.com/tools-and-software/server-and-hpc/arm-architecture-tools/arm-forge)
-    is a commercial profiler and debugger that is specifically designed for
-    HPC.  It can profile OpenMP, MPI, and CUDA code.
-  * [Scalasca](https://www.scalasca.org/) is an open-source profiler that can
-    profile MPI and OpenMP code.
+* [GNU gprof](https://sourceware.org/binutils/docs/gprof/) is a basic
+  instrumenting profiler distributed with GNU Binutils.  It is useful for
+  introductory profiling and existing workflows, but
+  [gprofng](https://sourceware.org/binutils/docs/gprofng.html) is the more
+  capable profiler in current Binutils releases.
+* [Intel VTune Profiler](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html)
+  analyzes CPU, accelerator, threading, and memory-performance behaviour.  It
+  can be installed separately or as part of the Intel oneAPI toolkits.
+* [Linaro Forge](https://docs.linaroforge.com/latest/html/forge/forge/introduction_to_forge/index.html)
+  combines the DDT parallel debugger, MAP profiler, and Performance Reports.
+  It is designed for MPI, OpenMP, and accelerator-enabled HPC applications.
+* [HPCToolkit](https://hpctoolkit.org/) is an open-source measurement and
+  analysis suite for CPU and GPU-accelerated applications, including parallel
+  programs.
+* [Scalasca](https://www.scalasca.org/) is an open-source performance-analysis
+  toolset for MPI, OpenMP, and hybrid applications.

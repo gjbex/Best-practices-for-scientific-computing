@@ -11,7 +11,7 @@ level, and schedule, see the [training overview](training_overview.md).
 ## Programming languages
 
 Although this training aims to be programming language-agnostic, the repository
-also list a number of tools that are programming language-specific.
+also lists a number of tools that are programming language-specific.
 Obviously, this can not be exhaustive, so feel free to suggest additional
 tools if you are aware of any.
 
@@ -20,6 +20,8 @@ Programming languages covered:
   * C
   * C++
   * Fortran
+  * Rust
+  * Julia
   * Python
   * R
 
@@ -32,6 +34,7 @@ Programming languages covered:
   1. [Code documentation](documentation.md)
   1. [Testing](testing/index.md)
      * [Testing as experiments](testing/testing_as_experiments.md)
+     * [Testing scientific software](testing/scientific_testing.md)
      * [Unit testing](testing/unit_testing.md)
      * [Functional testing](testing/functional_testing.md)
      * [Code coverage](testing/code_coverage.md)
@@ -44,6 +47,8 @@ Programming languages covered:
      * [C](tools/C.md)
      * [C++](tools/C-plus-plus.md)
      * [Fortran](tools/Fortran.md)
+     * [Rust](tools/Rust.md)
+     * [Julia](tools/Julia.md)
      * [Python](tools/Python.md)
      * [R](tools/R.md)
   1. [Training](training.md)

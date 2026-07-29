@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/745445839.svg)](https://zenodo.org/doi/10.5281/zenodo.10665372)
 
 ![Render and test
-workflow](https://github.com/gjbex/Best-practices-in-programming/actions/workflows/build_and_deploy.yml/badge.svg)
+workflow](https://github.com/gjbex/Best-practices-for-scientific-computing/actions/workflows/build_and_deploy.yml/badge.svg)
 
 Material for a training on best practices for programming and software
 development, specifically for those working in the context of scientific
@@ -21,6 +21,7 @@ The material is available as a
 1. Code documentation
 1. Testing
    * Testing as experiments
+   * Testing scientific software
    * Unit testing
    * Functional testing
    * Code coverage
@@ -35,7 +36,7 @@ The material is available as a
 ## Programming languages covered
 
 Although this training aims to be programming language-agnostic, the repository
-also list a number of tools that are programming language-specific. Obviously,
+also lists a number of tools that are programming language-specific. Obviously,
 this can not be exhaustive, so feel free to suggest additional tools if you are
 aware of any.
 
@@ -44,6 +45,8 @@ Programming languages covered:
 * C
 * C++
 * Fortran
+* Rust
+* Julia
 * Python
 * R
 

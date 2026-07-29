@@ -1,30 +1,52 @@
 # Tools for Fortran programming
 
 
+## Code formatting
+
+* [fprettify](https://fortran-lang.org/packages/fprettify/): auto-formatter for
+  modern Fortran source code.
+
+
+## Linting and static analysis
+
+* [Fortitude](https://fortitude.readthedocs.io/en/stable/): linter for Fortran
+  that checks correctness, modernization, portability, and style rules.  It can
+  produce output suitable for continuous integration and fix some findings
+  automatically.
+
+
 ## Testing
 
-* [pFUnit](https://sourceforge.net/projects/pfunit/): is a very rich framework
-  for developing unit tests.
+* [pFUnit](https://github.com/Goddard-Fortran-Ecosystem/pFUnit): unit testing
+  framework for serial and MPI-parallel Fortran software, with limited OpenMP
+  support.
 
 
 ## Profiling
 
-  * [gprof](https://ftp.gnu.org/old-gnu/Manuals/gprof-2.9.1/html_mono/gprof.html)
-    is a free profiler.
-  * [Intel
-    VTune](https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html)
-    is a commercial profiler that is part of Intel OneAPI.
-  * [Arm
-    Forge](https://developer.arm.com/tools-and-software/server-and-hpc/arm-architecture-tools/arm-forge)
-    is a commercial profiler and debugger that is specifically designed for
-    HPC.  It can profile OpenMP, MPI, and CUDA code.
-  * [Scalasca](https://www.scalasca.org/) is an open-source profiler that can
-    profile MPI and OpenMP code.
+* [GNU gprof](https://sourceware.org/binutils/docs/gprof/) is a basic
+  instrumenting profiler distributed with GNU Binutils.  It is useful for
+  introductory profiling and existing workflows, but
+  [gprofng](https://sourceware.org/binutils/docs/gprofng.html) is the more
+  capable profiler in current Binutils releases.
+* [Intel VTune Profiler](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html)
+  analyzes CPU, accelerator, threading, and memory-performance behaviour.  It
+  supports applications containing Fortran and can be installed separately or
+  as part of the Intel oneAPI toolkits.
+* [Linaro Forge](https://docs.linaroforge.com/latest/html/forge/forge/introduction_to_forge/index.html)
+  combines the DDT parallel debugger, MAP profiler, and Performance Reports.
+  It is designed for MPI, OpenMP, and accelerator-enabled HPC applications.
+* [HPCToolkit](https://hpctoolkit.org/) is an open-source measurement and
+  analysis suite for CPU and GPU-accelerated applications, including parallel
+  programs.
+* [Scalasca](https://www.scalasca.org/) is an open-source performance-analysis
+  toolset for MPI, OpenMP, and hybrid applications.
 
 
 ## Build tools
 
-* [FPM](https://fpm.fortran-lang.org/): Fortran Package Manager (FPM) helps you
-  create Fortran software project, initializing the project directory with the
-  appropriate directories, configuration files and such.  It also supports
-  managing dependencies, running your code and tests.
+* [Fortran Package Manager (fpm)](https://fpm.fortran-lang.org/): build system
+  and package manager that creates Fortran project layouts, manages
+  dependencies, and builds and runs applications and tests.  CMake remains
+  useful for established or mixed-language projects and for integration with
+  wider HPC software stacks.

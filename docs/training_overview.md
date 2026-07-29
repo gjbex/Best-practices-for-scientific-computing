@@ -5,8 +5,9 @@ Nevertheless, having a good understanding of how best practices in software
 engineering can help you work more efficiently, make your work easier to reuse,
 and give your work more exposure is useful.
 
-This training is flexible. It can be tailored to C, C++, Fortran, Python, R, or
-a language-agnostic mix, and the depth can be adapted to the audience.
+This training is flexible. It can be tailored to C, C++, Fortran, Rust, Julia,
+Python, R, or a language-agnostic mix, and the depth can be adapted to the
+audience.
 
 
 ## Learning outcomes
@@ -14,11 +15,15 @@ a language-agnostic mix, and the depth can be adapted to the audience.
 When you complete this training you will be able to
 
 * explain why software engineering practices matter for scientific computing;
-* use version control and collaboration workflows more effectively;
+* explain how version control supports traceability, recovery, collaboration,
+  and scientific provenance;
 * recognize the role of code style, documentation, testing, and reproducibility
   in scientific software;
+* identify scientifically meaningful properties and numerical comparisons for
+  testing scientific software;
 * distinguish between unit tests, functional tests, and code coverage;
-* identify basic deployment and continuous-integration workflows;
+* recognize how deployment and continuous-integration practices support
+  reliable scientific software;
 * choose relevant tools for the programming language and project context you
   work in.
 
@@ -30,15 +35,16 @@ Total duration: 4 hours.
 Because the training is flexible, the exact schedule can be adapted to the
 programming language and level of detail requested.
 
-  | Subject                              | Duration |
-  |--------------------------------------|----------|
-  | introduction and motivation          | 10 min.  |
-  | code style and conventions           | 30 min.  |
-  | version control and collaboration    | 40 min.  |
-  | testing                              | 60 min.  |
-  | documentation                        | 30 min.  |
-  | deployment and continuous integration| 40 min.  |
-  | reproducibility and wrap up          | 30 min.  |
+  | Subject                                        | Duration |
+  |------------------------------------------------|----------|
+  | introduction and motivation                      | 10 min.  |
+  | code style and conventions                       | 30 min.  |
+  | motivation for version control and collaboration | 20 min. |
+  | testing, including scientific correctness        | 70 min.  |
+  | documentation                                    | 30 min.  |
+  | deployment and continuous integration            | 40 min.  |
+  | reproducibility                                  | 30 min.  |
+  | wrap-up and discussion                           | 10 min.  |
 
 
 ## Training materials

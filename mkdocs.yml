@@ -1,6 +1,6 @@
 site_name: Best practices in scientific software development
-site_url: https://somewhere.com/
-repo_url: https://github.com/
+site_url: https://gjbex.github.io/Best-practices-for-scientific-computing/
+repo_url: https://github.com/gjbex/Best-practices-for-scientific-computing
 site_author: Geert Jan Bex
 
 nav:
@@ -9,11 +9,14 @@ nav:
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
     - Code style: 'code_style.md'
-    - Version control: 'version_control.md'
+    - Version control:
+      - Motivation: 'version_control.md'
+      - Demonstration: 'version_control_demo.md'
     - Documentation: 'documentation.md'
     - Testing:
       - Overview: 'testing/index.md'
       - Testing as experiments: 'testing/testing_as_experiments.md'
+      - Testing scientific software: 'testing/scientific_testing.md'
       - Unit testing: 'testing/unit_testing.md'
       - Functional testing: 'testing/functional_testing.md'
       - Code coverage: 'testing/code_coverage.md'
@@ -24,10 +27,13 @@ nav:
     - References: 'references.md'
   - Tools:
     - Overview: 'tools/index.md'
+    - Choosing tools: 'tools/choosing_tools.md'
     - General tools: 'tools/general.md'
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'
     - Fortran: 'tools/Fortran.md'
+    - Rust: 'tools/Rust.md'
+    - Julia: 'tools/Julia.md'
     - Python: 'tools/Python.md'
     - R: 'tools/R.md'
   - Training: 'training.md'
@@ -41,6 +47,8 @@ theme:
     - c
     - c++
     - fortran
+    - rust
+    - julia
     - python
     - r
     - bash
