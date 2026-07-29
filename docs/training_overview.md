@@ -19,7 +19,8 @@ When you complete this training you will be able to
 * recognize the role of code style, documentation, testing, and reproducibility
   in scientific software;
 * distinguish between unit tests, functional tests, and code coverage;
-* identify basic deployment and continuous-integration workflows;
+* recognize how deployment and continuous-integration practices support
+  reliable scientific software;
 * choose relevant tools for the programming language and project context you
   work in.
 

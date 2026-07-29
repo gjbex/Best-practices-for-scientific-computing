@@ -26,6 +26,7 @@ nav:
     - References: 'references.md'
   - Tools:
     - Overview: 'tools/index.md'
+    - Choosing tools: 'tools/choosing_tools.md'
     - General tools: 'tools/general.md'
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'
