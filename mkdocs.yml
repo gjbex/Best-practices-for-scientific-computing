@@ -9,7 +9,9 @@ nav:
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
     - Code style: 'code_style.md'
-    - Version control: 'version_control.md'
+    - Version control:
+      - Motivation: 'version_control.md'
+      - Demonstration: 'version_control_demo.md'
     - Documentation: 'documentation.md'
     - Testing:
       - Overview: 'testing/index.md'

@@ -14,7 +14,8 @@ a language-agnostic mix, and the depth can be adapted to the audience.
 When you complete this training you will be able to
 
 * explain why software engineering practices matter for scientific computing;
-* use version control and collaboration workflows more effectively;
+* explain how version control supports traceability, recovery, collaboration,
+  and scientific provenance;
 * recognize the role of code style, documentation, testing, and reproducibility
   in scientific software;
 * distinguish between unit tests, functional tests, and code coverage;
@@ -30,15 +31,15 @@ Total duration: 4 hours.
 Because the training is flexible, the exact schedule can be adapted to the
 programming language and level of detail requested.
 
-  | Subject                              | Duration |
-  |--------------------------------------|----------|
-  | introduction and motivation          | 10 min.  |
-  | code style and conventions           | 30 min.  |
-  | version control and collaboration    | 40 min.  |
-  | testing                              | 60 min.  |
-  | documentation                        | 30 min.  |
-  | deployment and continuous integration| 40 min.  |
-  | reproducibility and wrap up          | 30 min.  |
+  | Subject                                        | Duration |
+  |------------------------------------------------|----------|
+  | introduction and motivation                    | 10 min.  |
+  | code style and conventions                     | 30 min.  |
+  | motivation for version control and collaboration | 20 min. |
+  | testing                                        | 70 min.  |
+  | documentation                                  | 30 min.  |
+  | deployment and continuous integration          | 40 min.  |
+  | reproducibility and wrap up                    | 40 min.  |
 
 
 ## Training materials
