@@ -10,6 +10,12 @@ If you want to deliver high quality software, the documentation is a very
 important aspect of the development process.  You can distinguish between two
 types of documentation: tutorial style and reference documentation.
 
+> **Running example — documented interfaces.**  The [temperature
+> analysis](running_example.md) documents its required CSV columns and units,
+> configuration parameters, command line, structured output, error conditions,
+> assumptions, and limitations.  Together these describe the contract between
+> the measurement data, the program, and a future user.
+
 ## Types of documentation
 
 Broadly speaking, we distinguish two types of documentation, tutorials and

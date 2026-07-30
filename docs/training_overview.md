@@ -10,6 +10,37 @@ Python, R, or a language-agnostic mix, and the depth can be adapted to the
 audience.
 
 
+## Core question and narrative
+
+This training is organized around one central question:
+
+> How do we turn scientific code into a trustworthy, understandable, and
+> reproducible computational experiment?
+
+The core route follows a single narrative:
+
+**Readable code → traceable changes → meaningful tests → documented interfaces
+→ interpretable data → automated checks → reproducible results**
+
+Each topic contributes to this progression. Code style helps communicate
+scientific intent; version control records how the code evolves; testing
+provides evidence about software behavior and scientific correctness;
+documentation and data formats preserve meaning; automated checks apply agreed
+practices consistently; and reproducibility connects the code, data,
+environment, parameters, and workflow to the reported result.  Static analysis
+supports this route by detecting some implementation defects early; it
+complements rather than changes the progression.
+
+The [running temperature-analysis example](running_example.md) revisits this
+narrative through one small computational experiment.  It is distributed
+across the scheduled topics rather than taught as an additional block.
+
+An [optional hands-on exercise](running_example/exercise/README.md) is
+available to reinforce the narrative after the session.  It is self-paced and
+is **not included in the four-hour training time** because participants'
+programming and testing experience can vary considerably.
+
+
 ## Learning outcomes
 
 When you complete this training you will be able to
@@ -17,11 +48,17 @@ When you complete this training you will be able to
 * explain why software engineering practices matter for scientific computing;
 * explain how version control supports traceability, recovery, collaboration,
   and scientific provenance;
-* recognize the role of code style, documentation, testing, and reproducibility
-  in scientific software;
+* distinguish formatters, compiler diagnostics, linters, static type checkers,
+  broader static analysers, and tests, and explain how they provide
+  complementary evidence about software quality and correctness;
+* recognize the role of code style, documentation, testing, and
+  reproducibility in scientific software;
 * identify scientifically meaningful properties and numerical comparisons for
   testing scientific software;
-* distinguish between unit tests, functional tests, and code coverage;
+* distinguish between unit tests, functional tests, and code coverage, and
+  explain why coverage alone does not establish scientific correctness;
+* explain how format choice, metadata, validation, and access patterns affect
+  the reproducibility and usability of scientific data;
 * recognize how deployment and continuous-integration practices support
   reliable scientific software;
 * choose relevant tools for the programming language and project context you
@@ -38,13 +75,25 @@ programming language and level of detail requested.
   | Subject                                        | Duration |
   |------------------------------------------------|----------|
   | introduction and motivation                      | 10 min.  |
-  | code style and conventions                       | 30 min.  |
+  | code style and conventions                       | 20 min.  |
+  | static analysis                                  | 15 min.  |
   | motivation for version control and collaboration | 20 min. |
   | testing, including scientific correctness        | 70 min.  |
-  | documentation                                    | 30 min.  |
-  | deployment and continuous integration            | 40 min.  |
+  | documentation                                    | 25 min.  |
+  | scientific I/O and data formats                  | 20 min.  |
+  | deployment and continuous integration            | 20 min.  |
   | reproducibility                                  | 30 min.  |
   | wrap-up and discussion                           | 10 min.  |
+
+The optional running-example exercise is deliberately excluded from this
+schedule.  Participants can complete all or part of it in their own time after
+the session, using the supplied starter files, checks, hints, and reference
+implementation.
+
+The testing block may include a brief demonstration of the [runnable
+numerical-integration tests](testing/numerical_integration/README.md).
+Completing its test-writing exercise is also optional follow-up work; it does
+not add another block to the four-hour schedule.
 
 
 ## Training materials

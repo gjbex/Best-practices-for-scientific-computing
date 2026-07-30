@@ -1,0 +1,34 @@
+name: Check running example
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test temperature analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+
+      - name: Select Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Run software and scientific checks
+        run: >-
+          python3 -m unittest discover
+          -s docs/running_example/reference_implementation
+          -p 'test_*.py'
+
+      - name: Run the known-result check
+        run: >-
+          python3
+          docs/running_example/reference_implementation/check_result.py

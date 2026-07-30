@@ -28,6 +28,10 @@ No single test establishes all three.  Passing tests provide evidence for the
 specific claims they check; they do not prove that the implementation, model,
 or scientific interpretation is correct in every situation.
 
+A coverage report cannot make this distinction.  It can show that a numerical
+routine executed, but only the assertions reveal whether software behavior,
+numerical behavior, or scientific behavior was examined.
+
 
 ## Finding an expected result
 
@@ -46,6 +50,21 @@ The value or property against which a result is checked is sometimes called a
 Prefer small cases that are easy to understand.  A large output file from an
 old version of the same program is not automatically a reliable oracle: it may
 preserve an old defect.
+
+
+### Property-based testing
+
+When an invariant or relation can be stated precisely, a property-based testing
+tool can generate many inputs and check that property repeatedly.  Examples
+include preserving positivity, obtaining the same result after reordering
+independent observations, or predicting how an output changes when every input
+is rescaled.
+
+The property must be justified by the scientific problem, and the generated
+inputs must cover the relevant domain.  Passing many generated cases does not
+compensate for an invalid property or a generator that avoids difficult
+regions.  Important analytical cases, boundaries, and previously observed
+defects should still have explicit tests.
 
 
 ## Comparing floating-point results
@@ -101,6 +120,13 @@ might pass even if the grid spacing were handled incorrectly.  The convergence
 test is more likely to reveal that defect, while the sign-change test checks a
 property that does not depend on a stored reference number.
 
+The [runnable numerical-integration
+exercise](numerical_integration/README.md) implements the serial tests above.
+It focuses on analytical comparison, a tolerance derived from discretization
+error, and observed second-order convergence.  Input handling, output metadata,
+automation, and provenance remain in the [temperature-analysis running
+example](../running_example.md) rather than being duplicated here.
+
 
 ## Iterative and stochastic calculations
 
@@ -120,6 +146,9 @@ tested, also check properties across multiple samples, such as
 * whether an estimated mean or variance is consistent with a known result; or
 * whether uncertainty decreases as the sample size increases.
 
+Executing the stochastic code with one seed may give high line coverage, but it
+does not establish the distributional behavior of the method.
+
 Statistical acceptance criteria should state the sample size and expected
 failure probability.  A test that fails randomly too often will be ignored,
 while a very wide interval may fail to detect important regressions.
@@ -136,6 +165,10 @@ races, and reductions whose results depend on execution order.  When practical,
 * include a case that exercises boundaries between subdomains; and
 * allow justified rounding differences from non-associative floating-point
   reductions.
+
+Executing every parallel line once does not explore different schedules,
+decompositions, rank or thread counts, races, or accelerator execution paths.
+These require deliberately selected configurations and acceptance criteria.
 
 Bitwise-identical results are a separate requirement, not a sensible default
 for every parallel program.  If bitwise reproducibility is required, document

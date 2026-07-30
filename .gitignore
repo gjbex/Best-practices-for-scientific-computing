@@ -8,3 +8,7 @@ site/
 
 # direnv configuration file
 .envrc
+
+# Python artifacts
+__pycache__/
+*.py[cod]

@@ -20,7 +20,7 @@ Using frameworks such as `pFUnit` for Fortran, `CUnit` for C, `Catch2` for C++,
 ensure that running tests is effortless.
 
 
-# Best practices
+## Best practices
 
 Very often code defects are introduced while the code evolves to implement new
 features or even to fix emerging problems.  Without proper testing these new
@@ -91,6 +91,11 @@ or generates an error when it is supposed to, since this is the function's
 declared behavior.  For the factorial example, we should verify that an error
 occurs when you pass to it a strictly negative argument value.
 
+For parsers, decoders, and other functions that accept complex or untrusted
+input, fuzz testing can complement hand-picked edge cases by generating many
+unexpected values.  It is useful for finding crashes, hangs, and missing input
+validation.  It does not show that a valid result is scientifically correct.
+
 Apart from providing some confidence that changes don't break our software,
 writing tests alongside code will actually prevent bugs, since you should really
 think about the behavior of your code when writing tests. It is quite probable
@@ -122,11 +127,12 @@ To summarize the characteristics of a good unit test:
   * it is orthogonal to other unit tests: unit tests should be independent of
     one another.
 
-The collection of all tests for your software project should be complete.  There
-should be tests for all functions, but also for all code paths through your
-code.  An aspect that is often forgotten is that you should also test for
-expected failure.  Is an exception actually thrown, or does the exit status of a
-function reflect a problem?
+Aim for test depth proportional to risk rather than assuming that every
+function and code path needs identical treatment.  Public behavior, important
+branches, edge cases, and expected failures deserve deliberate tests.  Trivial,
+generated, or platform-specific code may require a different strategy.  A
+[coverage report](code_coverage.md) can reveal code that did not execute, but
+it cannot show whether the assertions were meaningful.
 
 When implementing a new feature or making a change, you should of course develop
 tests specific to that addition or modification.  However, it is not enough to
@@ -155,7 +161,7 @@ suites are executed.
 ![setup and teardown call sequence](setup_teardown.png)
 
 
-# Examples
+## Examples
 
 Examples of unit testing can be found in the following repositories.
 

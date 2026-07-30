@@ -6,9 +6,14 @@ site_author: Geert Jan Bex
 nav:
   - Home: 'index.md'
   - Training overview: 'training_overview.md'
+  - Running example:
+    - Overview: 'running_example.md'
+    - Optional self-study exercise: 'running_example/exercise/README.md'
+    - Reference implementation: 'running_example/reference_implementation/README.md'
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
     - Code style: 'code_style.md'
+    - Static analysis: 'static_analysis.md'
     - Version control:
       - Motivation: 'version_control.md'
       - Demonstration: 'version_control_demo.md'
@@ -17,12 +22,14 @@ nav:
       - Overview: 'testing/index.md'
       - Testing as experiments: 'testing/testing_as_experiments.md'
       - Testing scientific software: 'testing/scientific_testing.md'
+      - Numerical-integration exercise: 'testing/numerical_integration/README.md'
       - Unit testing: 'testing/unit_testing.md'
       - Functional testing: 'testing/functional_testing.md'
       - Code coverage: 'testing/code_coverage.md'
     - Optimization: 'optimization.md'
     - Deployment: 'deployment.md'
     - Continuous integration: 'continuous_integration.md'
+    - Scientific I/O and data formats: 'scientific_io.md'
     - Reproducibility: 'reproducibility.md'
     - References: 'references.md'
   - Tools:

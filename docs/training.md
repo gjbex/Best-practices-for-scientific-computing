@@ -100,6 +100,19 @@ the build, analysis, test, and documentation commands that a CI workflow would
 automate.
 
 
+## Scientific data and I/O
+
+The [scientific I/O and data-formats section](scientific_io.md) introduces
+format selection, metadata, validation, checkpointing, and the relationship
+between access patterns and performance.
+
+* [Best practices for data science on
+  HPC](https://gjbex.github.io/Best-practices-for-data-science-on-HPC/)
+  provides the detailed follow-up.  It includes experiments with tabular,
+  textual, and image data, structured formats, and the many-small-files problem
+  on HPC filesystems.
+
+
 ## Programming-language foundations
 
 This training assumes fluency in at least one programming language.  If a

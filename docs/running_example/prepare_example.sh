@@ -3,7 +3,7 @@
 set -euo pipefail
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-template_dir="${script_dir}/demo_repository"
+template_dir="${script_dir}/reference_implementation"
 
 if (( $# > 1 )); then
     echo "Usage: $0 [empty-target-directory]" >&2
@@ -26,16 +26,17 @@ if (( $# == 1 )); then
         exit 2
     fi
 else
-    target_dir="$(mktemp -d "${TMPDIR:-/tmp}/version-control-demo.XXXXXX")"
+    target_dir="$(mktemp -d "${TMPDIR:-/tmp}/running-example.XXXXXX")"
 fi
 
 cp -R -- "${template_dir}/." "$target_dir/"
 
 git -C "$target_dir" init --quiet
-git -C "$target_dir" config user.name "Version Control Demo"
-git -C "$target_dir" config user.email "version-control-demo@example.invalid"
-git -C "$target_dir" add README.md check_result.py measurements.csv \
-    temperature_analysis.py
+git -C "$target_dir" config user.name "Running Example"
+git -C "$target_dir" config user.email "running-example@example.invalid"
+git -C "$target_dir" add .gitignore README.md analysis_config.json \
+    check_result.py measurements.csv provenance.py temperature_analysis.py \
+    test_temperature_analysis.py
 git -C "$target_dir" \
     -c commit.gpgsign=false \
     -c core.hooksPath=/dev/null \

@@ -17,6 +17,7 @@ The material is available as a
 
 1. Syntax versus semantics
 1. Code style and conventions
+1. Static analysis
 1. Version control with git and collaboration
 1. Code documentation
 1. Testing
@@ -28,6 +29,7 @@ The material is available as a
 1. Optimization
 1. Deployment
 1. Continuous integration
+1. Scientific I/O and data formats
 1. Reproducibility
 1. Tools
 1. Further training

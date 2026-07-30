@@ -7,6 +7,13 @@ Material for a training on best practices for scientific computing.
 For participant-facing information about the training format, prerequisites,
 level, and schedule, see the [training overview](training_overview.md).
 
+The topics are connected by a [running temperature-analysis
+example](running_example.md) that develops readable code into a traceable,
+tested, documented, automated, and reproducible computational experiment.
+Participants can reinforce these ideas afterwards with the [optional
+self-study exercise](running_example/exercise/README.md), which is not part of
+the four-hour timetable.
+
 
 ## Programming languages
 
@@ -29,18 +36,22 @@ Programming languages covered:
 ## Table of contents
 
   1. [Syntax versus semantics](syntax_vs_semantics.md)
+  1. [Running example](running_example.md)
   1. [Code style and conventions](code_style.md)
+  1. [Static analysis](static_analysis.md)
   1. [Version control & collaboration](version_control.md)
   1. [Code documentation](documentation.md)
   1. [Testing](testing/index.md)
      * [Testing as experiments](testing/testing_as_experiments.md)
      * [Testing scientific software](testing/scientific_testing.md)
+     * [Numerical-integration exercise](testing/numerical_integration/README.md)
      * [Unit testing](testing/unit_testing.md)
      * [Functional testing](testing/functional_testing.md)
      * [Code coverage](testing/code_coverage.md)
   1. [Optimization](optimization.md)
   1. [Deployment](deployment.md)
   1. [Continuous integration](continuous_integration.md)
+  1. [Scientific I/O and data formats](scientific_io.md)
   1. [Reproducibility](reproducibility.md)
   1. [References](references.md)
   1. [Tools](tools/index.md)

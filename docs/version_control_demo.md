@@ -1,8 +1,10 @@
 # Version-control demonstration
 
-This instructor-led demonstration shows why version control is useful without
-turning the session into a tutorial on Git commands.  It takes about 10 minutes
-and uses a disposable repository containing a small scientific analysis.
+This instructor-led demonstration is the **traceable changes** stage of the
+[running temperature-analysis example](running_example.md).  It shows why
+version control is useful without turning the session into a tutorial on Git
+commands.  It takes about 10 minutes and uses a disposable repository
+containing a small scientific analysis.
 
 
 ## Learning objective
@@ -34,7 +36,7 @@ It has no third-party Python dependencies and requires no network access.
 From the root of this training repository, create a new disposable repository:
 
 ```bash
-demo_dir=$(bash docs/version_control_demo/prepare_demo.sh)
+demo_dir=$(bash docs/running_example/prepare_example.sh)
 cd "$demo_dir"
 ```
 
@@ -73,9 +75,10 @@ python3 temperature_analysis.py measurements.csv
 python3 check_result.py
 ```
 
-Explain that the five measurements have a mean of 20 degrees Celsius, or
-293.15 kelvin.  The check gives the group a quick way to notice if that
-scientific result changes.
+Explain that the five accepted measurements have a mean of 20 degrees Celsius,
+or 293.15 kelvin.  One additional observation remains visible in the input but
+is excluded by its quality flag.  The check gives the group a quick way to
+notice if the accepted scientific result changes.
 
 
 ### 2. Introduce a plausible bug

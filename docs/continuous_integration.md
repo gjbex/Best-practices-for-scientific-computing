@@ -2,16 +2,25 @@
 
 Continuous Integration (CI) is provided by both GitHub and GitLab.  It can be
 used to make sure that code that is committed is automatically tested and that
-it can be build, potentially on a matrix of architectures and operating systems.
+it can be built, potentially on a matrix of architectures and operating systems.
+
+> **Running example — automated checks.**  The [temperature
+> analysis](running_example.md) uses the same command locally and in CI:
+> `python3 -m unittest discover -s
+> docs/running_example/reference_implementation -p 'test_*.py'`.  The workflow
+> demonstrates the benefit of applying the agreed software and scientific
+> checks after changes; participants are not expected to construct a CI
+> pipeline in this training.
 
 You can find an example of using CI for development in the repository
 [CI-example](https://github.com/gjbex/CI-example).  A workflow is defined that
 will run on a push or a pull request to both `main` and `development`. If that
 workflow fails, the pull request can not be merged.  The workflow will run
-`pytest` and `mypy` to perform unit tests and static type analysis respectively.
-This can be a safeguard against accidentally merging commits that break your
-code.  This also relies on the configuration of the `main` branch that requires
-the build to succeed in order to allow a merge.
+`pytest` and `mypy` to perform unit tests and [static type
+analysis](static_analysis.md) respectively.  This can be a safeguard against
+accidentally merging commits that break your code.  This also relies on the
+configuration of the `main` branch that requires the build to succeed in order
+to allow a merge.
 
 The same repository also illustrates how poetry can be used to manage Python
 development projects.

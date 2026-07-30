@@ -1,7 +1,7 @@
 # Functional testing
 
 
-# Introduction
+## Introduction
 
 Unit testing is a great help during the development process. It will help us
 spot problems introduced by code changes immediately after they have been
@@ -31,7 +31,7 @@ testing, so both testing strategies are complementing one another.
 
 
 
-# Best practices
+## Best practices
 
 Unit testing is an invaluable help for the developer since it catches bugs
 introduced when the code base changes. Tests can be executed easily and are run
@@ -86,10 +86,18 @@ testing frameworks for specific programming languages. However, from the point
 of view of the software project this is black box, rather than white box
 testing.
 
-The same concerns as for unit testing apply. For instance, it is important that
-the tests cover the use cases as well as possible. Here too, code coverage can
-be a great help to detect which application aspects are tested, and for which
-additional tests need to be implemented to improve the coverage.
+Select functional tests from important user workflows, supported platforms,
+external interfaces, and past failures.  Maintain an explicit mapping between
+those scenarios and the behavior they are intended to protect.
+
+A [coverage report](code_coverage.md) can reveal internal code that those
+scenarios did not execute.  It cannot determine whether all important use cases
+were represented or whether the end-to-end result was checked adequately.
+
+Fuzz testing can also be useful at file-format, protocol, command-line, or API
+boundaries.  It may expose crashes and malformed-input handling that scripted
+use cases miss, but it does not replace assertions about valid application
+results.
 
 
 ## Examples

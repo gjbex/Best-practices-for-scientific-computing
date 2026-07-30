@@ -25,10 +25,36 @@ you intend to run it on a large data set.  The memory usage and the
 runtime of the workflow will likely be very different, and hence the
 benchmark will not be representative.
 
+Use the same scientifically meaningful input, problem size, configuration,
+and stopping criteria when comparing two implementations.  If production
+workloads vary substantially, one benchmark may not be representative of all
+of them; choose a small set of cases that reflects the uses you care about.
+
+
+### Warm up, repeat, and report variation
+
+A single timing can be misleading.  The first run may include one-off work
+such as loading data, filling filesystem caches, compiling code at run time,
+allocating memory, or initializing libraries and accelerators.  Other activity
+on the computer can also affect a measurement.
+
+Run one or more warm-up executions when the program or language has relevant
+first-run effects.  Then measure the same case several times.  Report a summary
+such as the mean or median together with an indication of the variation, for
+example the minimum and maximum or a standard deviation.  Do not select only
+the fastest result without saying so.
+
+Keep the timed work clear.  Decide whether setup, data input, and result output
+are part of the question you want the benchmark to answer, and apply that
+decision consistently to every comparison.
+
 You should also make sure that you can run the benchmark easily and
-consistently.  This means that you should automate the benchmarking
-process as much as possible.  This will allow you to run the benchmark
-often and to compare the results.
+consistently.  Automating the commands, warm-ups, and repeated measurements
+reduces accidental differences and makes it easier to rerun the benchmark
+after a change.
+
+
+### Record the benchmark context
 
 You should also make sure that you can reproduce the benchmark.  This
 means that you should document the benchmark and the environment in
@@ -37,13 +63,37 @@ benchmark over time and to compare the results of the benchmark on
 different systems.  You will find more information on this topic in
 the section on [reproducibility](reproducibility.md).
 
+Record the information that could materially change or explain the result:
+
+* the code version, exact command, input data, problem size, and configuration;
+* the machine or compute node and relevant CPU or accelerator information;
+* the compiler or interpreter, optimization settings, and important library
+  versions;
+* thread and process counts and, when relevant, their placement or affinity;
+* scheduler allocation or other resource limits on a shared or HPC system; and
+* the warm-up procedure, number of measured runs, timing method, and reported
+  summary.
+
+Not every benchmark needs every item.  The aim is to record enough context for
+a future reader to understand what was measured and whether two results are
+meaningfully comparable.
+
 
 ## Testing
 
 Having tests in place is vital before starting to optimize your workflow or
 application.  You will want to make sure that everything still works after you
-make changes. You will find more information on this topic in the section
-on [testing](testing/index.md).
+make changes.  Run relevant software and scientific tests before and after a
+performance change.  For a long benchmark, also use a lightweight check such
+as a residual, checksum, conserved quantity, or output comparison to confirm
+that the timed runs performed equivalent work.
+
+If checking the result is expensive, it can happen immediately before or after
+the timed repetitions rather than inside them.  Do not accept a faster result
+if the change altered the scientific problem, weakened a convergence
+criterion, silently reduced precision, or produced an invalid answer.  You
+will find more information on this topic in the section on
+[testing](testing/index.md).
 
 
 ## Software stack

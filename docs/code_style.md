@@ -27,6 +27,12 @@ objects and classes, whenever that doesn't lead to confusion.
 Of course, each programming language has its own style guides, often even
 several, you can find links to those in the [reference section](references.md).
 
+> **Running example — readable code.**  The [temperature
+> analysis](running_example.md) uses descriptive function and variable names,
+> keeps units visible, and separates reading, validation, calculation, output,
+> and provenance.  The point is not its Python syntax, but how its structure
+> communicates the scientific procedure.
+
 
 ## Format your code nicely
 
@@ -50,6 +56,11 @@ your code so that it adheres to a convention.  It is considered good practice
 to use such tools if they are available, and even to make them part of your
 development pipeline, either as git pre-commit hooks, or as part of a more
 substantial CI/CD setup on GitHub or GitLab.
+
+A formatter makes code consistent; it does not normally look for correctness
+defects.  Linters, type checkers, compiler diagnostics, and related
+[static-analysis tools](static_analysis.md) provide different checks and are
+covered separately.
 
 Another issue is code formatting is the maximum number of characters on a
 line.  Some guidelines for programmers have very strong opinions on that,
