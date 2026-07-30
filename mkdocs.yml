@@ -6,6 +6,9 @@ site_author: Geert Jan Bex
 nav:
   - Home: 'index.md'
   - Training overview: 'training_overview.md'
+  - Running example:
+    - Overview: 'running_example.md'
+    - Reference implementation: 'version_control_demo/demo_repository/README.md'
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
     - Code style: 'code_style.md'

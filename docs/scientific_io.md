@@ -11,6 +11,12 @@ data or shared HPC filesystems.  Performance is not the main concern here,
 however.  The first priority is data that remains interpretable, accessible,
 and reliable throughout its intended lifetime.
 
+> **Running example — interpretable data.**  The [temperature
+> analysis](running_example.md) keeps timestamps, sensor identifiers, units,
+> and quality flags with the raw observations.  Its result names the unit and
+> schema, and its manifest connects the result to input and configuration
+> checksums.
+
 
 ## Start with the purpose of the data
 

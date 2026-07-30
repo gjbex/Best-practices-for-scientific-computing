@@ -26,6 +26,11 @@ A short [version-control demonstration](version_control_demo.md) illustrates
 these benefits by introducing a bug into a small scientific program, inspecting
 the change, and recovering the known-working version.
 
+This is the **traceable changes** stage of the [running
+example](running_example.md).  The demonstration uses version control to answer
+a scientific question—why did the result change—without teaching Git mechanics
+in this course.
+
 It is good practice to host your repositories on a service such as
 [GitHub](https://github.com/), [GitLab](https://gitlab.com) or a hosting service
 provided by your organization.  These environments all facilitate collaboration

@@ -7,6 +7,10 @@ Material for a training on best practices for scientific computing.
 For participant-facing information about the training format, prerequisites,
 level, and schedule, see the [training overview](training_overview.md).
 
+The topics are connected by a [running temperature-analysis
+example](running_example.md) that develops readable code into a traceable,
+tested, documented, automated, and reproducible computational experiment.
+
 
 ## Programming languages
 
@@ -29,6 +33,7 @@ Programming languages covered:
 ## Table of contents
 
   1. [Syntax versus semantics](syntax_vs_semantics.md)
+  1. [Running example](running_example.md)
   1. [Code style and conventions](code_style.md)
   1. [Version control & collaboration](version_control.md)
   1. [Code documentation](documentation.md)

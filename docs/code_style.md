@@ -27,6 +27,12 @@ objects and classes, whenever that doesn't lead to confusion.
 Of course, each programming language has its own style guides, often even
 several, you can find links to those in the [reference section](references.md).
 
+> **Running example — readable code.**  The [temperature
+> analysis](running_example.md) uses descriptive function and variable names,
+> keeps units visible, and separates reading, validation, calculation, output,
+> and provenance.  The point is not its Python syntax, but how its structure
+> communicates the scientific procedure.
+
 
 ## Format your code nicely
 

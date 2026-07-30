@@ -29,6 +29,10 @@ documentation and data formats preserve meaning; automated checks apply agreed
 practices consistently; and reproducibility connects the code, data,
 environment, parameters, and workflow to the reported result.
 
+The [running temperature-analysis example](running_example.md) revisits this
+narrative through one small computational experiment.  It is distributed
+across the scheduled topics rather than taught as an additional block.
+
 
 ## Learning outcomes
 

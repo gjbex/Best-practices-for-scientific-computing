@@ -5,7 +5,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 EXPECTED_MEAN_KELVIN = 293.15
 DATA_FILE = Path(__file__).with_name("measurements.csv")
 ANALYSIS_FILE = Path(__file__).with_name("temperature_analysis.py")

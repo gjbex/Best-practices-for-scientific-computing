@@ -19,6 +19,13 @@ This is also crucial to allow other researchers to build on your work.  If they
 cannot reproduce your results, it is hard to assess the potential improvements
 of their own work.
 
+> **Running example — reproducible results.**  The [temperature
+> analysis](running_example.md) can generate a manifest containing the command,
+> checksums for the input, configuration, code, and output, the effective
+> parameters, Git revision and modification state, and interpreter and platform
+> information.  This makes the small run auditable, but it does not establish
+> that the measurements or scientific interpretation are valid.
+
 
 ## Data
 
