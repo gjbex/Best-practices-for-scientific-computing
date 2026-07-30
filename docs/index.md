@@ -8,12 +8,11 @@ For participant-facing information about the training format, prerequisites,
 level, and schedule, see the [training overview](training_overview.md).
 
 The topics are connected by a [running temperature-analysis
-example](running_example.md) that develops readable code into a statically
-checked, traceable, tested, documented, automated, and reproducible
-computational experiment.  Participants can reinforce these ideas afterwards
-with the [optional self-study
-exercise](running_example/exercise/README.md), which is not part of the
-four-hour timetable.
+example](running_example.md) that develops readable code into a traceable,
+tested, documented, automated, and reproducible computational experiment.
+Participants can reinforce these ideas afterwards with the [optional
+self-study exercise](running_example/exercise/README.md), which is not part of
+the four-hour timetable.
 
 
 ## Programming languages

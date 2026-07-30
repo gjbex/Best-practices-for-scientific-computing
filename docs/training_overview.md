@@ -19,17 +19,17 @@ This training is organized around one central question:
 
 The core route follows a single narrative:
 
-**Readable code → early defect detection → traceable changes → meaningful tests
-→ documented interfaces → interpretable data → automated checks →
-reproducible results**
+**Readable code → traceable changes → meaningful tests → documented interfaces
+→ interpretable data → automated checks → reproducible results**
 
 Each topic contributes to this progression. Code style helps communicate
-scientific intent; static analysis detects some implementation defects without
-running the program; version control records how the code evolves; testing
+scientific intent; version control records how the code evolves; testing
 provides evidence about software behavior and scientific correctness;
-documentation and data formats preserve meaning; automated checks apply
-agreed practices consistently; and reproducibility connects the code, data,
-environment, parameters, and workflow to the reported result.
+documentation and data formats preserve meaning; automated checks apply agreed
+practices consistently; and reproducibility connects the code, data,
+environment, parameters, and workflow to the reported result.  Static analysis
+supports this route by detecting some implementation defects early; it
+complements rather than changes the progression.
 
 The [running temperature-analysis example](running_example.md) revisits this
 narrative through one small computational experiment.  It is distributed

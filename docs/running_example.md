@@ -18,7 +18,6 @@ but the design questions and practices apply to every language track.
 | Stage | Question illustrated by the example |
 |-------|-------------------------------------|
 | readable code | Can another researcher identify the units, constants, validation rules, and steps of the analysis? |
-| early defect detection | Can automated inspection find inconsistent types or suspicious constructs before the analysis runs? |
 | traceable changes | Can we find the change that altered the scientific result and recover the working version? |
 | meaningful tests | What known result, physical bound, or relation between runs would reveal an incorrect analysis? |
 | documented interfaces | Does the program state its required columns, units, parameters, failure conditions, and output meaning? |
