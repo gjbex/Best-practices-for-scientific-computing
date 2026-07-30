@@ -7,7 +7,7 @@ it can be built, potentially on a matrix of architectures and operating systems.
 > **Running example — automated checks.**  The [temperature
 > analysis](running_example.md) uses the same command locally and in CI:
 > `python3 -m unittest discover -s
-> docs/version_control_demo/demo_repository -p 'test_*.py'`.  The workflow
+> docs/running_example/reference_implementation -p 'test_*.py'`.  The workflow
 > demonstrates the benefit of applying the agreed software and scientific
 > checks after changes; participants are not expected to construct a CI
 > pipeline in this training.

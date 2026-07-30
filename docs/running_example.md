@@ -6,7 +6,7 @@ analysis asks:
 > Given a set of sensor measurements, what was the mean experimental
 > temperature, and can we trust and reproduce that result?
 
-The [reference implementation](version_control_demo/demo_repository/README.md)
+The [reference implementation](running_example/reference_implementation/README.md)
 reads timestamped temperature observations, applies an explicit quality and
 calibration configuration, calculates a summary in kelvin, and can write a run
 manifest.  It uses Python's standard library so that it remains easy to run,
@@ -75,7 +75,7 @@ correct implementation and a defensible scientific method.
 Create a disposable copy with its own known-working Git revision:
 
 ```bash
-example_directory=$(bash docs/version_control_demo/prepare_demo.sh)
+example_directory=$(bash docs/running_example/prepare_example.sh)
 cd "$example_directory"
 ```
 
@@ -87,7 +87,7 @@ python3 -m unittest discover -s . -p 'test_*.py'
 ```
 
 The [reference implementation
-README](version_control_demo/demo_repository/README.md) shows how to write the
+README](running_example/reference_implementation/README.md) shows how to write the
 structured summary and provenance manifest.  Detailed Git practice remains in
 the separate [Version control with
 Git](https://gjbex.github.io/Version-control-with-git/) training.

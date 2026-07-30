@@ -25,8 +25,10 @@ jobs:
       - name: Run software and scientific checks
         run: >-
           python3 -m unittest discover
-          -s docs/version_control_demo/demo_repository
+          -s docs/running_example/reference_implementation
           -p 'test_*.py'
 
       - name: Run the known-result check
-        run: python3 docs/version_control_demo/demo_repository/check_result.py
+        run: >-
+          python3
+          docs/running_example/reference_implementation/check_result.py

@@ -36,7 +36,7 @@ It has no third-party Python dependencies and requires no network access.
 From the root of this training repository, create a new disposable repository:
 
 ```bash
-demo_dir=$(bash docs/version_control_demo/prepare_demo.sh)
+demo_dir=$(bash docs/running_example/prepare_example.sh)
 cd "$demo_dir"
 ```
 
