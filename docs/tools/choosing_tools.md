@@ -84,6 +84,8 @@ help narrow the choice and to the pages containing candidate tools.
 | consistent source formatting | Is there a standard formatter for the language? Is its output deterministic? Can editors and CI run it? | language-specific pages |
 | early defect detection | Does the tool check likely correctness problems, style, types, or all three? Does it complement rather than duplicate the formatter? | [static analysis](../static_analysis.md) and language-specific pages |
 | automated behavior checks | Does the framework support the required scientific assertions, fixtures, parameterized cases, and test granularity? | [testing](../testing/index.md) and language-specific pages |
+| agent-assisted repository work | Which files, commands, data, networks, and services may the tool access? Where is project context processed? How are changes reviewed and reversed? | [agentic AI concepts](../agentic_ai.md) and [current tools](agentic_ai.md) |
+| automated pull-request feedback | Does the service review every relevant change? Can findings be explained, dismissed, and rechecked after updates? Which checks remain the responsibility of CI and human reviewers? | [agentic AI concepts](../agentic_ai.md), [current tools](agentic_ai.md), and [continuous integration](../continuous_integration.md) |
 | repeatable builds | Which languages must be compiled? Are multiple compilers, platforms, build types, or optional dependencies required? | [general tools](general.md) and compiled-language pages |
 | dependency and environment management | Are dependencies language-specific or system-level? Are compiled scientific libraries involved? Is a lockfile or HPC integration required? | [general tools](general.md) and language-specific pages |
 | useful documentation | Is the need a tutorial, API reference, project website, or all three? Can examples and links be checked automatically? | [documentation](../documentation.md) and [general tools](general.md) |
@@ -148,6 +150,7 @@ listing popular tools.
 Candidate tools are organized into
 
 * [programming language-agnostic tools](general.md);
+* [agentic software-development tools](agentic_ai.md);
 * tools for [C](C.md);
 * tools for [C++](C-plus-plus.md);
 * tools for [Fortran](Fortran.md);

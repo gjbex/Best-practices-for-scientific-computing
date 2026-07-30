@@ -15,7 +15,9 @@ The material is available as a
 
 ## Table of contents
 
+1. Introduction and motivation
 1. Syntax versus semantics
+1. Agentic AI and scientific software
 1. Code style and conventions
 1. Static analysis
 1. Version control with git and collaboration
@@ -31,7 +33,9 @@ The material is available as a
 1. Continuous integration
 1. Scientific I/O and data formats
 1. Reproducibility
+1. Conclusions
 1. Tools
+   * Agentic software-development tools
 1. Further training
 
 

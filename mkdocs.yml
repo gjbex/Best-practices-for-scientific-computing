@@ -6,12 +6,14 @@ site_author: Geert Jan Bex
 nav:
   - Home: 'index.md'
   - Training overview: 'training_overview.md'
+  - Introduction and motivation: 'introduction_and_motivation.md'
   - Running example:
     - Overview: 'running_example.md'
     - Optional self-study exercise: 'running_example/exercise/README.md'
     - Reference implementation: 'running_example/reference_implementation/README.md'
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
+    - Agentic AI and scientific software: 'agentic_ai.md'
     - Code style: 'code_style.md'
     - Static analysis: 'static_analysis.md'
     - Version control:
@@ -32,9 +34,11 @@ nav:
     - Scientific I/O and data formats: 'scientific_io.md'
     - Reproducibility: 'reproducibility.md'
     - References: 'references.md'
+  - Conclusions: 'conclusions.md'
   - Tools:
     - Overview: 'tools/index.md'
     - Choosing tools: 'tools/choosing_tools.md'
+    - Agentic software-development tools: 'tools/agentic_ai.md'
     - General tools: 'tools/general.md'
     - C: 'tools/C.md'
     - C++: 'tools/C-plus-plus.md'

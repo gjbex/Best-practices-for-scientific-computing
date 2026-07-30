@@ -10,6 +10,7 @@ tools](choosing_tools.md) for selection criteria, a decision table, and a short
 project activity.
 
   * [Choosing development tools](choosing_tools.md)
+  * [Agentic software-development tools](agentic_ai.md)
   * [General Tools](general.md)
   * [C](C.md)
   * [C++](C-plus-plus.md)
