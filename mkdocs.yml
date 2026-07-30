@@ -36,7 +36,7 @@ nav:
     - Julia: 'tools/Julia.md'
     - Python: 'tools/Python.md'
     - R: 'tools/R.md'
-  - Training: 'training.md'
+  - Further training: 'training.md'
   - About: 'about.md'
   - License: 'license.md'
 

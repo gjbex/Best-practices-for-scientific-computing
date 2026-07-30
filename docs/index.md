@@ -51,7 +51,7 @@ Programming languages covered:
      * [Julia](tools/Julia.md)
      * [Python](tools/Python.md)
      * [R](tools/R.md)
-  1. [Training](training.md)
+  1. [Further training](training.md)
 
 
 ## Acknowledgments

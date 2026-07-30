@@ -57,6 +57,9 @@ The source repository is available on GitHub:
 
 <https://github.com/gjbex/Best-practices-for-scientific-computing>
 
+See [further training](training.md) for topic-specific courses that develop
+these introductory themes in more depth.
+
 
 ## Target audience
 

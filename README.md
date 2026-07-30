@@ -30,7 +30,7 @@ The material is available as a
 1. Continuous integration
 1. Reproducibility
 1. Tools
-1. Training
+1. Further training
 
 
 ## Programming languages covered
