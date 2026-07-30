@@ -22,6 +22,8 @@ When you complete this training you will be able to
 * identify scientifically meaningful properties and numerical comparisons for
   testing scientific software;
 * distinguish between unit tests, functional tests, and code coverage;
+* explain how format choice, metadata, validation, and access patterns affect
+  the reproducibility and usability of scientific data;
 * recognize how deployment and continuous-integration practices support
   reliable scientific software;
 * choose relevant tools for the programming language and project context you
@@ -38,11 +40,12 @@ programming language and level of detail requested.
   | Subject                                        | Duration |
   |------------------------------------------------|----------|
   | introduction and motivation                      | 10 min.  |
-  | code style and conventions                       | 30 min.  |
+  | code style and conventions                       | 25 min.  |
   | motivation for version control and collaboration | 20 min. |
   | testing, including scientific correctness        | 70 min.  |
-  | documentation                                    | 30 min.  |
-  | deployment and continuous integration            | 40 min.  |
+  | documentation                                    | 25 min.  |
+  | scientific I/O and data formats                  | 20 min.  |
+  | deployment and continuous integration            | 30 min.  |
   | reproducibility                                  | 30 min.  |
   | wrap-up and discussion                           | 10 min.  |
 

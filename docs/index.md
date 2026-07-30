@@ -41,6 +41,7 @@ Programming languages covered:
   1. [Optimization](optimization.md)
   1. [Deployment](deployment.md)
   1. [Continuous integration](continuous_integration.md)
+  1. [Scientific I/O and data formats](scientific_io.md)
   1. [Reproducibility](reproducibility.md)
   1. [References](references.md)
   1. [Tools](tools/index.md)

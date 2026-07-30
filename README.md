@@ -28,6 +28,7 @@ The material is available as a
 1. Optimization
 1. Deployment
 1. Continuous integration
+1. Scientific I/O and data formats
 1. Reproducibility
 1. Tools
 1. Further training

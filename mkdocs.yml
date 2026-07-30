@@ -23,6 +23,7 @@ nav:
     - Optimization: 'optimization.md'
     - Deployment: 'deployment.md'
     - Continuous integration: 'continuous_integration.md'
+    - Scientific I/O and data formats: 'scientific_io.md'
     - Reproducibility: 'reproducibility.md'
     - References: 'references.md'
   - Tools:
