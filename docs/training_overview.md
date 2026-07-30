@@ -33,6 +33,11 @@ The [running temperature-analysis example](running_example.md) revisits this
 narrative through one small computational experiment.  It is distributed
 across the scheduled topics rather than taught as an additional block.
 
+An [optional hands-on exercise](running_example/exercise/README.md) is
+available to reinforce the narrative after the session.  It is self-paced and
+is **not included in the four-hour training time** because participants'
+programming and testing experience can vary considerably.
+
 
 ## Learning outcomes
 
@@ -72,6 +77,11 @@ programming language and level of detail requested.
   | deployment and continuous integration            | 30 min.  |
   | reproducibility                                  | 30 min.  |
   | wrap-up and discussion                           | 10 min.  |
+
+The optional running-example exercise is deliberately excluded from this
+schedule.  Participants can complete all or part of it in their own time after
+the session, using the supplied starter files, checks, hints, and reference
+implementation.
 
 
 ## Training materials

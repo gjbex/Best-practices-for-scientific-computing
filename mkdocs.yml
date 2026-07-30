@@ -8,6 +8,7 @@ nav:
   - Training overview: 'training_overview.md'
   - Running example:
     - Overview: 'running_example.md'
+    - Optional self-study exercise: 'running_example/exercise/README.md'
     - Reference implementation: 'running_example/reference_implementation/README.md'
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'

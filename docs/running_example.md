@@ -59,6 +59,20 @@ These revisits should take only a few minutes within each scheduled topic.  No
 additional schedule block is needed.
 
 
+## Optional hands-on follow-up
+
+The [self-study exercise](running_example/exercise/README.md) lets participants
+apply the narrative to an incomplete version of the analysis.  It provides a
+starter state, progressive tasks, executable checks, differentiated routes,
+and the complete implementation as a reference.
+
+The exercise is **not part of the four-hour session**.  It is intended for
+participants to complete afterwards, at their own pace, to consolidate the
+ideas and practise the parts most relevant to their own work.  During the
+taught session, the example remains a short recurring illustration rather than
+a participant coding assignment.
+
+
 ## Scientific claims and limitations
 
 The implementation and tests provide evidence that accepted observations are
@@ -70,7 +84,7 @@ That distinction is deliberate: trustworthy scientific software requires both
 correct implementation and a defensible scientific method.
 
 
-## Try the complete example
+## Explore the complete example
 
 Create a disposable copy with its own known-working Git revision:
 
