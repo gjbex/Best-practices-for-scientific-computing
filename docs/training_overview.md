@@ -10,6 +10,26 @@ Python, R, or a language-agnostic mix, and the depth can be adapted to the
 audience.
 
 
+## Core question and narrative
+
+This training is organized around one central question:
+
+> How do we turn scientific code into a trustworthy, understandable, and
+> reproducible computational experiment?
+
+The core route follows a single narrative:
+
+**Readable code → traceable changes → meaningful tests → documented interfaces
+→ interpretable data → automated checks → reproducible results**
+
+Each topic contributes to this progression. Code style helps communicate
+scientific intent; version control records how the code evolves; testing
+provides evidence about software behavior and scientific correctness;
+documentation and data formats preserve meaning; automated checks apply agreed
+practices consistently; and reproducibility connects the code, data,
+environment, parameters, and workflow to the reported result.
+
+
 ## Learning outcomes
 
 When you complete this training you will be able to
