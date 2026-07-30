@@ -50,7 +50,8 @@ When you complete this training you will be able to
   in scientific software;
 * identify scientifically meaningful properties and numerical comparisons for
   testing scientific software;
-* distinguish between unit tests, functional tests, and code coverage;
+* distinguish between unit tests, functional tests, and code coverage, and
+  explain why coverage alone does not establish scientific correctness;
 * explain how format choice, metadata, validation, and access patterns affect
   the reproducibility and usability of scientific data;
 * recognize how deployment and continuous-integration practices support
