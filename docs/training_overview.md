@@ -83,6 +83,11 @@ schedule.  Participants can complete all or part of it in their own time after
 the session, using the supplied starter files, checks, hints, and reference
 implementation.
 
+The testing block may include a brief demonstration of the [runnable
+numerical-integration tests](testing/numerical_integration/README.md).
+Completing its test-writing exercise is also optional follow-up work; it does
+not add another block to the four-hour schedule.
+
 
 ## Training materials
 

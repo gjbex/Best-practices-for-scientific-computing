@@ -101,6 +101,13 @@ might pass even if the grid spacing were handled incorrectly.  The convergence
 test is more likely to reveal that defect, while the sign-change test checks a
 property that does not depend on a stored reference number.
 
+The [runnable numerical-integration
+exercise](numerical_integration/README.md) implements the serial tests above.
+It focuses on analytical comparison, a tolerance derived from discretization
+error, and observed second-order convergence.  Input handling, output metadata,
+automation, and provenance remain in the [temperature-analysis running
+example](../running_example.md) rather than being duplicated here.
+
 
 ## Iterative and stochastic calculations
 

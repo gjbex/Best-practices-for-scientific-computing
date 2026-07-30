@@ -7,6 +7,7 @@ tests:
 
 * [testing as experiments](testing_as_experiments.md);
 * [testing scientific software](scientific_testing.md);
+* [runnable numerical-integration example](numerical_integration/README.md);
 * [unit testing](unit_testing.md);
 * [functional testing](functional_testing.md);
 * [code coverage](code_coverage.md).
