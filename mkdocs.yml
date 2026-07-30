@@ -13,6 +13,7 @@ nav:
   - Topics:
     - Syntax vs. semantics: 'syntax_vs_semantics.md'
     - Code style: 'code_style.md'
+    - Static analysis: 'static_analysis.md'
     - Version control:
       - Motivation: 'version_control.md'
       - Demonstration: 'version_control_demo.md'

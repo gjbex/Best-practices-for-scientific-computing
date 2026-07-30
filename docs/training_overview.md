@@ -19,14 +19,16 @@ This training is organized around one central question:
 
 The core route follows a single narrative:
 
-**Readable code → traceable changes → meaningful tests → documented interfaces
-→ interpretable data → automated checks → reproducible results**
+**Readable code → early defect detection → traceable changes → meaningful tests
+→ documented interfaces → interpretable data → automated checks →
+reproducible results**
 
 Each topic contributes to this progression. Code style helps communicate
-scientific intent; version control records how the code evolves; testing
+scientific intent; static analysis detects some implementation defects without
+running the program; version control records how the code evolves; testing
 provides evidence about software behavior and scientific correctness;
-documentation and data formats preserve meaning; automated checks apply agreed
-practices consistently; and reproducibility connects the code, data,
+documentation and data formats preserve meaning; automated checks apply
+agreed practices consistently; and reproducibility connects the code, data,
 environment, parameters, and workflow to the reported result.
 
 The [running temperature-analysis example](running_example.md) revisits this
@@ -46,8 +48,11 @@ When you complete this training you will be able to
 * explain why software engineering practices matter for scientific computing;
 * explain how version control supports traceability, recovery, collaboration,
   and scientific provenance;
-* recognize the role of code style, documentation, testing, and reproducibility
-  in scientific software;
+* distinguish formatters, compiler diagnostics, linters, static type checkers,
+  broader static analysers, and tests, and explain how they provide
+  complementary evidence about software quality and correctness;
+* recognize the role of code style, documentation, testing, and
+  reproducibility in scientific software;
 * identify scientifically meaningful properties and numerical comparisons for
   testing scientific software;
 * distinguish between unit tests, functional tests, and code coverage, and
@@ -70,12 +75,13 @@ programming language and level of detail requested.
   | Subject                                        | Duration |
   |------------------------------------------------|----------|
   | introduction and motivation                      | 10 min.  |
-  | code style and conventions                       | 25 min.  |
+  | code style and conventions                       | 20 min.  |
+  | static analysis                                  | 15 min.  |
   | motivation for version control and collaboration | 20 min. |
   | testing, including scientific correctness        | 70 min.  |
   | documentation                                    | 25 min.  |
   | scientific I/O and data formats                  | 20 min.  |
-  | deployment and continuous integration            | 30 min.  |
+  | deployment and continuous integration            | 20 min.  |
   | reproducibility                                  | 30 min.  |
   | wrap-up and discussion                           | 10 min.  |
 

@@ -16,10 +16,11 @@ You can find an example of using CI for development in the repository
 [CI-example](https://github.com/gjbex/CI-example).  A workflow is defined that
 will run on a push or a pull request to both `main` and `development`. If that
 workflow fails, the pull request can not be merged.  The workflow will run
-`pytest` and `mypy` to perform unit tests and static type analysis respectively.
-This can be a safeguard against accidentally merging commits that break your
-code.  This also relies on the configuration of the `main` branch that requires
-the build to succeed in order to allow a merge.
+`pytest` and `mypy` to perform unit tests and [static type
+analysis](static_analysis.md) respectively.  This can be a safeguard against
+accidentally merging commits that break your code.  This also relies on the
+configuration of the `main` branch that requires the build to succeed in order
+to allow a merge.
 
 The same repository also illustrates how poetry can be used to manage Python
 development projects.

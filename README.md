@@ -17,6 +17,7 @@ The material is available as a
 
 1. Syntax versus semantics
 1. Code style and conventions
+1. Static analysis
 1. Version control with git and collaboration
 1. Code documentation
 1. Testing

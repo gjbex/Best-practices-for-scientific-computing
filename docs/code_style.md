@@ -57,6 +57,11 @@ to use such tools if they are available, and even to make them part of your
 development pipeline, either as git pre-commit hooks, or as part of a more
 substantial CI/CD setup on GitHub or GitLab.
 
+A formatter makes code consistent; it does not normally look for correctness
+defects.  Linters, type checkers, compiler diagnostics, and related
+[static-analysis tools](static_analysis.md) provide different checks and are
+covered separately.
+
 Another issue is code formatting is the maximum number of characters on a
 line.  Some guidelines for programmers have very strong opinions on that,
 while other are more tolerant.

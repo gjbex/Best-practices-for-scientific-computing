@@ -192,9 +192,13 @@ If you want a larger challenge, continue with one or more of these tasks:
    manifest.
 3. Record the effective parameters, command, interpreter version, and Git
    revision.
-4. Inspect the repository's running-example CI workflow and identify the local
+4. Run a [linter or static type
+   checker](../../static_analysis.md) that is appropriate for your language.
+   Classify its findings and explain which scientific mistakes it could not
+   detect.
+5. Inspect the repository's running-example CI workflow and identify the local
    command it automates.
-5. Port the calculation and its scientific checks to C, C++, Fortran, Rust,
+6. Port the calculation and its scientific checks to C, C++, Fortran, Rust,
    Julia, or R.
 
 The [reference implementation](../reference_implementation/README.md) includes

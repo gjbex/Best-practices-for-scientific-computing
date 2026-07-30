@@ -64,6 +64,7 @@ This illustrates an important point: syntax errors are always caught by the
 compiler. Although having to fix syntax errors is a nuisance, it is relatively
 easy.
 
-Most semantic errors are not caught by the compiler, so these are harder to spot
-and more difficult to fix. Compilers do offer some help detecting certain
-classes of semantic error, as you can see in the Tools section.
+Most semantic errors are not caught by the compiler, so these are harder to
+spot and more difficult to fix.  Compilers and [static-analysis
+tools](static_analysis.md) can nevertheless detect certain classes of likely
+error without running the program.

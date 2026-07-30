@@ -18,6 +18,7 @@ but the design questions and practices apply to every language track.
 | Stage | Question illustrated by the example |
 |-------|-------------------------------------|
 | readable code | Can another researcher identify the units, constants, validation rules, and steps of the analysis? |
+| early defect detection | Can automated inspection find inconsistent types or suspicious constructs before the analysis runs? |
 | traceable changes | Can we find the change that altered the scientific result and recover the working version? |
 | meaningful tests | What known result, physical bound, or relation between runs would reveal an incorrect analysis? |
 | documented interfaces | Does the program state its required columns, units, parameters, failure conditions, and output meaning? |
@@ -37,21 +38,24 @@ inside the training.
 
 1. In [code style](code_style.md), the implementation demonstrates descriptive
    names, small functions, explicit constants, and visible units.
-2. In the [version-control demonstration](version_control_demo.md), an
+2. In [static analysis](static_analysis.md), an inconsistent return type shows
+   what an analyser can detect, while an incorrect physical constant shows why
+   scientific tests are still needed.
+3. In the [version-control demonstration](version_control_demo.md), an
    instructor changes the Kelvin conversion, inspects the difference, and
    restores the working result.
-3. In [testing](testing/index.md), the checks combine a known answer, input
+4. In [testing](testing/index.md), the checks combine a known answer, input
    validation, a physical bound, and relations that should hold when
    observations are reordered or shifted.
-4. In [documentation](documentation.md), the CSV schema, configuration,
+5. In [documentation](documentation.md), the CSV schema, configuration,
    command-line interface, assumptions, and limitations form an explicit
    contract.
-5. In [scientific I/O](scientific_io.md), raw observations retain timestamps,
+6. In [scientific I/O](scientific_io.md), raw observations retain timestamps,
    sensor identifiers, units, and quality flags, while the result identifies
    its schema and unit.
-6. In [continuous integration](continuous_integration.md), one fast command
+7. In [continuous integration](continuous_integration.md), one fast command
    runs the same checks locally and in an automated workflow.
-7. In [reproducibility](reproducibility.md), a manifest records checksums,
+8. In [reproducibility](reproducibility.md), a manifest records checksums,
    effective parameters, code state, the interpreter, the command, and the
    output.
 

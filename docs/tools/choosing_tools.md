@@ -82,7 +82,7 @@ help narrow the choice and to the pages containing candidate tools.
 | Need | Questions to ask | Candidate lists |
 |------|------------------|-----------------|
 | consistent source formatting | Is there a standard formatter for the language? Is its output deterministic? Can editors and CI run it? | language-specific pages |
-| early defect detection | Does the tool check likely correctness problems, style, types, or all three? Does it complement rather than duplicate the formatter? | language-specific pages |
+| early defect detection | Does the tool check likely correctness problems, style, types, or all three? Does it complement rather than duplicate the formatter? | [static analysis](../static_analysis.md) and language-specific pages |
 | automated behavior checks | Does the framework support the required scientific assertions, fixtures, parameterized cases, and test granularity? | [testing](../testing/index.md) and language-specific pages |
 | repeatable builds | Which languages must be compiled? Are multiple compilers, platforms, build types, or optional dependencies required? | [general tools](general.md) and compiled-language pages |
 | dependency and environment management | Are dependencies language-specific or system-level? Are compiled scientific libraries involved? Is a lockfile or HPC integration required? | [general tools](general.md) and language-specific pages |
