@@ -31,9 +31,17 @@ environment, parameters, and workflow to the reported result.  Static analysis
 supports this route by detecting some implementation defects early; it
 complements rather than changes the progression.
 
+The [agentic AI chapter](agentic_ai.md) treats AI-assisted development as a
+cross-cutting concern rather than another stage in the narrative.  It is
+supporting material, not an additional scheduled block.
+
 The [running temperature-analysis example](running_example.md) revisits this
 narrative through one small computational experiment.  It is distributed
 across the scheduled topics rather than taught as an additional block.
+
+The [introduction and motivation](introduction_and_motivation.md) and
+[conclusions](conclusions.md) serve as bookends: the opening formulates the
+question and the closing returns to it through concrete next steps.
 
 An [optional hands-on exercise](running_example/exercise/README.md) is
 available to reinforce the narrative after the session.  It is self-paced and
@@ -74,7 +82,7 @@ programming language and level of detail requested.
 
   | Subject                                        | Duration |
   |------------------------------------------------|----------|
-  | introduction and motivation                      | 10 min.  |
+  | [introduction and motivation](introduction_and_motivation.md) | 10 min. |
   | code style and conventions                       | 20 min.  |
   | static analysis                                  | 15 min.  |
   | motivation for version control and collaboration | 20 min. |
@@ -83,7 +91,7 @@ programming language and level of detail requested.
   | scientific I/O and data formats                  | 20 min.  |
   | deployment and continuous integration            | 20 min.  |
   | reproducibility                                  | 30 min.  |
-  | wrap-up and discussion                           | 10 min.  |
+  | [conclusions and discussion](conclusions.md)      | 10 min.  |
 
 The optional running-example exercise is deliberately excluded from this
 schedule.  Participants can complete all or part of it in their own time after

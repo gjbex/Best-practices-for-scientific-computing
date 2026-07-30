@@ -25,6 +25,30 @@ to allow a merge.
 The same repository also illustrates how poetry can be used to manage Python
 development projects.
 
+
+## Automated review on pull requests
+
+A pull request provides a well-defined, version-controlled difference that can
+be reviewed by people and by automated services.  For example, an AI-assisted
+review can be requested automatically when a pull request is opened and can
+comment on possible defects or improvements.
+
+This is related to CI, but the roles differ:
+
+* **automated code review** interprets the change and suggests issues that merit
+  attention;
+* **continuous integration** executes the project's declared builds, tests,
+  static checks, and other repeatable checks; and
+* **human review** evaluates intent, design trade-offs, scientific assumptions,
+  and whether the available evidence is sufficient.
+
+Use automated review as another source of feedback, not as proof of correctness
+or a replacement for human approval and scientifically meaningful tests.  The
+dated [agentic software-development tools
+page](tools/agentic_ai.md#representative-current-tools) includes GitHub
+Copilot code review and the current configuration points to verify.
+
+
 You can also use CI to build your documentation using doxygen, mkdocs or other
 tools such as, e.g., Sphinx.  The documentation can be automatically deployed
 using GitHub Pages thanks to predefined actions.  In fact, these web pages are

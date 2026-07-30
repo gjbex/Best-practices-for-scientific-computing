@@ -7,6 +7,10 @@ Material for a training on best practices for scientific computing.
 For participant-facing information about the training format, prerequisites,
 level, and schedule, see the [training overview](training_overview.md).
 
+The taught route begins with [introduction and
+motivation](introduction_and_motivation.md) and ends with the
+[conclusions](conclusions.md), which return to the same central question.
+
 The topics are connected by a [running temperature-analysis
 example](running_example.md) that develops readable code into a traceable,
 tested, documented, automated, and reproducible computational experiment.
@@ -35,7 +39,9 @@ Programming languages covered:
 
 ## Table of contents
 
+  1. [Introduction and motivation](introduction_and_motivation.md)
   1. [Syntax versus semantics](syntax_vs_semantics.md)
+  1. [Agentic AI and scientific software](agentic_ai.md)
   1. [Running example](running_example.md)
   1. [Code style and conventions](code_style.md)
   1. [Static analysis](static_analysis.md)
@@ -53,8 +59,10 @@ Programming languages covered:
   1. [Continuous integration](continuous_integration.md)
   1. [Scientific I/O and data formats](scientific_io.md)
   1. [Reproducibility](reproducibility.md)
+  1. [Conclusions](conclusions.md)
   1. [References](references.md)
   1. [Tools](tools/index.md)
+     * [Agentic software-development tools](tools/agentic_ai.md)
      * [C](tools/C.md)
      * [C++](tools/C-plus-plus.md)
      * [Fortran](tools/Fortran.md)
