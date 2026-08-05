@@ -26,6 +26,14 @@ of their own work.
 > information.  This makes the small run auditable, but it does not establish
 > that the measurements or scientific interpretation are valid.
 
+Reproducing an execution is not the same as establishing that its numerical
+result is reliable.  Changes in precision, evaluation order, compiler,
+libraries, hardware, optimization, or parallel decomposition may alter a result
+without changing the documented workflow.  The [Trustworthy Numerical
+Computing training](https://gjbex.github.io/Trustworthy-numerical-computing/)
+examines how to characterize such variation, decide whether it matters to the
+scientific conclusion, and report the numerical evidence and limitations.
+
 
 ## Data
 
