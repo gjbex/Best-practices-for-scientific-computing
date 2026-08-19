@@ -127,6 +127,14 @@ error, and observed second-order convergence.  Input handling, output metadata,
 automation, and provenance remain in the [temperature-analysis running
 example](../running_example.md) rather than being duplicated here.
 
+This chapter provides an introduction suitable for the four-hour overview.  The
+[Trustworthy Numerical Computing
+training](https://gjbex.github.io/Trustworthy-numerical-computing/) develops a
+more systematic workflow for distinguishing implementation defects, numerical
+instability, and problem conditioning; choosing error measures and tolerances;
+studying convergence; assembling validation evidence; and communicating the
+limits of a numerical result.
+
 
 ## Iterative and stochastic calculations
 

@@ -51,6 +51,22 @@ adds numerical tolerances, invariants, convergence, stochastic behavior, and
 parallel consistency.
 
 
+## Numerical reliability and scientific validation
+
+The [scientific-testing section](testing/scientific_testing.md) introduces ways
+to obtain evidence about numerical and scientific behavior, while the
+[reproducibility section](reproducibility.md) explains how to connect a result
+to its code, data, parameters, environment, and workflow.
+
+* [Trustworthy Numerical
+  Computing](https://gjbex.github.io/Trustworthy-numerical-computing/) develops
+  these themes into a systematic investigation of numerical reliability.  It
+  covers floating-point arithmetic, error measures and tolerances, conditioning
+  and stability, uncertainty propagation, common failure modes, convergence
+  and stopping criteria, validation evidence, reproducibility across computing
+  environments, and communicating justified reliability claims.
+
+
 ## Performance optimization and scalability
 
 Optimization should start only after the behavior of the program is protected
