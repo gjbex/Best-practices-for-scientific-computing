@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+template_dir="${script_dir}/reference_implementation"
+
+if (( $# > 1 )); then
+    echo "Usage: $0 [empty-target-directory]" >&2
+    exit 2
+fi
+
+if (( $# == 1 )); then
+    target_dir="$1"
+    if [[ -e "$target_dir" && ! -d "$target_dir" ]]; then
+        echo "Error: target exists and is not a directory: $target_dir" >&2
+        exit 2
+    fi
+    mkdir -p -- "$target_dir"
+
+    shopt -s nullglob dotglob
+    target_contents=("$target_dir"/*)
+    shopt -u nullglob dotglob
+    if (( ${#target_contents[@]} > 0 )); then
+        echo "Error: target directory is not empty: $target_dir" >&2
+        exit 2
+    fi
+else
+    target_dir="$(mktemp -d "${TMPDIR:-/tmp}/running-example.XXXXXX")"
+fi
+
+cp -R -- "${template_dir}/." "$target_dir/"
+
+git -C "$target_dir" init --quiet
+git -C "$target_dir" config user.name "Running Example"
+git -C "$target_dir" config user.email "running-example@example.invalid"
+git -C "$target_dir" add .gitignore README.md analysis_config.json \
+    check_result.py measurements.csv provenance.py temperature_analysis.py \
+    test_temperature_analysis.py
+git -C "$target_dir" \
+    -c commit.gpgsign=false \
+    -c core.hooksPath=/dev/null \
+    commit --quiet -m "Add reproducible temperature analysis"
+
+printf '%s\n' "$target_dir"

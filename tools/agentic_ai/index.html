@@ -1,0 +1,1708 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Geert Jan Bex">
+      
+      
+        <link rel="canonical" href="https://gjbex.github.io/Best-practices-for-scientific-computing/tools/agentic_ai/">
+      
+      
+        <link rel="prev" href="../choosing_tools/">
+      
+      
+        <link rel="next" href="../general/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Agentic software-development tools - Best practices in scientific software development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agentic-software-development-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Best practices in scientific software development" class="md-header__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Best practices in scientific software development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Agentic software-development tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Best practices in scientific software development" class="md-nav__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Best practices in scientific software development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction_and_motivation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction and motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Running example
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Running example
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optional self-study exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/reference_implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax_vs_semantics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax vs. semantics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agentic_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agentic AI and scientific software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../static_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Version control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../version_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../version_control_demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demonstration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/testing_as_experiments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing as experiments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/scientific_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing scientific software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/numerical_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numerical-integration exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/unit_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/functional_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/code_coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../continuous_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scientific_io/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scientific I/O and data formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reproducibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reproducibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conclusions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../choosing_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choosing tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Agentic software-development tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Agentic software-development tools
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#representative-current-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representative current tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-operating-modes-not-feature-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare operating modes, not feature counts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-computing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific-computing considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scientific-computing considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scientific-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific correctness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-and-confidentiality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data and confidentiality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpc-suitability" class="md-nav__link">
+    <span class="md-ellipsis">
+      HPC suitability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-evaluation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      A small evaluation task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-checklist-for-this-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance checklist for this page
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C-plus-plus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fortran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fortran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Rust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Julia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Julia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Further training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#representative-current-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representative current tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-operating-modes-not-feature-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare operating modes, not feature counts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-computing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific-computing considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scientific-computing considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scientific-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific correctness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-and-confidentiality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data and confidentiality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpc-suitability" class="md-nav__link">
+    <span class="md-ellipsis">
+      HPC suitability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-evaluation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      A small evaluation task
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-checklist-for-this-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance checklist for this page
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="agentic-software-development-tools">Agentic software-development tools</h1>
+<blockquote>
+<p><strong>Volatile information — last reviewed 30 July 2026.</strong></p>
+<p>Product capabilities, interfaces, access conditions, pricing, policies, and
+maintenance status can change quickly.  Check the linked official
+documentation before using this page in a session or adopting a tool.</p>
+</blockquote>
+<p>This page lists representative tools that can inspect a project, propose or
+make changes, and use development tools on a user's behalf.  It deliberately
+avoids installation commands, model names, context limits, and detailed feature
+comparisons because those details have a particularly short useful life.</p>
+<p>For the durable concepts, scientific risks, and review workflow, see
+<a href="../../agentic_ai/">agentic AI and scientific software</a>.  Apply the general
+<a href="../choosing_tools/">tool-selection criteria</a> before choosing a product.</p>
+<h2 id="representative-current-tools">Representative current tools</h2>
+<p>This is a starting set, not an exhaustive ranking.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Current positioning</th>
+<th>Points to verify for a project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://learn.chatgpt.com/docs/developer-commands">Codex CLI</a></td>
+<td>OpenAI's terminal client for interactive and non-interactive agentic software-development work.  Current documentation describes workspace-oriented operation, <a href="https://learn.chatgpt.com/docs/customization/overview#agents-guidance">repository guidance</a>, and sandbox and approval controls.</td>
+<td>Check the current <a href="https://learn.chatgpt.com/docs/agent-approvals-security">security and approval model</a>, authentication, data policy, supported platform, and whether local or hosted operation fits the project.</td>
+</tr>
+<tr>
+<td><a href="https://code.claude.com/docs/en/overview">Claude Code</a></td>
+<td>Anthropic's coding agent for terminal, editor, desktop, and web workflows.  It can inspect code, edit files, run commands, and integrate with development tools.</td>
+<td>Check execution location, permission mode, account or provider requirements, organizational policy, and which project instructions and integrations will be enabled.</td>
+</tr>
+<tr>
+<td><a href="https://geminicli.com/docs/">Gemini CLI</a></td>
+<td>Google's terminal agent for understanding code, automating tasks, and building workflows with project context.  Its documentation includes scripting, project instructions, tools, policies, and sandboxing.</td>
+<td>Check authentication, network requirements, data terms, release channel, sandbox configuration, and compatibility with restricted or offline systems.</td>
+</tr>
+<tr>
+<td><a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli">GitHub Copilot CLI</a></td>
+<td>GitHub's terminal agent for interactive or programmatic work on code and GitHub-hosted workflows.</td>
+<td>Check the required Copilot plan and organization policy, repository and GitHub permissions, approval settings, sandbox availability, and whether the project is hosted on or integrated with GitHub.</td>
+</tr>
+<tr>
+<td><a href="https://docs.github.com/en/copilot/concepts/agents/code-review">GitHub Copilot code review</a></td>
+<td>AI-assisted review of pull-request changes.  A review can be requested manually or <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review">configured to run automatically</a> when pull requests are opened, and optionally for drafts or new pushes.</td>
+<td>Check plan and organization policy, usage costs, data handling, ruleset configuration, review instructions, and excluded files.  Its comments do not count as required approvals or block a merge, so retain human review and appropriate CI checks.</td>
+</tr>
+<tr>
+<td><a href="https://aider.chat/docs/">Aider</a></td>
+<td>A terminal-oriented, Git-integrated AI pair-programming tool that can use several model providers.  It sits toward the interactive-assistant end of the agentic spectrum but can edit files and run project checks.</td>
+<td>Check provider choice and data path, API-key handling, automatic commit behaviour, test and lint integration, model compatibility, and whether the desired workflow needs more or less autonomy.</td>
+</tr>
+</tbody>
+</table>
+<p>The products overlap, but their trust boundaries differ.  A terminal interface
+does not imply that model inference or data processing happens locally.
+Similarly, an open-source client does not by itself determine where prompts,
+source code, or tool output are sent.</p>
+<p>Pull-request code review is also a different operating mode from a coding
+agent that edits a working tree.  The version-controlled change provides a
+bounded difference to inspect, and the pull-request event can trigger both
+review and continuous integration.  The review interprets the change and
+suggests issues; continuous integration runs the project's declared checks.
+They provide complementary evidence.</p>
+<h2 id="compare-operating-modes-not-feature-counts">Compare operating modes, not feature counts</h2>
+<p>For a representative project task, determine</p>
+<ul>
+<li>which files the tool reads and which context it sends elsewhere;</li>
+<li>whether commands run on the workstation, in a container, or in a hosted
+  environment;</li>
+<li>which actions require confirmation and how permissions are scoped;</li>
+<li>whether network access and external integrations can be restricted;</li>
+<li>whether changes are easy to inspect, attribute, and reverse;</li>
+<li>whether repository instructions, tests, and static checks are used
+  consistently;</li>
+<li>whether interactive and unattended modes have different safeguards; and</li>
+<li>which logs, transcripts, or audit records are retained and by whom.</li>
+</ul>
+<p>Do not select a tool primarily because it advertises the largest number of
+features or the most capable model.  A more constrained tool may be preferable
+when the task is narrow, the data is sensitive, or the execution environment is
+shared.</p>
+<h2 id="scientific-computing-considerations">Scientific-computing considerations</h2>
+<p>Evaluate each candidate with a realistic scientific repository rather than a
+small generic coding exercise.</p>
+<h3 id="scientific-correctness">Scientific correctness</h3>
+<p>Check whether the workflow makes it easy to provide and run</p>
+<ul>
+<li>known-answer and regression tests;</li>
+<li>numerical tolerances and invariants;</li>
+<li>data-validation and schema checks;</li>
+<li>small reference cases;</li>
+<li>documentation builds; and</li>
+<li>compiler warnings, linters, and static analysis.</li>
+</ul>
+<p>These integrations make review more efficient, but no product-specific
+"verification" feature should be interpreted as proof of scientific
+correctness.</p>
+<h3 id="data-and-confidentiality">Data and confidentiality</h3>
+<p>Establish which source files, prompts, test data, command output, and repository
+metadata may be processed by the provider.  Check institutional policy,
+contracts, data classifications, intellectual-property constraints, and
+retention settings.</p>
+<p>Do not assume that excluding files from version control also excludes them from
+an agent's context.  Check the tool's own ignore, permission, and context rules.</p>
+<h3 id="hpc-suitability">HPC suitability</h3>
+<p>For work involving a cluster, determine whether the tool</p>
+<ul>
+<li>can operate without direct internet access on compute nodes;</li>
+<li>requires installation or authentication that the site does not permit;</li>
+<li>understands that expensive work must go through the scheduler;</li>
+<li>can be prevented from reading SSH keys, tokens, unrelated storage, and other
+  users' data;</li>
+<li>separates local edits from remote job submission and cancellation; and</li>
+<li>records enough compiler, library, module, accelerator, scheduler, and
+  placement context to interpret results.</li>
+</ul>
+<p>It may be preferable to use an agent on a workstation or controlled development
+node, then submit reviewed code through the site's normal workflow.  Convenience
+does not override site policy or allocation responsibility.</p>
+<h2 id="a-small-evaluation-task">A small evaluation task</h2>
+<p>This is an optional follow-up activity rather than part of the standard
+four-hour session.</p>
+<p>Evaluate candidates on a disposable branch or copy of a real project.  Give
+each tool the same bounded task, such as</p>
+<blockquote>
+<p>Explain one calculation, add a scientifically meaningful test for an
+existing invariant, run the documented checks, and summarize the changes and
+remaining limitations.</p>
+</blockquote>
+<p>Compare</p>
+<ul>
+<li>the correctness and relevance of the explanation;</li>
+<li>whether the test could actually expose a defect;</li>
+<li>the size and focus of the change;</li>
+<li>respect for repository instructions and scope;</li>
+<li>commands and permissions requested;</li>
+<li>quality of the reported limitations;</li>
+<li>ease of reviewing and reversing the result; and</li>
+<li>setup, policy, usage, and maintenance costs.</li>
+</ul>
+<p>Do not use confidential data or grant broad permissions merely for an
+evaluation.</p>
+<h2 id="maintenance-checklist-for-this-page">Maintenance checklist for this page</h2>
+<p>Before a training session or periodic tool review:</p>
+<ol>
+<li>open every official documentation link;</li>
+<li>confirm that the product and named surface are still maintained;</li>
+<li>check whether the description of local, hosted, interactive, and
+   non-interactive operation remains accurate;</li>
+<li>review current permission, sandbox, data, account, and platform
+   documentation;</li>
+<li>remove deprecated terminology, commands, model names, and access claims;</li>
+<li>add or remove candidates only when that improves the range of relevant
+   choices; and</li>
+<li>update the review date and summarize material changes in version control.</li>
+</ol>
+<p>Stable selection principles belong in <a href="../choosing_tools/">choosing development
+tools</a> or the conceptual <a href="../../agentic_ai/">agentic AI
+chapter</a>, not on this volatile page.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>

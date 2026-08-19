@@ -1,0 +1,1708 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Geert Jan Bex">
+      
+      
+        <link rel="canonical" href="https://gjbex.github.io/Best-practices-for-scientific-computing/training/">
+      
+      
+        <link rel="prev" href="../tools/R/">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Further training - Best practices in scientific software development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#further-training" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Best practices in scientific software development" class="md-header__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Best practices in scientific software development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Further training
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Best practices in scientific software development" class="md-nav__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Best practices in scientific software development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction_and_motivation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction and motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Running example
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Running example
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_example/exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optional self-study exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_example/reference_implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntax_vs_semantics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax vs. semantics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agentic_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agentic AI and scientific software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Version control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version_control_demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demonstration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/testing_as_experiments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing as experiments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/scientific_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing scientific software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/numerical_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numerical-integration exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/unit_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/functional_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/code_coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuous_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scientific_io/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scientific I/O and data formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reproducibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reproducibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/choosing_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choosing tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/agentic_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agentic software-development tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/C-plus-plus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Fortran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fortran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Rust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Julia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Julia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Further training
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Further training
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-control-and-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version control and collaboration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-quality-testing-documentation-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code quality, testing, documentation, and debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-reliability-and-scientific-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical reliability and scientific validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization-and-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance optimization and scalability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-environments-and-reproducible-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment, environments, and reproducible workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-data-and-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific data and I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-language-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming-language foundations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-and-hpc-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux and HPC foundations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-scheduled-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding scheduled sessions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-control-and-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version control and collaboration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-quality-testing-documentation-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code quality, testing, documentation, and debugging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-reliability-and-scientific-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical reliability and scientific validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization-and-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance optimization and scalability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-environments-and-reproducible-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment, environments, and reproducible workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scientific-data-and-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific data and I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programming-language-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programming-language foundations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-and-hpc-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux and HPC foundations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-scheduled-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding scheduled sessions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="further-training">Further training</h1>
+<p>This four-hour training provides an overview of good practices and explains why
+they matter for scientific work.  The courses below provide more extensive
+hands-on treatment of particular topics.  They are grouped by the need they
+address rather than by the organization that offers them.</p>
+<p>The <a href="https://gjbex.github.io/Training-sessions/">training sessions catalogue</a>
+contains the complete collection, including learning paths for HPC application
+development and data science.  A course website normally provides the training
+material even when no live session is currently scheduled.</p>
+<h2 id="version-control-and-collaboration">Version control and collaboration</h2>
+<p>The <a href="../version_control/">version-control section</a> in this training concentrates
+on motivation, traceability, recovery, collaboration, and scientific
+provenance.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Version-control-with-git/">Version control with
+  Git</a> provides the detailed
+  hands-on follow-up.  It covers individual and collaborative workflows,
+  repository hosting, history, branches, graphical clients, and command-line
+  use.</li>
+</ul>
+<h2 id="code-quality-testing-documentation-and-debugging">Code quality, testing, documentation, and debugging</h2>
+<p>These courses extend the <a href="../code_style/">code-style</a>,
+<a href="../documentation/">documentation</a>, and <a href="../testing/">testing</a> sections
+with language-specific tools and exercises.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Defensive_programming_and_debugging/">Defensive programming and
+  debugging</a>
+  covers coding practices, compiler and static checks, unit and functional
+  testing, documentation, and debugging tools.  It is the most
+  language-agnostic follow-up in this group, although many examples use
+  compiled languages.</li>
+<li><a href="https://gjbex.github.io/C-plus-plus-software-engineering/">C++ software
+  engineering</a>
+  applies the practices to C++ projects, including CMake, static analysis,
+  Catch2, CTest, package management, and design.</li>
+<li><a href="https://gjbex.github.io/Python-software-engineering/">Python software
+  engineering</a> applies
+  them to Python, including coding practices, type annotations, error handling,
+  documentation, unit testing, and software design.</li>
+</ul>
+<p>These courses concentrate mainly on software behavior.  The
+<a href="../testing/scientific_testing/">scientific-testing section</a> in this repository
+adds numerical tolerances, invariants, convergence, stochastic behavior, and
+parallel consistency.</p>
+<h2 id="numerical-reliability-and-scientific-validation">Numerical reliability and scientific validation</h2>
+<p>The <a href="../testing/scientific_testing/">scientific-testing section</a> introduces ways
+to obtain evidence about numerical and scientific behavior, while the
+<a href="../reproducibility/">reproducibility section</a> explains how to connect a result
+to its code, data, parameters, environment, and workflow.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Trustworthy-numerical-computing/">Trustworthy Numerical
+  Computing</a> develops
+  these themes into a systematic investigation of numerical reliability.  It
+  covers floating-point arithmetic, error measures and tolerances, conditioning
+  and stability, uncertainty propagation, common failure modes, convergence
+  and stopping criteria, validation evidence, reproducibility across computing
+  environments, and communicating justified reliability claims.</li>
+</ul>
+<h2 id="performance-optimization-and-scalability">Performance optimization and scalability</h2>
+<p>Optimization should start only after the behavior of the program is protected
+by suitable tests.  The <a href="../optimization/">optimization section</a> provides the
+motivation and basic workflow; the following courses go further.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Code-optimization/">Code optimization</a> covers
+  computer architecture, scaling, memory behavior, vectorization, profiling,
+  and performance pitfalls.</li>
+<li><a href="https://pop-coe.eu/further-information/online-training">POP online
+  training</a> introduces
+  a methodology and tools for analysing the performance of parallel
+  applications.</li>
+<li>The <a href="https://gjbex.github.io/Training-sessions/parallel_computing/">parallel-computing training
+  overview</a>
+  links to courses on MPI, OpenMP, parallel C++, and accelerator programming.</li>
+<li><a href="https://gjbex.github.io/Python-for-HPC/">Python for HPC</a> is useful when a
+  Python application needs profiling, compiled numerical libraries, or
+  language-specific approaches to improved performance.</li>
+</ul>
+<h2 id="deployment-environments-and-reproducible-workflows">Deployment, environments, and reproducible workflows</h2>
+<p>The <a href="../deployment/">deployment</a>, <a href="../continuous_integration/">continuous-integration</a>,
+and <a href="../reproducibility/">reproducibility</a> sections introduce the relevant
+principles.  The following courses cover particular execution and workflow
+environments.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Containers-for-HPC/">Containers for HPC</a> covers
+  building and running portable container images in an HPC environment.
+  Containers can capture much of a runtime environment, but they do not by
+  themselves guarantee reproducible scientific results.</li>
+<li><a href="https://gjbex.github.io/Workflows-for-HPC/">Workflows for HPC</a> covers tools
+  and practices for organizing and executing multi-step computational
+  workflows.</li>
+<li><a href="https://gjbex.github.io/MLOps-on-HPC/">MLOps on HPC</a> addresses reproducible
+  and maintainable computational experiments.  Despite its name, much of the
+  workflow guidance is also relevant outside machine learning.</li>
+<li><a href="https://gjbex.github.io/Jupyter-notebooks/">Jupyter notebooks</a> covers
+  effective notebook use for exploratory programming and data analysis.
+  Notebook files still need appropriate environment, data, testing, and
+  version-control practices.</li>
+</ul>
+<p>The catalogue currently has no dedicated general continuous-integration
+course.  The C++ and Python software-engineering courses above cover many of
+the build, analysis, test, and documentation commands that a CI workflow would
+automate.</p>
+<h2 id="scientific-data-and-io">Scientific data and I/O</h2>
+<p>The <a href="../scientific_io/">scientific I/O and data-formats section</a> introduces
+format selection, metadata, validation, checkpointing, and the relationship
+between access patterns and performance.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Best-practices-for-data-science-on-HPC/">Best practices for data science on
+  HPC</a>
+  provides the detailed follow-up.  It includes experiments with tabular,
+  textual, and image data, structured formats, and the many-small-files problem
+  on HPC filesystems.</li>
+</ul>
+<h2 id="programming-language-foundations">Programming-language foundations</h2>
+<p>This training assumes fluency in at least one programming language.  If a
+participant needs to learn or refresh a language first, the catalogue contains
+the following relevant courses.</p>
+<ul>
+<li><a href="https://gjbex.github.io/Scientific-C/">Scientific C</a></li>
+<li><a href="https://gjbex.github.io/Scientific-C-plus-plus/">Scientific C++</a></li>
+<li><a href="https://gjbex.github.io/Fortran-for-programmers/">Fortran for programmers</a></li>
+<li><a href="https://gjbex.github.io/Python-for-programmers/">Python for
+  programmers</a> and
+  <a href="https://gjbex.github.io/Scientific-Python/">Scientific Python</a></li>
+<li><a href="https://gjbex.github.io/Julia_good_bad_ugly/">Julia: the good, the bad and the
+  ugly</a></li>
+<li><a href="https://gjbex.github.io/Rust-good-bad-ugly/">Rust: the good, the bad and the
+  ugly</a></li>
+</ul>
+<p>The <a href="https://gjbex.github.io/Training-sessions/programming/">programming overview</a>
+shows how these language courses connect to software engineering, parallel
+computing, and GPU computing.  There is currently no R-specific course in this
+catalogue; the <a href="../tools/R/">R tools page</a> provides project-tool guidance for
+participants using R.</p>
+<h2 id="linux-and-hpc-foundations">Linux and HPC foundations</h2>
+<p>Command-line and HPC-system skills are prerequisites rather than topics of this
+training.  Participants who need that background can start with</p>
+<ul>
+<li><a href="https://gjbex.github.io/Training-sessions/linux_intro/">Linux
+  introduction</a>, for
+  shell, file, process, and remote-access basics; and</li>
+<li><a href="https://gjbex.github.io/Training-sessions/hpc_intro/">HPC
+  introduction</a>, for
+  cluster architecture, software environments, storage, schedulers, and
+  resource use.</li>
+</ul>
+<h2 id="finding-scheduled-sessions">Finding scheduled sessions</h2>
+<p>The course websites above provide material and course descriptions; they do not
+necessarily show the next scheduled delivery.  Current offerings and
+registration can be found through</p>
+<ul>
+<li>the <a href="https://www.vscentrum.be/vsctraining">Vlaams Supercomputer Centrum
+  training calendar</a>;</li>
+<li><a href="https://www.eurocc-access.eu/services/training/">EuroCC ACCESS training</a>;
+  and</li>
+<li>the <a href="https://www.ceci-hpc.be/training/">CÉCI HPC training programme</a>.</li>
+</ul>
+<p>Schedules, prerequisites, delivery formats, and access conditions change, so
+check the provider's current course page before registering.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
+</html>

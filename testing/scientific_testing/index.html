@@ -1,0 +1,1777 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Geert Jan Bex">
+      
+      
+        <link rel="canonical" href="https://gjbex.github.io/Best-practices-for-scientific-computing/testing/scientific_testing/">
+      
+      
+        <link rel="prev" href="../testing_as_experiments/">
+      
+      
+        <link rel="next" href="../numerical_integration/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Testing scientific software - Best practices in scientific software development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#testing-scientific-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Best practices in scientific software development" class="md-header__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Best practices in scientific software development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Testing scientific software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Best practices in scientific software development" class="md-nav__button md-logo" aria-label="Best practices in scientific software development" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Best practices in scientific software development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gjbex/Best-practices-for-scientific-computing" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction_and_motivation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction and motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Running example
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Running example
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optional self-study exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../running_example/reference_implementation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syntax_vs_semantics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syntax vs. semantics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agentic_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agentic AI and scientific software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code_style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../static_analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Version control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Version control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../version_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../version_control_demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Demonstration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing_as_experiments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing as experiments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Testing scientific software
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Testing scientific software
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-a-test-establish" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does a test establish?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-an-expected-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding an expected result
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding an expected result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-based-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property-based testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-floating-point-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing floating-point results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-testing-numerical-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: testing numerical integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-and-stochastic-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative and stochastic calculations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel calculations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-data-and-test-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference data and test cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#short-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short activity
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numerical_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Numerical-integration exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functional_testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Functional testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_coverage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code coverage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../continuous_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Continuous integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scientific_io/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scientific I/O and data formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reproducibility/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reproducibility
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conclusions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conclusions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/choosing_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choosing tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/agentic_ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agentic software-development tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/C-plus-plus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/Fortran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fortran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/Rust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/Julia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Julia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/R/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Further training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-a-test-establish" class="md-nav__link">
+    <span class="md-ellipsis">
+      What does a test establish?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-an-expected-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding an expected result
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Finding an expected result">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property-based-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property-based testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-floating-point-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing floating-point results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-testing-numerical-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: testing numerical integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-and-stochastic-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterative and stochastic calculations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel calculations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-data-and-test-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference data and test cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#short-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short activity
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="testing-scientific-software">Testing scientific software</h1>
+<p>Tests for scientific software use the same frameworks and automation as tests
+for other software, but choosing a meaningful expected result is often harder.
+Floating-point results may vary slightly, an iterative method may have no simple
+exact answer, and a stochastic simulation should not produce the same outcome
+on every run.</p>
+<p>A test that only checks whether the program completed, produced an array of the
+right size, or wrote an output file is useful, but it does not establish that
+the scientific result is credible.  Scientific tests should also ask whether
+the result has the expected numerical and domain-specific properties.</p>
+<h2 id="what-does-a-test-establish">What does a test establish?</h2>
+<p>It is useful to distinguish three kinds of evidence.</p>
+<ul>
+<li><strong>Software behavior:</strong> Does the program accept valid input, reject invalid
+  input, and produce output in the documented form?</li>
+<li><strong>Numerical behavior:</strong> Does the algorithm reproduce known solutions,
+  converge as expected, and satisfy its stopping criteria?</li>
+<li><strong>Scientific behavior:</strong> Does the result preserve relevant invariants, remain
+  within physically meaningful bounds, and agree with trusted observations or
+  reference calculations where appropriate?</li>
+</ul>
+<p>No single test establishes all three.  Passing tests provide evidence for the
+specific claims they check; they do not prove that the implementation, model,
+or scientific interpretation is correct in every situation.</p>
+<p>A coverage report cannot make this distinction.  It can show that a numerical
+routine executed, but only the assertions reveal whether software behavior,
+numerical behavior, or scientific behavior was examined.</p>
+<h2 id="finding-an-expected-result">Finding an expected result</h2>
+<p>The value or property against which a result is checked is sometimes called a
+<em>test oracle</em>.  Useful oracles for scientific software include the following.</p>
+<table>
+<thead>
+<tr>
+<th>Oracle</th>
+<th>Example</th>
+<th>Main limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>analytical solution</td>
+<td>compare a solver with a problem whose exact solution is known</td>
+<td>exact solutions may cover only simple cases</td>
+</tr>
+<tr>
+<td>invariant</td>
+<td>check conservation of mass, symmetry, positivity, or boundedness</td>
+<td>preserving one property does not guarantee the entire result is correct</td>
+</tr>
+<tr>
+<td>convergence behavior</td>
+<td>refine a time step or mesh and check that the error decreases at the expected rate</td>
+<td>requires more than one calculation and a sufficiently resolved regime</td>
+</tr>
+<tr>
+<td>independent implementation</td>
+<td>compare with a simpler algorithm or separately developed code</td>
+<td>the two implementations may share assumptions or defects</td>
+</tr>
+<tr>
+<td>trusted reference data</td>
+<td>compare selected quantities with a recorded result from a validated calculation</td>
+<td>the provenance and validity range of the reference must be known</td>
+</tr>
+<tr>
+<td>relation between runs</td>
+<td>translate, rescale, reorder, or otherwise transform an input and predict how the output should change</td>
+<td>only properties with a justified relation can be tested this way</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer small cases that are easy to understand.  A large output file from an
+old version of the same program is not automatically a reliable oracle: it may
+preserve an old defect.</p>
+<h3 id="property-based-testing">Property-based testing</h3>
+<p>When an invariant or relation can be stated precisely, a property-based testing
+tool can generate many inputs and check that property repeatedly.  Examples
+include preserving positivity, obtaining the same result after reordering
+independent observations, or predicting how an output changes when every input
+is rescaled.</p>
+<p>The property must be justified by the scientific problem, and the generated
+inputs must cover the relevant domain.  Passing many generated cases does not
+compensate for an invalid property or a generator that avoids difficult
+regions.  Important analytical cases, boundaries, and previously observed
+defects should still have explicit tests.</p>
+<h2 id="comparing-floating-point-results">Comparing floating-point results</h2>
+<p>Exact equality is appropriate for discrete results, such as an array size or
+iteration status, but it is usually inappropriate for a value produced by
+floating-point arithmetic.  A common comparison accepts a computed value
+<span class="arithmatex">\(a\)</span> and reference value <span class="arithmatex">\(b\)</span> when</p>
+<div class="arithmatex">\[
+  |a - b| \leq \mathrm{atol} + \mathrm{rtol}\,|b|.
+\]</div>
+<p>The absolute tolerance, <code>atol</code>, controls comparisons near zero.  The relative
+tolerance, <code>rtol</code>, scales with the magnitude of the reference value.  Testing
+frameworks generally provide an implementation of this comparison, so use
+their assertion rather than writing a new one.</p>
+<p>A tolerance should be justified by the calculation, not chosen merely to make
+a failing test pass.  Relevant considerations include</p>
+<ul>
+<li>floating-point precision and the accumulation order;</li>
+<li>conditioning of the problem;</li>
+<li>discretization and truncation error;</li>
+<li>the stopping criterion of an iterative solver;</li>
+<li>reduction order in a parallel calculation; and</li>
+<li>differences between compilers and numerical libraries.</li>
+</ul>
+<p>Different quantities may require different tolerances.  For arrays or fields,
+consider both a norm of the overall error and local checks such as the maximum
+absolute error.  Also test properties such as conservation or bounds when a
+small norm could conceal a scientifically important local error.</p>
+<h2 id="example-testing-numerical-integration">Example: testing numerical integration</h2>
+<p>Suppose a routine uses the composite trapezoidal rule to integrate <span class="arithmatex">\(x^2\)</span> from
+zero to one.  The analytical answer is <span class="arithmatex">\(1/3\)</span>, and the expected discretization
+error is proportional to the square of the grid spacing.</p>
+<p>A useful collection of tests could check that</p>
+<ol>
+<li>integrating a constant or linear function gives the known result;</li>
+<li>the result for <span class="arithmatex">\(x^2\)</span> agrees with <span class="arithmatex">\(1/3\)</span> within a tolerance appropriate
+   for the chosen grid;</li>
+<li>halving the grid spacing reduces the error by approximately a factor of
+   four once the calculation is in the expected convergence regime;</li>
+<li>reversing the integration limits changes the sign of the result; and</li>
+<li>serial and parallel implementations agree within a justified tolerance.</li>
+</ol>
+<p>These tests provide different evidence.  A single comparison with <span class="arithmatex">\(1/3\)</span>
+might pass even if the grid spacing were handled incorrectly.  The convergence
+test is more likely to reveal that defect, while the sign-change test checks a
+property that does not depend on a stored reference number.</p>
+<p>The <a href="../numerical_integration/">runnable numerical-integration
+exercise</a> implements the serial tests above.
+It focuses on analytical comparison, a tolerance derived from discretization
+error, and observed second-order convergence.  Input handling, output metadata,
+automation, and provenance remain in the <a href="../../running_example/">temperature-analysis running
+example</a> rather than being duplicated here.</p>
+<p>This chapter provides an introduction suitable for the four-hour overview.  The
+<a href="https://gjbex.github.io/Trustworthy-numerical-computing/">Trustworthy Numerical Computing
+training</a> develops a
+more systematic workflow for distinguishing implementation defects, numerical
+instability, and problem conditioning; choosing error measures and tolerances;
+studying convergence; assembling validation evidence; and communicating the
+limits of a numerical result.</p>
+<h2 id="iterative-and-stochastic-calculations">Iterative and stochastic calculations</h2>
+<p>For an iterative algorithm, test the quality of the final result rather than
+requiring exactly the same sequence of intermediate values.  Suitable checks
+include a residual below the documented threshold, reduction of an objective
+function, preservation of an invariant, and convergence toward an analytical
+or trusted solution.  An exact iteration count may vary with the platform or
+library and is rarely the main scientific requirement.</p>
+<p>A fixed random seed is useful for reproducing a defect and protecting against
+unintended changes to a deterministic code path.  It does not demonstrate that
+a stochastic method is statistically correct.  Depending on the claim being
+tested, also check properties across multiple samples, such as</p>
+<ul>
+<li>whether values remain in the allowed range;</li>
+<li>whether an estimated mean or variance is consistent with a known result; or</li>
+<li>whether uncertainty decreases as the sample size increases.</li>
+</ul>
+<p>Executing the stochastic code with one seed may give high line coverage, but it
+does not establish the distributional behavior of the method.</p>
+<p>Statistical acceptance criteria should state the sample size and expected
+failure probability.  A test that fails randomly too often will be ignored,
+while a very wide interval may fail to detect important regressions.</p>
+<h2 id="parallel-calculations">Parallel calculations</h2>
+<p>Parallel execution can expose partitioning errors, incorrect halo exchanges,
+races, and reductions whose results depend on execution order.  When practical,</p>
+<ul>
+<li>compare serial and parallel calculations on the same small input;</li>
+<li>test more than one thread or process count;</li>
+<li>check invariants that should be independent of the decomposition;</li>
+<li>include a case that exercises boundaries between subdomains; and</li>
+<li>allow justified rounding differences from non-associative floating-point
+  reductions.</li>
+</ul>
+<p>Executing every parallel line once does not explore different schedules,
+decompositions, rank or thread counts, races, or accelerator execution paths.
+These require deliberately selected configurations and acceptance criteria.</p>
+<p>Bitwise-identical results are a separate requirement, not a sensible default
+for every parallel program.  If bitwise reproducibility is required, document
+the compiler, libraries, runtime settings, hardware assumptions, and reduction
+strategy needed to provide it.</p>
+<h2 id="reference-data-and-test-cost">Reference data and test cost</h2>
+<p>Keep reference inputs and outputs small enough for routine testing.  Record how
+reference data was produced, including the source version, configuration,
+units, relevant dependencies, and the reason it is trusted.  When full output
+is too large, store scientifically meaningful summaries such as norms,
+residuals, conserved quantities, or selected observables.</p>
+<p>Most tests should run quickly on every change.  More expensive convergence,
+statistical, multi-platform, or large-scale parallel tests can run in a
+separate continuous-integration job or on a schedule.  A useful test strategy
+therefore combines</p>
+<ul>
+<li>fast tests of small analytical cases, edge cases, and invariants;</li>
+<li>a few end-to-end regression and convergence tests; and</li>
+<li>less frequent validation on representative scientific workloads and
+  supported computing environments.</li>
+</ul>
+<h2 id="short-activity">Short activity</h2>
+<p>Consider a simulation of diffusion in a periodic domain.  The program has a
+serial and a parallel implementation and writes a field at a requested final
+time.</p>
+<p>In small groups, identify</p>
+<ol>
+<li>one basic software-behavior test;</li>
+<li>one invariant or physically meaningful bound;</li>
+<li>one analytical or independently computable result;</li>
+<li>one convergence test;</li>
+<li>one parallel-consistency test; and</li>
+<li>the acceptance criterion and provenance information each comparison needs.</li>
+</ol>
+<p>For every proposed test, state what a passing result would demonstrate and one
+defect or scientific problem that the test would not detect.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
