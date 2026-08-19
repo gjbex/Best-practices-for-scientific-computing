@@ -1,0 +1,158 @@
+schema_version = 2
+id = "best-practices-for-scientific-computing"
+title = "Best practices for scientific computing"
+content_language = "en"
+summary = """
+As a scientist, your core business is science, not software engineering. Nevertheless, having a good understanding of how best practices in software engineering can help you work more efficiently, make your work easier to reuse, and give your work more exposure is useful. This training is flexible. It can be tailored to C, C++, Fortran, Rust, Julia, Python, R, or a language-agnostic mix, and the depth can be adapted to the audience.
+"""
+languages = ["C", "C++", "Fortran", "Julia", "Python", "R", "Rust"]
+
+[[learning_outcomes]]
+statement = "Explain why software engineering practices matter for scientific computing."
+competencies = ["scientific-software.explain-value-of-engineering-practices"]
+
+[[learning_outcomes]]
+statement = "Explain how version control supports traceability, recovery, collaboration, and scientific provenance."
+competencies = ["version-control.traceability-collaboration-and-provenance"]
+
+[[learning_outcomes]]
+statement = "Distinguish formatters, compiler diagnostics, linters, static type checkers, broader static analysers, and tests, and explain how they provide complementary evidence about software quality and correctness."
+competencies = ["scientific-software.distinguish-quality-evidence"]
+
+[[learning_outcomes]]
+statement = "Recognize the role of code style, documentation, testing, and reproducibility in scientific software."
+competencies = ["scientific-software.core-quality-practices"]
+
+[[learning_outcomes]]
+statement = "Identify scientifically meaningful properties and numerical comparisons for testing scientific software."
+competencies = ["testing.design-scientific-tests"]
+
+[[learning_outcomes]]
+statement = "Distinguish between unit tests, functional tests, and code coverage, and explain why coverage alone does not establish scientific correctness."
+competencies = ["testing.write-unit-tests", "testing.write-functional-tests", "testing.interpret-code-coverage"]
+
+[[learning_outcomes]]
+statement = "Explain how format choice, metadata, validation, and access patterns affect the reproducibility and usability of scientific data."
+competencies = ["scientific-software.design-reproducible-data"]
+
+[[learning_outcomes]]
+statement = "Recognize how deployment and continuous-integration practices support reliable scientific software."
+competencies = ["scientific-software.reliable-deployment-and-ci"]
+
+[[learning_outcomes]]
+statement = "Choose relevant tools for the programming language and project context you work in."
+competencies = ["software-engineering.choose-project-tools"]
+
+[source]
+metadata_document = "docs/training_overview.md"
+repository_url = "https://github.com/gjbex/Best-practices-for-scientific-computing/"
+website_url = "https://gjbex.github.io/Best-practices-for-scientific-computing/"
+license = "CC-BY-4.0"
+
+[delivery]
+duration_minutes = 240
+duration_kind = "fixed"
+session_count = 1
+target_session_duration_minutes = 240
+schedule_complete = true
+description = """
+Total duration: 4 hours. Because the training is flexible, the exact schedule can be adapted to the programming language and level of detail requested. The optional running-example exercise is deliberately excluded from this schedule. Participants can complete all or part of it in their own time after the session, using the supplied starter files, checks, hints, and reference implementation. The testing block may include a brief demonstration of the runnable numerical-integration tests. Completing its test-writing exercise is also optional follow-up work; it does not add another block to the four-hour schedule.
+"""
+
+[audience]
+description = """
+This training is for researchers, PhD students, research software engineers, and technical staff who write or maintain software in a scientific-computing context. It is especially useful if your scripts, notebooks, or applications are becoming important enough that they need to be shared, reviewed, tested, reproduced, or maintained over time.
+"""
+
+[prerequisites]
+summary = """
+You should be fluent in at least one programming language. The training is not an introduction to programming. If you plan to apply the material in a Linux or HPC environment, you should be familiar with those environments as well.
+"""
+competencies = []
+
+[self_assessment]
+introduction = """
+If you can do most of the tasks below in a programming language you use for scientific work, you are likely ready for this training.
+"""
+tasks = [
+  "Read and modify an existing script, notebook, or small program.",
+  "Split repeated code into a function or helper module.",
+  "Use the command line to run code or inspect files.",
+  "Explain what input data, output files, and parameters a small analysis uses.",
+  "Recognize when code would be difficult for a colleague to understand or reuse.",
+  "Make a small change and check whether the result still looks correct.",
+  "Use or be willing to learn version control for collaborative work."
+]
+
+[requirements]
+software = [
+  "A shell environment.",
+  "Git.",
+  "A text editor or IDE.",
+  "The compiler, interpreter, or notebook environment for the programming language used in the session."
+]
+
+[level]
+introductory_percent = 30
+intermediate_percent = 50
+advanced_percent = 20
+description = """
+For participants who already have programming experience, the material in this training is approximately These percentages describe the level of the software-engineering and scientific-computing topics covered in the training, not the participants' general programming background.
+"""
+
+[[materials]]
+kind = "environment"
+path = "environment.yml"
+
+[[trainers]]
+name = "Geert Jan Bex"
+email = "geertjan.bex@uhasselt.be"
+
+[[maintainers]]
+name = "Geert Jan Bex"
+email = "geertjan.bex@uhasselt.be"
+
+[[sessions]]
+id = "session-1"
+title = "Session one"
+duration_minutes = 240
+
+[[sessions.items]]
+subject = "introduction and motivation"
+duration_minutes = 10
+
+[[sessions.items]]
+subject = "code style and conventions"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "static analysis"
+duration_minutes = 15
+
+[[sessions.items]]
+subject = "motivation for version control and collaboration"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "testing, including scientific correctness"
+duration_minutes = 70
+
+[[sessions.items]]
+subject = "documentation"
+duration_minutes = 25
+
+[[sessions.items]]
+subject = "scientific I/O and data formats"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "deployment and continuous integration"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "reproducibility"
+duration_minutes = 30
+
+[[sessions.items]]
+subject = "conclusions and discussion"
+duration_minutes = 10
